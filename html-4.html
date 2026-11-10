@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Correia">
+<title>HTML-4 · BMIS 235 HTML Module</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="brand" href="index.html">BMIS 235 · HTML Module</a>
+  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html">HTML-3</a><a href="html-4.html" class="on">HTML-4</a><a href="html-5.html">HTML-5</a></nav>
+</div></div>
+<main class="wrap">
+<div class="hero">
+<p class="kicker">HTML-4</p>
+<h1>External CSS</h1>
+<p class="lede">Style a four-page site from one stylesheet, fix the menu bar, and add styles of your own.</p>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: assignment4</span></div>
+</div><section class="block"><h2>Your starter files</h2><p>They're already in your <code>bmis235</code> repo, in the <code>assignment4</code> folder. You copied them in <a href="index.html">Start here</a>, so there's nothing to download.</p>
+<p>Files: <code>journey.html</code>, <code>growth.html</code>, <code>curiosity.html</code>, <code>failure.html</code>, <code>externalstyles.css</code>, <code>journey.jpg</code>, <code>home.gif</code>, <code>growth.GIF</code>, <code>curiosity.GIF</code>, <code>failure.GIF</code></p>
+<div class="callout warn"><p><strong>Don't have a <code>bmis235</code> repo yet?</strong> Do <a href="index.html">Start here</a> first.</p></div></section><section class="block"><h2>Three ways to add CSS</h2><ul>
+<li><strong>External:</strong> one <code>.css</code> file that every page links to. Change it once, every page changes.</li>
+<li><strong>Internal:</strong> a <code>&lt;style&gt;</code> block at the top of one page. Overrides the external file for that page.</li>
+<li><strong>Inline:</strong> a <code>style="..."</code> on one tag. Overrides both.</li>
+</ul>
+</section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span>Rename <code>journey.html</code> to <code>index.html</code>.</span><span class="pts">1 pt</span></li><li><span>Update the Home link in the menu on <em>every</em> page to go to <code>index.html</code>.</span><span class="pts">2 pts</span></li><li><span>Fix all the images so the menu bar shows Home, Growth, Curiosity and Failure on every page.</span><span class="pts">2 pts</span></li><li><span>Fix the Failure page so it links to <code>externalstyles.css</code> like the other pages.</span><span class="pts">1 pt</span></li><li><span>Research and add 5 new styles to <code>externalstyles.css</code>. Commit each one separately with a message saying what it does.</span><span class="pts">3 pts</span></li><li><span>Add two new videos or articles to the tables on the Curiosity and Failure pages.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>Hints</h2><ul>
+<li><strong>Your link shows a 404?</strong> A folder's link only loads if it has a file called <code>index.html</code>. That's what task 1 fixes.</li>
+<li><strong>Renaming a file:</strong> open it, click the pencil, and change the name in the box at the top. Then commit.</li>
+<li><strong>Images:</strong> the Home image works but the other three don't. Compare the file names in the folder to the names in the code, letter by letter. GitHub can't rename images in the browser, so fix it in the code.</li>
+<li><strong>The Failure page:</strong> look at the <code>&lt;head&gt;</code> of another page. One line is missing.</li>
+<li><strong>New styles:</strong> ideas include fonts, link hover colors, page background, heading colors and table padding. W3Schools CSS is a good place to look.</li>
+<li><strong>New rows:</strong> copy an existing <code>&lt;tr&gt;...&lt;/tr&gt;</code>, paste it, and change it.</li>
+</ul></section><section class="block"><h2>Make it yours</h2><ul>
+<li>Fill in the <strong>author comment</strong> at the top of every file with your name and GU username.</li>
+<li>Fill in <code>&lt;meta name="author"&gt;</code> with your name.</li>
+<li>Fill in the <strong>footer</strong>: <em>Built by YOUR NAME · BMIS 235</em>.</li>
+<li>Make <strong>at least 3 commits</strong> with clear messages (not "Update index.html").</li>
+</ul><ul><li>Your 5 styles and your new videos. Your commit messages are how we see what you added.</li></ul></section><section class="block"><h2>Finished example</h2><figure><img src="img/html-4-curiosity.png" alt="Example of a finished HTML-4 Curiosity page"><figcaption>One possible Curiosity page with the menu fixed and new styles added.</figcaption></figure></section><section class="block"><h2>When you're stuck</h2><ol>
+<li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
+<li><strong>Pick one problem.</strong> Ignore the rest for now.</li>
+<li><strong>Find the line.</strong> Which tag or file is it in?</li>
+<li><strong>Search your one sentence</strong> (W3Schools, Google, YouTube).</li>
+<li><strong>Change one thing,</strong> commit, check. Didn't work? Undo it and try the next idea.</li>
+</ol>
+<p>"Nothing works" can't be searched. "My image shows a broken icon" can.</p></section><section class="block"><h2>Submit</h2><ol>
+<li>Wait 1–2 minutes after your last commit.</li>
+<li>Open your live link and check that everything works: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235/assignment4/</code></li>
+<li>Paste that link into Canvas. In the Canvas text box, list the 5 styles you added.</li>
+</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>journey.html renamed to index.html</td><td class='n'>1</td></tr><tr><td>All menu links go to index.html</td><td class='n'>2</td></tr><tr><td>All images fixed, including the menu bar</td><td class='n'>2</td></tr><tr><td>Failure page links to the external CSS</td><td class='n'>1</td></tr><tr><td>5 new external CSS styles (listed in Canvas)</td><td class='n'>3</td></tr><tr><td>Two new items in the Curiosity and Failure tables</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
+<div class="next"><a class="btn ghost" href="html-3.html">&larr; HTML-3</a><a class="btn" href="html-5.html">HTML-5 &rarr;</a></div>
+</main>
+<div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
+</body>
+</html>
