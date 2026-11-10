@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Correia">
+<title>Deck 2 · Bringing things in · BMIS 235</title>
+<style>
+html,body{margin:0;height:100%;background:#fff;color:#111;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow:hidden}
+.slide{display:none;position:fixed;inset:0;padding:7vh 8vw 10vh;flex-direction:column;justify-content:center;gap:2.5vh;box-sizing:border-box}
+.slide.on{display:flex}
+.k{font-size:1.8vw;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#1f5fbf;margin:0}
+h1{font-size:6.5vw;line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:4.8vw;line-height:1.1;margin:0;letter-spacing:-.02em}
+p,li{font-size:2.6vw;line-height:1.35;margin:0}
+ul,ol{margin:0;padding-left:1.2em}
+li{margin:.3em 0}
+.big{font-size:3.4vw;font-weight:700}
+.muted{color:#666}
+pre{margin:0;background:#f3f4f6;border-radius:1vw;padding:2vw 2.5vw;font-size:2.2vw;line-height:1.5;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;white-space:pre-wrap}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:#f3f4f6;border-radius:.3em;padding:0 .3em}
+.hl{background:#ffe88a;border-radius:.3em;padding:0 .15em}
+.flow{display:flex;align-items:center;gap:1.5vw;flex-wrap:wrap}
+.box{border:.35vw solid #111;border-radius:1vw;padding:1.5vw 2.2vw;font-size:2.2vw;font-weight:800;text-align:center;background:#fff}
+.box.blue{border-color:#1f5fbf;color:#1f5fbf}
+.box.red{border-color:#c0392b;color:#c0392b}
+.box small{display:block;font-weight:500;font-size:1.6vw;color:#666}
+.arrow{font-size:3.5vw;color:#999}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3vw;align-items:start}
+.ui{position:fixed;bottom:2.5vh;left:0;right:0;display:flex;justify-content:space-between;padding:0 3vw;font-size:1.3vw;color:#999}
+.bar{position:fixed;top:0;left:0;height:.6vh;background:#1f5fbf}
+a{color:#1f5fbf}
+</style>
+</head>
+<body>
+
+<section class="slide">
+<p class="k">BMIS 235 · Deck 2 · before HTML-2</p>
+<h1>Bringing things<br>into a page</h1>
+<p class="muted">Press → to begin</p>
+</section>
+
+<section class="slide">
+<p class="k">1 · Two tags that bring things in</p>
+<div class="two">
+<div><h2>&lt;img&gt;</h2><p>A picture.</p><pre>&lt;img <span class="hl">src="gervais.jpg"</span>&gt;</pre></div>
+<div><h2>&lt;iframe&gt;</h2><p>A whole other web page, in a box.</p><pre>&lt;iframe <span class="hl">src="https://www.youtube.com/embed/..."</span>&gt;</pre></div>
+</div>
+<p>You write the <code>img</code>. The other site writes the <code>iframe</code> and you paste it.</p>
+</section>
+
+<section class="slide">
+<p class="k">2 · Hosted vs borrowed</p>
+<div class="two">
+<div><h2>Hosted</h2><p>A file in your repo. <code>gervais.jpg</code></p><p class="muted">It stays put. Only you change it.</p></div>
+<div><h2>Borrowed</h2><p>Comes from someone else's site every time your page loads. A linked image, a YouTube video, a map.</p><p class="muted">Quick to add. They're in charge.</p></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="k">3 · Why borrowed can break</p>
+<div class="flow">
+<div class="box">They move the image</div><div class="arrow">→</div>
+<div class="box red">Broken icon on your page</div>
+</div>
+<div class="flow">
+<div class="box">They block embedding</div><div class="arrow">→</div>
+<div class="box red">"Video unavailable"</div>
+</div>
+<p>Not your code. Your page didn't change, theirs did. Companies check their pages for exactly this.</p>
+</section>
+
+<section class="slide">
+<p class="k">4 · YouTube embeds</p>
+<ol>
+<li>Under the video: <strong>Share → Embed</strong>.</li>
+<li>Copy the address inside <code>src="..."</code>. It contains <code>/embed/</code>.</li>
+<li>Paste it into the iframe's <code>src</code> on your page.</li>
+</ol>
+<pre>youtube.com/watch?v=<span class="hl">pq6WHJzOkno</span>   ← watch link
+youtube.com/embed/<span class="hl">pq6WHJzOkno</span>     ← embed link</pre>
+</section>
+
+<section class="slide">
+<p class="k">5 · Business embeds</p>
+<ul>
+<li><strong>Google Map:</strong> the "Find us" box on a restaurant or clinic site.</li>
+<li><strong>Google Form:</strong> event sign-ups, customer surveys, job applications on a small business site.</li>
+<li><strong>Tableau Public dashboard:</strong> a city's budget page, a team's stats page, a nonprofit's annual report.</li>
+</ul>
+<p>All three hand you an <code>&lt;iframe&gt;</code>. Same move every time: copy, paste, commit.</p>
+</section>
+
+<section class="slide">
+<p class="k">6 · Image links and jump links</p>
+<pre>&lt;a href="<span class="hl">#huberman</span>"&gt;&lt;img src="..."&gt;&lt;/a&gt;   ← click
+
+...
+
+&lt;a id="<span class="hl">huberman</span>"&gt;&lt;/a&gt;                     ← land here</pre>
+<p>Wrap anything in <code>&lt;a&gt;</code> to make it clickable. <code>#name</code> jumps to the matching <code>id</code> on the same page.</p>
+</section>
+
+<section class="slide">
+<p class="k">7 · What is a script?</p>
+<p>A tiny program inside the page. It makes the page <em>do</em> something.</p>
+<pre>&lt;button onclick="toggleDark()"&gt;Dark mode on / off&lt;/button&gt;
+&lt;script&gt;
+   // change these two colors
+   var lightBackground = <span class="hl">"lightgray"</span>;
+   var darkBackground  = <span class="hl">"#333333"</span>;
+   ...
+&lt;/script&gt;</pre>
+<p>You only touch the two colors. The rest is the program.</p>
+</section>
+
+<section class="slide">
+<p class="k">HTML-2 · Embedding: Mind, Body, Craft</p>
+<ul>
+<li><strong>Mind</strong> works. Copy its pattern.</li>
+<li><strong>Body:</strong> borrowed image, fix the video.</li>
+<li><strong>Craft:</strong> hosted image, fix the video, add one business embed.</li>
+<li>Your two colors in the dark mode script. Your title.</li>
+</ul>
+<p class="muted">Full instructions: <a href="../html-2.html">gu-27.github.io/html-module/html-2.html</a></p>
+</section>
+
+<section class="slide">
+<p class="k">When you're stuck</p>
+<ol>
+<li>Say it in one sentence: "I expected ___, but I see ___."</li>
+<li>Pick one problem.</li>
+<li>Find the line.</li>
+<li>Search your one sentence.</li>
+<li>Change one thing. Commit. Check.</li>
+</ol>
+<p class="big">Is it your code, or their site? Test the embed link in a new tab.</p>
+</section>
+
+<div class="bar" id="bar"></div>
+<div class="ui"><span>← → · space · click to advance · F for full screen</span><span id="counter"></span></div>
+<script>
+var slides=document.querySelectorAll('.slide'),i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach(function(s,k){s.classList.toggle('on',k===i)});document.getElementById('counter').textContent=(i+1)+' / '+slides.length;document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';history.replaceState(null,'','#'+(i+1))}
+function next(){show(i+1)}function prev(){show(i-1)}
+document.addEventListener('keydown',function(e){if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();next()}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();prev()}else if(e.key==='Home'){show(0)}else if(e.key==='End'){show(slides.length-1)}else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+document.addEventListener('click',function(e){if(e.target.closest('a'))return;(e.clientX<window.innerWidth*0.15)?prev():next()});
+show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

@@ -10,32 +10,59 @@
 <body>
 <div class="top"><div class="wrap">
   <a class="brand" href="index.html">BMIS 235 · HTML Module</a>
-  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html" class="on">HTML-3</a><a href="html-4.html">HTML-4</a><a href="html-5.html">Final</a></nav>
+  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html" class="on">HTML-3</a><a href="html-4.html">Final</a></nav>
 </div></div>
 <main class="wrap">
 <div class="hero">
 <p class="kicker">HTML-3</p>
-<h1>Tables</h1>
-<p class="lede">Use HTML tables to lay out two images and build your own class schedule.</p>
-<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: assignment3</span></div>
-</div><section class="block"><h2>Your starter files</h2><p>They're already in your <code>bmis235</code> repo, in the <code>assignment3</code> folder. You copied them in <a href="index.html">Start here</a>, so there's nothing to download.</p>
-<p>Files: <code>index.html</code>, <code>GUsob.jpg</code>, <code>GUlogo.jpg</code></p>
-<div class="callout warn"><p><strong>Don't have a <code>bmis235</code> repo yet?</strong> Do <a href="index.html">Start here</a> first.</p></div></section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span>Change the top heading to your name and make it green.</span><span class="pts">1 pt</span></li><li><span>Add the two images (<code>GUsob.jpg</code> and <code>GUlogo.jpg</code>) where it says <code>image 1 here</code> and <code>image 2 here</code>, and center that table.</span><span class="pts">2 pts</span></li><li><span>Show your full class schedule, grouped into Business and Non Business. Use <code>rowspan</code> so each group label spans all of its classes.</span><span class="pts">4 pts</span></li><li><span>Style the table header row so it stands out. Headers are bold by default, so add a background color (and anything else you like).</span><span class="pts">2 pts</span></li><li><span>Add a new table below the schedule with content of your choice.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>Steps</h2><ol>
-<li>Research how HTML tables work: <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>.</li>
-<li>Research <code>rowspan</code> and <code>colspan</code>. Notice how <em>Course</em> already spans two columns.</li>
-<li><strong>Draw your schedule on paper or in Excel first.</strong> Merge the cells so Business and Non Business line up with their classes.</li>
-<li>Open <code>assignment3/index.html</code> with the pencil and build it. Commit as you go.</li>
-<li>Copy and paste the schedule table to start your new table, then change it.</li>
+<h1>Links + CSS: Your Own Site</h1>
+<p class="lede">Build your first multi-page site on your own idea. The pages link to each other, and one stylesheet controls all of them.</p>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: your bmis235-html-3 repo</span><span class="pill">Pencil editor, no AI</span></div>
+<p><a class="btn ghost" href="slides/html-3.html">Class slides</a></p>
+</div><section class="block"><h2>Get this assignment</h2><ol>
+<li>Click the button, then <strong>Create a new repository</strong>.
+  <p><a class="btn" href="https://github.com/gu-27/bmis235-html-3/generate">Use this template</a></p>
+  <p><em>Button shows a 404?</em> This assignment hasn't been released yet.</p></li>
+<li>Repository name: <code>bmis235-html-3</code> (exactly this). Set it to <strong>Public</strong>.</li>
+<li>In your new repo, go to <strong>Settings → Pages</strong>. Under <em>Build and deployment</em>, choose <strong>Deploy from a branch</strong>, pick <strong>main</strong> and <strong>/ (root)</strong>, then click <strong>Save</strong>.</li>
+<li>After 1–2 minutes, open <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code>. You'll see a four-page site with a blue menu.</li>
+</ol>
+<p><strong>Starter files in your repo:</strong> <code>index.html</code>, <code>page2.html</code>, <code>page3.html</code>, <code>page4.html</code>, <code>styles.css</code>, <code>README.md</code></p>
+<div class="callout warn"><p><strong>Seeing a 404 on your live link?</strong> Wait up to 5 minutes. Settings → Pages says <em>Your site is live</em> when it's ready.</p></div></section><section class="block"><h2>Before and After</h2><div class="ba">
+<figure><a href="img/html-3-before.png" target="_blank"><img src="img/html-3-before.png" alt="The starter site: the styled home page with a blue menu next to the plain, unstyled page 4"></a><figcaption>What you start with</figcaption></figure>
+<figure><a href="img/html-3-after.png" target="_blank"><img src="img/html-3-after.png" alt="A finished site called Our House: the home page and one roommate's page, with a menu, an outside link and an email link"></a><figcaption>One possible finished page</figcaption></figure>
+</div></section><section class="block"><h2>Explore first</h2><ol>
+<li>Open your live site and click every menu link.</li>
+<li>One page looks different from the other three. Which one, and how?</li>
+<li>Open that page's code and another page's code. Compare the <code>&lt;head&gt;</code> sections line by line. What's missing?</li>
+</ol>
+<p>That missing line is your first fix. The rest of the assignment is turning the template into your own site.</p></section><section class="block"><h2>Three ways to add CSS</h2><ul>
+<li><strong>External:</strong> one <code>.css</code> file that every page links to. Change it once, every page changes. That's <code>styles.css</code> here.</li>
+<li><strong>Internal:</strong> a <code>&lt;style&gt;</code> block at the top of one page. Overrides the external file for that page. You used this in HTML-1 and HTML-2.</li>
+<li><strong>Inline:</strong> a <code>style="..."</code> on one tag. Overrides both.</li>
+</ul>
+<p>The one line that connects a page to the external file:</p>
+<pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre></section><section class="block"><h2>Plan your site</h2><p>Pick an idea with four natural parts. One page per roommate. One page per player on a team. A home page plus three products. A trip with three stops.</p>
+<p><strong>Write the four page names on paper first</strong>, and the file name for each one (lowercase, no spaces, ending in <code>.html</code>). Then build. Deciding before you type is the habit that saves the most time in this whole module.</p></section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span>Fix <code>page4.html</code> so it uses <code>styles.css</code> like the other pages.</span><span class="pts">1 pt</span></li><li><span>Turn the template into your own idea: menu labels, headings and real content on all four pages.</span><span class="pts">3 pts</span></li><li><span>Rename at least one page file (for example <code>page2.html</code> → <code>alex.html</code>) and update the menu on <strong>all four pages</strong> so every link still works.</span><span class="pts">2 pts</span></li><li><span>Add one link to an outside website and one email link (<code>mailto:</code>).</span><span class="pts">1 pt</span></li><li><span>Add 3 new styles to <code>styles.css</code>. Commit each one separately with a message that says what it does. List them in Canvas.</span><span class="pts">2 pts</span></li><li><span>Submit a working GitHub Pages link.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>Steps</h2><ol>
+<li>Do <strong>Explore first</strong> above, then fix <code>page4.html</code>. Commit.</li>
+<li>Plan your four pages on paper.</li>
+<li>Change the menu labels, headings and content on all four pages. Commit after each page.</li>
+<li>Rename a page file, then fix its link in the menu on all four pages. Check every menu link live. Commit.</li>
+<li>Add an outside link and an email link somewhere that makes sense. Commit.</li>
+<li>Add 3 new styles to <code>styles.css</code>, one commit each.</li>
 </ol></section><section class="block"><h2>Hints</h2><ul>
-<li>Right now <code>rowspan="1"</code>. If Business has 3 classes, what should it be? And how many rows need that first cell?</li>
-<li>The schedule table is centered. Look at how it does it, then do the same for the image table.</li>
-<li>Image file names are case-sensitive: <code>GUsob.jpg</code> is not <code>gusob.jpg</code>.</li>
+<li><strong>Renaming a file:</strong> open it, click the pencil, and change the name in the box above the code. Commit. The file is renamed, but every link that pointed to the old name is now broken until you fix it.</li>
+<li><strong>A menu link must match the file name exactly.</strong> <code>href="alex.html"</code> only works if the file is called <code>alex.html</code>, not <code>Alex.html</code>.</li>
+<li><strong>Email link:</strong> <code>&lt;a href="mailto:you@zagmail.gonzaga.edu"&gt;Email me&lt;/a&gt;</code></li>
+<li><strong>Outside link:</strong> <code>&lt;a href="https://www.gonzaga.edu"&gt;Gonzaga&lt;/a&gt;</code>. Include the <code>https://</code>.</li>
+<li><strong>Style ideas:</strong> a different font, link hover colors, a new background color, heading sizes, spacing around paragraphs, rounded corners on the menu. W3Schools CSS has examples for each.</li>
+<li><strong>Your live link shows a 404?</strong> A folder only loads if it has a file called <code>index.html</code>. Keep that name for your home page.</li>
 </ul></section><section class="block"><h2>Make it yours</h2><ul>
 <li>Fill in the <strong>author comment</strong> at the top of every file with your name and GU username.</li>
 <li>Fill in <code>&lt;meta name="author"&gt;</code> with your name.</li>
 <li>Fill in the <strong>footer</strong>: <em>Built by YOUR NAME · BMIS 235</em>.</li>
 <li>Make <strong>at least 3 commits</strong> with clear messages (not "Update index.html").</li>
-</ul><ul><li>Your real schedule, your professors, and a new table that's about you.</li></ul></section><section class="block"><h2>Finished example</h2><figure><img src="img/html-3-example.png" alt="Example of a finished HTML-3 page"><figcaption>One possible finished page. Your schedule and new table will be different.</figcaption></figure></section><section class="block"><h2>When you're stuck</h2><ol>
+</ul><ul><li>Your idea, your page names, your three styles. Your commit messages are how we see what you added.</li></ul></section><section class="block"><h2>When you're stuck</h2><ol>
 <li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
 <li><strong>Pick one problem.</strong> Ignore the rest for now.</li>
 <li><strong>Find the line.</strong> Which tag or file is it in?</li>
@@ -44,10 +71,10 @@
 </ol>
 <p>"Nothing works" can't be searched. "My image shows a broken icon" can.</p></section><section class="block"><h2>Submit</h2><ol>
 <li>Wait 1–2 minutes after your last commit.</li>
-<li>Open your live link and check that everything works: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235/assignment3/</code></li>
-<li>Paste that link into Canvas.</li>
-</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>Green header</td><td class='n'>1</td></tr><tr><td>Centered images</td><td class='n'>2</td></tr><tr><td>Full schedule with row spans</td><td class='n'>4</td></tr><tr><td>Styled table header</td><td class='n'>2</td></tr><tr><td>New table with your own content</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
-<div class="next"><a class="btn ghost" href="html-2.html">&larr; HTML-2</a><a class="btn" href="html-4.html">HTML-4 &rarr;</a></div>
+<li>Open your live link and click every menu link on every page: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code></li>
+<li>Paste that link into Canvas. In the Canvas text box, list the 3 styles you added.</li>
+</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>page4.html uses styles.css</td><td class='n'>1</td></tr><tr><td>Your own idea on all 4 pages (menu labels, headings, content)</td><td class='n'>3</td></tr><tr><td>At least one file renamed, menu works on all 4 pages</td><td class='n'>2</td></tr><tr><td>One outside link and one email link</td><td class='n'>1</td></tr><tr><td>3 new styles, each its own commit (listed in Canvas)</td><td class='n'>2</td></tr><tr><td>Working GitHub Pages link</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
+<div class="next"><a class="btn ghost" href="html-2.html">&larr; HTML-2</a><a class="btn" href="html-4.html">Final &rarr;</a></div>
 </main>
 <div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
 </body>

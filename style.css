@@ -96,3 +96,11 @@ footer { color: var(--muted); font-size: 0.8rem; padding: 1.5rem 0 3rem; border-
 table.rubric code { word-break: break-all; }
 figure img { max-width: 560px; margin: 0 auto; }
 figcaption { text-align: center; }
+
+/* before / after screenshots */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem; }
+.ba figure { margin: 0; }
+.ba figure a { display: block; }
+.ba figure img { max-width: none; width: 100%; margin: 0; }
+.ba figcaption { font-weight: 700; color: var(--ink); }
+@media (max-width: 700px) { .ba { grid-template-columns: 1fr; } }

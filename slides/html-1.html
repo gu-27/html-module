@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Correia">
+<title>Deck 1 · How the web works + HTML basics · BMIS 235</title>
+<style>
+html,body{margin:0;height:100%;background:#fff;color:#111;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow:hidden}
+.slide{display:none;position:fixed;inset:0;padding:7vh 8vw 10vh;flex-direction:column;justify-content:center;gap:2.5vh;box-sizing:border-box}
+.slide.on{display:flex}
+.k{font-size:1.8vw;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#1f5fbf;margin:0}
+h1{font-size:6.5vw;line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:4.8vw;line-height:1.1;margin:0;letter-spacing:-.02em}
+p,li{font-size:2.6vw;line-height:1.35;margin:0}
+ul,ol{margin:0;padding-left:1.2em}
+li{margin:.3em 0}
+.big{font-size:3.4vw;font-weight:700}
+.muted{color:#666}
+pre{margin:0;background:#f3f4f6;border-radius:1vw;padding:2vw 2.5vw;font-size:2.4vw;line-height:1.5;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;white-space:pre-wrap}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:#f3f4f6;border-radius:.3em;padding:0 .3em}
+.hl{background:#ffe88a;border-radius:.3em;padding:0 .15em}
+.flow{display:flex;align-items:center;gap:1.5vw;flex-wrap:wrap}
+.box{border:.35vw solid #111;border-radius:1vw;padding:1.5vw 2.2vw;font-size:2.2vw;font-weight:800;text-align:center;background:#fff}
+.box.blue{border-color:#1f5fbf;color:#1f5fbf}
+.box.red{border-color:#c0392b;color:#c0392b}
+.box small{display:block;font-weight:500;font-size:1.6vw;color:#666}
+.arrow{font-size:3.5vw;color:#999}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3vw;align-items:start}
+.ui{position:fixed;bottom:2.5vh;left:0;right:0;display:flex;justify-content:space-between;padding:0 3vw;font-size:1.3vw;color:#999}
+.bar{position:fixed;top:0;left:0;height:.6vh;background:#1f5fbf}
+a{color:#1f5fbf}
+</style>
+</head>
+<body>
+
+<section class="slide">
+<p class="k">BMIS 235 · Deck 1 · before HTML-1</p>
+<h1>How the web works,<br>and what HTML is</h1>
+<p class="muted">Press → to begin</p>
+</section>
+
+<section class="slide">
+<p class="k">1 · What happens when you open a website</p>
+<div class="flow">
+<div class="box blue">Your browser<small>"send me gonzaga.edu"</small></div>
+<div class="arrow">→</div>
+<div class="box">A server<small>a computer that is always on</small></div>
+<div class="arrow">→</div>
+<div class="box blue">Your browser<small>gets the files and draws the page</small></div>
+</div>
+<p>You type an address. Your browser asks a server for the files. The server sends them. Your browser draws them.</p>
+</section>
+
+<section class="slide">
+<p class="k">2 · A website is just files in folders</p>
+<pre>my-site/
+   index.html      ← the home page
+   about.html      ← another page
+   photo.jpg       ← an image
+   styles.css      ← the look</pre>
+<p>Every page is a text file. Every image is a file. The web address is the path to the folder.</p>
+</section>
+
+<section class="slide">
+<p class="k">3 · Hosting</p>
+<h2>Putting your folder on a computer anyone can reach</h2>
+<p>Your laptop turns off. A server doesn't. Hosting means copying your folder to a server that's always on, with an address that points to it.</p>
+</section>
+
+<section class="slide">
+<p class="k">4 · GitHub</p>
+<ul>
+<li><strong>Repo:</strong> a folder of files that lives on GitHub.</li>
+<li><strong>Commit:</strong> a saved version with a note. "Save as" that never forgets.</li>
+<li><strong>History:</strong> every commit, in order. Your undo button.</li>
+</ul>
+</section>
+
+<section class="slide">
+<p class="k">5 · GitHub Pages</p>
+<div class="flow">
+<div class="box">Your files</div><div class="arrow">→</div>
+<div class="box">GitHub repo</div><div class="arrow">→</div>
+<div class="box blue">GitHub Pages</div><div class="arrow">→</div>
+<div class="box">Anyone's browser</div>
+</div>
+<p>Turn it on once in Settings. From then on, every commit updates the live page in about a minute.</p>
+<p><code>https://YOU.github.io/bmis235-html-1/</code></p>
+</section>
+
+<section class="slide">
+<p class="k">6 · Tags</p>
+<pre><span class="hl">&lt;h1&gt;</span>Hello World!<span class="hl">&lt;/h1&gt;</span></pre>
+<ul>
+<li>Opening tag, content, closing tag.</li>
+<li>The closing tag has a <code>/</code>.</li>
+<li>The browser shows the content, not the tags.</li>
+</ul>
+</section>
+
+<section class="slide">
+<p class="k">7 · Attributes</p>
+<pre>&lt;img <span class="hl">src="earth.jpg"</span> <span class="hl">alt="Earth from space"</span>&gt;</pre>
+<ul>
+<li>Extra details inside the opening tag.</li>
+<li>Always <code>name="value"</code>, in quotes.</li>
+<li><code>src</code> is where the image is. <code>alt</code> describes it.</li>
+</ul>
+</section>
+
+<section class="slide">
+<p class="k">8 · head and body</p>
+<div class="two">
+<div><h2>&lt;head&gt;</h2><p>About the page. The tab title, the colors. Nothing here shows on the page itself.</p></div>
+<div><h2>&lt;body&gt;</h2><p>What people see. Headings, text, images, links.</p></div>
+</div>
+<pre>&lt;title&gt;<span class="hl">Jane's Page</span>&lt;/title&gt;   ← shows on the browser tab</pre>
+</section>
+
+<section class="slide">
+<p class="k">9 · Headings, paragraphs, bold, italic</p>
+<pre>&lt;h1&gt;Big heading&lt;/h1&gt;
+&lt;h2&gt;Smaller heading&lt;/h2&gt;
+&lt;p&gt;A paragraph with <span class="hl">&lt;strong&gt;bold&lt;/strong&gt;</span> and <span class="hl">&lt;em&gt;italic&lt;/em&gt;</span>.&lt;/p&gt;</pre>
+</section>
+
+<section class="slide">
+<p class="k">10 · Lists</p>
+<pre>&lt;ul&gt;
+   &lt;li&gt;One trip around the Sun takes 365 days&lt;/li&gt;
+   &lt;li&gt;The ocean is 11 km deep at its deepest&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p><code>ul</code> is the list. Each <code>li</code> is one bullet.</p>
+</section>
+
+<section class="slide">
+<p class="k">11 · Images and the exact-name rule</p>
+<div class="flow">
+<div class="box">File in the repo<small>Earth.JPG</small></div>
+<div class="arrow">≠</div>
+<div class="box red">Code<small>src="earth.jpg"</small></div>
+<div class="arrow">=</div>
+<div class="box">Broken image</div>
+</div>
+<p>Upper and lower case matter on the web. The name in the code must match the file letter for letter, including the ending.</p>
+</section>
+
+<section class="slide">
+<p class="k">12 · Colors live in code</p>
+<pre>&lt;style&gt;
+   /* change these colors */
+   body {
+      <span class="hl">background-color: #0b1d3a;</span>
+      <span class="hl">color: #f2f2f2;</span>
+   }
+&lt;/style&gt;</pre>
+<p>A color is a name (<code>navy</code>) or a hex code (<code>#0b1d3a</code>). Search "html color picker".</p>
+</section>
+
+<section class="slide">
+<p class="k">HTML-1 · Styling: Hello World</p>
+<ul>
+<li>Copy the starter. Turn on Pages. See Earth.</li>
+<li>Make it yours: title, text, list, your image, your colors.</li>
+<li>Break the page on purpose. Restore it from History.</li>
+<li>3+ commits with clear messages. Author comment and footer.</li>
+</ul>
+<p class="muted">Full instructions: <a href="../html-1.html">gu-27.github.io/html-module/html-1.html</a></p>
+</section>
+
+<section class="slide">
+<p class="k">When you're stuck</p>
+<ol>
+<li>Say it in one sentence: "I expected ___, but I see ___."</li>
+<li>Pick one problem.</li>
+<li>Find the line.</li>
+<li>Search your one sentence.</li>
+<li>Change one thing. Commit. Check.</li>
+</ol>
+<p class="big">"Nothing works" can't be searched. "My image shows a broken icon" can.</p>
+</section>
+
+<div class="bar" id="bar"></div>
+<div class="ui"><span>← → · space · click to advance · F for full screen</span><span id="counter"></span></div>
+<script>
+var slides=document.querySelectorAll('.slide'),i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach(function(s,k){s.classList.toggle('on',k===i)});document.getElementById('counter').textContent=(i+1)+' / '+slides.length;document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';history.replaceState(null,'','#'+(i+1))}
+function next(){show(i+1)}function prev(){show(i-1)}
+document.addEventListener('keydown',function(e){if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();next()}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();prev()}else if(e.key==='Home'){show(0)}else if(e.key==='End'){show(slides.length-1)}else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+document.addEventListener('click',function(e){if(e.target.closest('a'))return;(e.clientX<window.innerWidth*0.15)?prev():next()});
+show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

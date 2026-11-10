@@ -10,40 +10,72 @@
 <body>
 <div class="top"><div class="wrap">
   <a class="brand" href="index.html">BMIS 235 · HTML Module</a>
-  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html" class="on">HTML-2</a><a href="html-3.html">HTML-3</a><a href="html-4.html">HTML-4</a><a href="html-5.html">Final</a></nav>
+  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html" class="on">HTML-2</a><a href="html-3.html">HTML-3</a><a href="html-4.html">Final</a></nav>
 </div></div>
 <main class="wrap">
 <div class="hero">
 <p class="kicker">HTML-2</p>
-<h1>Links &amp; Video</h1>
-<p class="lede">Embed YouTube videos and use internal links so clicking an image jumps down to its video.</p>
-<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: assignment2</span></div>
-</div><section class="block"><h2>Your starter files</h2><p>They're already in your <code>bmis235</code> repo, in the <code>assignment2</code> folder. You copied them in <a href="index.html">Start here</a>, so there's nothing to download.</p>
-<p>Files: <code>index.html</code>, <code>gervais.jpg</code>, <code>huberman.jpg</code>, <code>fridman.jpg</code></p>
-<div class="callout warn"><p><strong>Don't have a <code>bmis235</code> repo yet?</strong> Do <a href="index.html">Start here</a> first.</p></div></section><section class="block"><h2>The page: Mind, Body, Craft</h2><p>The starter page has three sections. The <strong>Mind</strong> section already works. Use it as your model to fix the other two.</p>
+<h1>Embedding: Mind, Body, Craft</h1>
+<p class="lede">Bring images, videos and a business tool into a page. See the difference between content you host and content you borrow, and make the page run a little code.</p>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: your bmis235-html-2 repo</span><span class="pill">Pencil editor, no AI</span></div>
+<p><a class="btn ghost" href="slides/html-2.html">Class slides</a></p>
+</div><section class="block"><h2>Get this assignment</h2><ol>
+<li>Click the button, then <strong>Create a new repository</strong>.
+  <p><a class="btn" href="https://github.com/gu-27/bmis235-html-2/generate">Use this template</a></p>
+  <p><em>Button shows a 404?</em> This assignment hasn't been released yet.</p></li>
+<li>Repository name: <code>bmis235-html-2</code> (exactly this). Set it to <strong>Public</strong>.</li>
+<li>In your new repo, go to <strong>Settings → Pages</strong>. Under <em>Build and deployment</em>, choose <strong>Deploy from a branch</strong>, pick <strong>main</strong> and <strong>/ (root)</strong>, then click <strong>Save</strong>.</li>
+<li>After 1–2 minutes, open <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-2/</code>. The Mind section works. Body and Craft say "IMAGE GOES HERE" and show the wrong video.</li>
+</ol>
+<p><strong>Starter files in your repo:</strong> <code>index.html</code>, <code>gervais.jpg</code>, <code>huberman.jpg</code>, <code>fridman.jpg</code>, <code>README.md</code></p>
+<div class="callout warn"><p><strong>Seeing a 404 on your live link?</strong> Wait up to 5 minutes. Settings → Pages says <em>Your site is live</em> when it's ready.</p></div></section><section class="block"><h2>Before and After</h2><div class="ba">
+<figure><a href="img/html-2-before.png" target="_blank"><img src="img/html-2-before.png" alt="The starter page: the Mind section works, Body and Craft say IMAGE GOES HERE and still show the Finding Mastery title"></a><figcaption>What you start with (top of page)</figcaption></figure>
+<figure><a href="img/html-2-after.png" target="_blank"><img src="img/html-2-after.png" alt="A finished page by a student with three images in the menu, a dark mode button and their own colors"></a><figcaption>One possible finished page</figcaption></figure>
+</div></section><section class="block"><h2>The page: Mind, Body, Craft</h2><p>The starter page has three podcast sections. Each one teaches a different way of bringing content into a page. <strong>Mind</strong> is finished. Use it as your model for the other two.</p>
 <table class="rubric">
-<tr><th>Section</th><th>Podcast</th><th>Image</th><th>Jump id</th><th>Embed link</th></tr>
-<tr><td><strong>Mind</strong></td><td>Finding Mastery</td><td><code>gervais.jpg</code></td><td><code>findingmastery</code></td><td><code>https://www.youtube.com/embed/4L98ssI5Vxw</code> ✓ works</td></tr>
-<tr><td><strong>Body</strong></td><td>Huberman Lab</td><td><code>huberman.jpg</code></td><td><code>huberman</code></td><td><code>https://www.youtube.com/embed/pq6WHJzOkno</code></td></tr>
-<tr><td><strong>Craft</strong></td><td>Lex Fridman Podcast</td><td><code>fridman.jpg</code></td><td><code>fridman</code></td><td><code>https://www.youtube.com/embed/kFQUDCgMjRc</code></td></tr>
+<tr><th>Section</th><th>Podcast</th><th>Menu image</th><th>Video</th><th>What it teaches</th></tr>
+<tr><td><strong>Mind</strong></td><td>Finding Mastery</td><td><code>gervais.jpg</code>, uploaded ✓</td><td>Works ✓</td><td>An image you host, a video you borrow, a jump link</td></tr>
+<tr><td><strong>Body</strong></td><td>Huberman Lab</td><td>An image from an <strong>outside web address</strong> (<code>https://...</code>)</td><td>Fix the title, channel link and video</td><td>An image you borrow</td></tr>
+<tr><td><strong>Craft</strong></td><td>Lex Fridman Podcast</td><td><code>fridman.jpg</code>, already uploaded</td><td>Fix the title, channel link and video</td><td>Then one <strong>business embed</strong> below it: a map, a form or a dashboard</td></tr>
 </table>
-</section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span>Change the <code>&lt;title&gt;</code> so the browser tab shows your name.</span><span class="pts">2 pts</span></li><li><span>Embed the Huberman and Fridman videos so they play like Finding Mastery. Each video section has two things to fix: the title/link above it and the video <code>src</code>.</span><span class="pts">2 pts</span></li><li><span>Add the Body and Craft images to the menu so each image links to its video.</span><span class="pts">2 pts</span></li><li><span>Add your own section: put your image <em>first</em> in the menu, above Mind, and add a video you chose that shares some wisdom. Clicking your image must take you to your video.</span><span class="pts">2 pts</span></li><li><span>Change the color scheme to your liking.</span><span class="pts">1 pt</span></li><li><span>Submit a working GitHub Pages link.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>How the jump links work</h2><p>The Mind image is wrapped in a link that points to an id:</p>
+<p style="margin-top:1rem"><strong>The links you need:</strong></p>
+<table class="rubric">
+<tr><th>Section</th><th>Jump id</th><th>Channel link</th><th>Embed link (goes in the video's <code>src</code>)</th></tr>
+<tr><td>Body</td><td><code>huberman</code></td><td><code>https://www.youtube.com/@hubermanlab</code></td><td><code>https://www.youtube.com/embed/pq6WHJzOkno</code></td></tr>
+<tr><td>Craft</td><td><code>fridman</code></td><td><code>https://www.youtube.com/@lexfridman</code></td><td><code>https://www.youtube.com/embed/kFQUDCgMjRc</code></td></tr>
+</table></section><section class="block"><h2>Hosted vs borrowed</h2><p><strong>Hosted</strong> content is a file in your repo, like <code>gervais.jpg</code>. It stays put. It only changes when you change it.</p>
+<p><strong>Borrowed</strong> content comes from someone else's site every time your page loads: a linked image, a YouTube video, a map. It's quick to add, but the other site is in charge. If they move, change or delete it, your page changes too. Companies do this all the time, and they check their pages for exactly that reason.</p></section><section class="block"><h2>How embedding works</h2><ul>
+<li><code>&lt;img src="..."&gt;</code> puts a <strong>picture</strong> on the page. The <code>src</code> can be a file in your repo (<code>gervais.jpg</code>) or a full web address (<code>https://.../photo.jpg</code>).</li>
+<li><code>&lt;iframe src="..."&gt;</code> puts a <strong>whole other web page</strong> inside yours, in a box. That's how YouTube videos, Google Maps, Google Forms and Tableau dashboards show up on other sites. You almost never write an iframe by hand. The other site gives you the code and you paste it.</li>
+</ul></section><section class="block"><h2>How the jump links work</h2><p>The Mind image is wrapped in a link that points to an id:</p>
 <pre><code>&lt;a href=&quot;#findingmastery&quot;&gt;&lt;img src=&quot;gervais.jpg&quot; ...&gt;&lt;/a&gt;</code></pre>
 <p>Further down, right before the video, is the matching spot it jumps to:</p>
 <pre><code>&lt;a id=&quot;findingmastery&quot;&gt;&lt;/a&gt;</code></pre>
-<p>The <code>#</code> name in the link must match the <code>id</code> exactly. The Body and Craft links already point to <code>#huberman</code> and <code>#fridman</code>. Find where their ids are missing.</p></section><section class="block"><h2>Adding your own video</h2><ol>
-<li>Find a YouTube video that shares wisdom (for example, a talk by Brené Brown).</li>
-<li>Click <strong>Share → Embed</strong> and copy the link inside <code>src="..."</code>.</li>
-<li>Upload an image for it with <strong>Add file → Upload files</strong>.</li>
-<li>Copy an existing section (menu image + video section), paste it, then change the image, the id, the title and the video link.</li>
-</ol>
+<p>The <code>#</code> name in the link must match the <code>id</code> exactly. The Body and Craft links already point to <code>#huberman</code> and <code>#fridman</code>. Find where their ids are blank.</p></section><section class="block"><h2>What's a script?</h2><p>The button at the top of the page runs a tiny program, called a <strong>script</strong>, that swaps the page colors when you click it. The code sits in a <code>&lt;script&gt;</code> block right under the button. Look for the comment <code>// change these two colors</code>. Those two values are the only part you need to touch.</p></section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span><strong>Body:</strong> replace <code>IMAGE GOES HERE</code> with an image linked from an outside web address, with alt text. Not an uploaded file.</span><span class="pts">2 pts</span></li><li><span><strong>Body and Craft:</strong> fix the id, the title, the channel link and the video for each one, so both match their podcast.</span><span class="pts">2 pts</span></li><li><span><strong>Craft:</strong> replace <code>IMAGE GOES HERE</code> with the uploaded <code>fridman.jpg</code>.</span><span class="pts">1 pt</span></li><li><span>Paste <strong>one business embed</strong> in the marked spot under Craft: a Google Map, a Google Form or a Tableau Public dashboard. Change the heading to say what it is.</span><span class="pts">2 pts</span></li><li><span>Change the <strong>two colors</strong> in the dark mode script to your own. Both modes must stay readable.</span><span class="pts">1 pt</span></li><li><span>Change the <code>&lt;title&gt;</code> so the tab shows your name, and change the page's heading colors to your own scheme.</span><span class="pts">1 pt</span></li><li><span>Submit a working GitHub Pages link.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>Steps</h2><ol>
+<li>Open your live page. Click the Mind image, then the Mind title. Click the dark mode button. Notice what works.</li>
+<li>Open <code>index.html</code> with the pencil. Read the comments. Each section is labeled.</li>
+<li>Fix Body: find the blank <code>id=""</code>, the channel link, the title and the video <code>src</code>. Use the table above. Commit.</li>
+<li>Fix Craft the same way. Commit.</li>
+<li>Add the Body image from an outside web address and the Craft image from <code>fridman.jpg</code>. Copy the pattern from the Mind image. Commit.</li>
+<li>Get your embed code (below), paste it in the marked spot, and change the heading. Commit.</li>
+<li>Change the two colors in the script and your title. Commit.</li>
+</ol></section><section class="block"><h2>Finding an image on the web</h2><ul>
+<li>Find a photo you're allowed to use, for example on Wikipedia. Right-click it and choose <strong>Copy image address</strong>. The address usually ends in <code>.jpg</code> or <code>.png</code>.</li>
+<li>Paste it as the <code>src</code>: <code>&lt;img src="https://upload.wikimedia.org/.../photo.jpg" width="400" alt="..."&gt;</code></li>
+<li>Broken icon? Some sites block other pages from using their images. That's not your code. Pick another image.</li>
+</ul></section><section class="block"><h2>Finding embed code</h2><ul>
+<li><strong>Google Maps:</strong> search for a place, click <strong>Share</strong>, then the <strong>Embed a map</strong> tab, then <strong>Copy HTML</strong>.</li>
+<li><strong>Google Forms:</strong> open your form. At the top right, click the <strong>More</strong> menu (three dots), then <strong>Embed HTML</strong>, then <strong>Copy</strong>. On some screens the same code is under <strong>Send</strong>, in the <code>&lt; &gt;</code> tab.</li>
+<li><strong>Tableau Public:</strong> open a dashboard, click <strong>Share</strong> under it, and copy the <strong>Embed Code</strong>.</li>
+</ul>
+<p>Every one of these gives you code that starts with <code>&lt;iframe</code> and ends with <code>&lt;/iframe&gt;</code>. Paste the whole thing.</p>
 <div class="callout warn"><p><strong>"Video unavailable"?</strong> Some owners block embedding. That's not your code. Pick another video.</p>
 <p><strong>YouTube Shorts:</strong> change <code>youtube.com/shorts/ABC123</code> to <code>youtube.com/embed/ABC123</code>.</p></div></section><section class="block"><h2>Make it yours</h2><ul>
 <li>Fill in the <strong>author comment</strong> at the top of every file with your name and GU username.</li>
 <li>Fill in <code>&lt;meta name="author"&gt;</code> with your name.</li>
 <li>Fill in the <strong>footer</strong>: <em>Built by YOUR NAME · BMIS 235</em>.</li>
 <li>Make <strong>at least 3 commits</strong> with clear messages (not "Update index.html").</li>
-</ul><ul><li>Your own video, image and section title. Pick something that matters to you.</li></ul></section><section class="block"><h2>Finished example</h2><figure><img src="img/html-2-example.png" alt="Example of a finished HTML-2 page"><figcaption>One possible finished page. Videos show as dark boxes in this preview. Your colors and your own section will be different.</figcaption></figure></section><section class="block"><h2>When you're stuck</h2><ol>
+</ul><ul><li>Your outside image, your business embed and your two colors. Pick an embed you could imagine a real business using.</li></ul></section><section class="block"><h2>When you're stuck</h2><ol>
 <li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
 <li><strong>Pick one problem.</strong> Ignore the rest for now.</li>
 <li><strong>Find the line.</strong> Which tag or file is it in?</li>
@@ -52,9 +84,9 @@
 </ol>
 <p>"Nothing works" can't be searched. "My image shows a broken icon" can.</p></section><section class="block"><h2>Submit</h2><ol>
 <li>Wait 1–2 minutes after your last commit.</li>
-<li>Open your live link and check that everything works: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235/assignment2/</code></li>
+<li>Open your live link and check that everything works, in both light and dark mode: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-2/</code></li>
 <li>Paste that link into Canvas.</li>
-</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>Tab title shows your name</td><td class='n'>2</td></tr><tr><td>Huberman and Fridman videos embedded</td><td class='n'>2</td></tr><tr><td>Each menu image links to its video</td><td class='n'>2</td></tr><tr><td>Your own section with image that jumps to your video</td><td class='n'>2</td></tr><tr><td>Color scheme changed</td><td class='n'>1</td></tr><tr><td>Working GitHub Pages link</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
+</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>Body: outside-linked image in the menu, with alt text</td><td class='n'>2</td></tr><tr><td>Body and Craft videos, titles and channel links fixed</td><td class='n'>2</td></tr><tr><td>Craft image added (uploaded file)</td><td class='n'>1</td></tr><tr><td>One business embed (map, form or dashboard)</td><td class='n'>2</td></tr><tr><td>Dark mode button uses your own two colors</td><td class='n'>1</td></tr><tr><td>Title shows your name, plus your own color scheme</td><td class='n'>1</td></tr><tr><td>Working GitHub Pages link</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
 <div class="next"><a class="btn ghost" href="html-1.html">&larr; HTML-1</a><a class="btn" href="html-3.html">HTML-3 &rarr;</a></div>
 </main>
 <div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
