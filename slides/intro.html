@@ -178,6 +178,8 @@ p { margin: 0; }
   [data-step].hide { opacity: 1 !important; transform: none !important; }
   #nav, #bar { display: none; }
 }
+.stuck.nolink li { font-size: 35px; line-height: 1.3; }
+.stuck.nolink li::before { font-size: 38px; }
 </style>
 </head>
 <body>
@@ -514,6 +516,18 @@ styles.css   colors + fonts</div>
     <li data-step><span><b>Change one thing,</b> commit, check.</span></li>
   </ol>
   <p class="lead" data-step style="margin-top:30px;font-size:30px">"Nothing works" can't be searched. "My image shows a broken icon" can.</p>
+</section>
+
+<section class="slide b" data-sec="No live link?">
+  <h2 class="t" style="margin-bottom:14px">No live link on <span class="lite">Settings → Pages?</span></h2>
+  <p class="lead" style="font-size:29px;margin-bottom:22px;max-width:62ch">When it works, the top of that page says <b style="color:var(--black)">"Your site is live at…"</b> with your link. No link means GitHub hasn't built your site. Check in this order:</p>
+  <ol class="stuck nolink" style="gap:14px">
+    <li data-step><span><b>Source says "Deploy from a branch"?</b> Not "GitHub Actions". Pick <b>main</b> and <b>/ (root)</b>, then <b>Save</b>.</span></li>
+    <li data-step><span><b>Email verified?</b> Go to <span class="mono" style="font-size:30px">github.com/settings/emails</span>. "Unverified" means click <b>Resend</b>, then verify.</span></li>
+    <li data-step><span><b>Actions allowed?</b> <b>Settings → Actions → General → Allow all actions</b> → Save.</span></li>
+    <li data-step><span><b>Kick it:</b> edit one word in <span class="mono" style="font-size:30px">README.md</span>, commit, wait 2 minutes, refresh Settings → Pages.</span></li>
+    <li data-step><span><b>Still no link?</b> Check the <b>Actions</b> tab for a red X, then show me.</span></li>
+  </ol>
 </section>
 
 <section class="slide dark" data-sec="Where this goes">
