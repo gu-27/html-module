@@ -43,8 +43,14 @@
 <tr><th>Section</th><th>Jump id</th><th>Channel link</th><th>Embed link (goes in the video's <code>src</code>)</th></tr>
 <tr><td>Body</td><td><code>huberman</code></td><td><code>https://www.youtube.com/@hubermanlab</code></td><td><code>https://www.youtube.com/embed/pq6WHJzOkno</code></td></tr>
 <tr><td>Craft</td><td><code>fridman</code></td><td><code>https://www.youtube.com/@lexfridman</code></td><td><code>https://www.youtube.com/embed/kFQUDCgMjRc</code></td></tr>
-</table></section><section class="block"><h2>Hosted vs borrowed</h2><p><strong>Hosted</strong> content is a file in your repo, like <code>gervais.jpg</code>. It stays put. It only changes when you change it.</p>
-<p><strong>Borrowed</strong> content comes from someone else's site every time your page loads: a linked image, a YouTube video, a map. It's quick to add, but the other site is in charge. If they move, change or delete it, your page changes too. Companies do this all the time, and they check their pages for exactly that reason.</p></section><section class="block"><h2>How embedding works</h2><ul>
+</table></section><section class="block"><h2>Owned, linked, embedded, built</h2><p>Everything on a web page gets there one of four ways. The question to ask each time is <strong>who controls it?</strong></p>
+<ul>
+<li><strong>Owned</strong> (you control it): a file in your repo, like <code>fridman.jpg</code>. It only changes when you change it.</li>
+<li><strong>Linked</strong> (they control it): a file on someone else's site, pointed to by its full <code>https://</code> address. If they move or delete it, it breaks on your page.</li>
+<li><strong>Embedded</strong> (they control it): a live window into another service, like YouTube, a Google Map or a Tableau dashboard. It runs on their end, and your page is never in the middle.</li>
+<li><strong>Built</strong> (you control it): code in your page that does something, like the dark mode button.</li>
+</ul>
+<p>Embeds come in three kinds: <strong>static</strong> (it just shows something), <strong>interactive</strong> (your clicks change your own view and nothing is saved, like filtering a dashboard) and <strong>two-way</strong> (you send information and they keep it, like a form). Responses to an embedded Google Form are stored by Google, not on your site.</p></section><section class="block"><h2>How embedding works</h2><ul>
 <li><code>&lt;img src="..."&gt;</code> puts a <strong>picture</strong> on the page. The <code>src</code> can be a file in your repo (<code>gervais.jpg</code>) or a full web address (<code>https://.../photo.jpg</code>).</li>
 <li><code>&lt;iframe src="..."&gt;</code> puts a <strong>whole other web page</strong> inside yours, in a box. That's how YouTube videos, Google Maps, Google Forms and Tableau dashboards show up on other sites. You almost never write an iframe by hand. The other site gives you the code and you paste it.</li>
 </ul></section><section class="block"><h2>How the jump links work</h2><p>The Mind image is wrapped in a link that points to an id:</p>
