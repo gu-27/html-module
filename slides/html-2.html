@@ -208,6 +208,19 @@ p { margin: 0; }
 .jsec.flash .vid { box-shadow: 0 0 0 6px var(--orange); }
 .vid { height: 200px; border-radius: 14px; background: var(--graphite); color: var(--paper); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; transition: box-shadow .3s; }
 .jtop { flex: none; width: 100%; padding: 16px 0; background: var(--paper); }
+
+.card .num { font-size: 22px; font-weight: 800; color: var(--soft); margin-bottom: 8px; }
+.card.you .num { color: var(--black); }
+.mini-steps { margin: 6px 0 0; padding-left: 30px; font-size: 27px; line-height: 1.45; color: var(--muted); font-weight: 500; }
+.mini-steps li { margin: 6px 0; }
+.mini-steps b { color: var(--black); }
+#s-code .note, #s-recap .note { font-size: 26px; padding: 14px 20px; }
+#s-recap .anat { grid-template-columns: 1.55fr 1fr; gap: 30px; }
+#s-recap .anat .code { font-size: 20px; line-height: 1.5; padding: 18px 22px; }
+#s-recap .note, #s-code .note { font-size: 23px; padding: 10px 16px; line-height: 1.3; }
+#s-recap .notes, #s-code .notes { gap: 10px; }
+#s-code .anat .code { font-size: 17px !important; line-height: 1.38 !important; padding: 16px 20px; }
+#ed2 { font-size: 17px !important; line-height: 1.4 !important; }
 </style>
 </head>
 <body>
@@ -220,6 +233,81 @@ p { margin: 0; }
     <p class="lead">Your files, other people's files, live windows into other services, and a little code that makes the page do something.</p>
   </div>
 </section>
+
+<!-- ============ RECAP OF HTML-1 ============ -->
+<section class="slide dark" data-sec="Recap">
+  <div style="margin:auto 0">
+    <h2 class="t xl" style="max-width:14ch">Last class, <span class="lite">in four slides.</span></h2>
+    <p class="lead">What you should walk away from HTML-1 knowing, before we build on it.</p>
+  </div>
+</section>
+
+<section class="slide b" data-sec="Recap · how a page reaches you">
+  <h2 class="t">How a page reaches you</h2>
+  <div class="cards">
+    <div class="card fill" data-step><div class="num">1</div><h3>You type an address</h3><p>like <span class="mono" style="color:var(--black)">you.github.io/bmis235-html-1</span></p></div>
+    <div class="card fill" data-step><div class="num">2</div><h3>Your browser asks</h3><p>a server on GitHub for the files</p></div>
+    <div class="card fill" data-step><div class="num">3</div><h3>The files come back</h3><p><span class="mono" style="color:var(--black)">index.html</span>, images, styles</p></div>
+    <div class="card you" data-step><div class="num">4</div><h3>Your browser draws it</h3><p>reading the tags, top to bottom</p></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="Recap · Hello World, tag by tag" id="s-recap">
+  <h2 class="t" style="margin-bottom:22px">Hello World, tag by tag</h2>
+  <div class="anat">
+<div class="code"><span class="part" data-p="1">&lt;<span class="k">head</span>&gt;
+  &lt;<span class="k">title</span>&gt;Hello World&lt;/<span class="k">title</span>&gt;</span>
+  <span class="part" data-p="6">&lt;<span class="k">style</span>&gt;
+    body { background: navy; color: white; }
+  &lt;/<span class="k">style</span>&gt;</span>
+&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">body</span>&gt;
+  <span class="part" data-p="2">&lt;<span class="k">h1</span>&gt;Hello World!&lt;/<span class="k">h1</span>&gt;</span>
+  <span class="part" data-p="3">&lt;<span class="k">p</span>&gt;Welcome to &lt;<span class="k">strong</span>&gt;Earth&lt;/<span class="k">strong</span>&gt;, an &lt;<span class="k">em</span>&gt;ocean&lt;/<span class="k">em</span>&gt; planet.&lt;/<span class="k">p</span>&gt;</span>
+  <span class="part" data-p="4">&lt;<span class="k">ul</span>&gt;
+    &lt;<span class="k">li</span>&gt;Third planet&lt;/<span class="k">li</span>&gt;
+    &lt;<span class="k">li</span>&gt;71% water&lt;/<span class="k">li</span>&gt;
+  &lt;/<span class="k">ul</span>&gt;</span>
+  <span class="part" data-p="5">&lt;<span class="k">img</span> <span class="a">src=</span>"earth.jpg" <span class="a">alt=</span>"Earth"&gt;</span>
+&lt;/<span class="k">body</span>&gt;</div>
+    <div class="notes">
+      <div class="note" data-n="1"><b>title</b> lives in the head and names the browser tab</div>
+      <div class="note" data-n="2"><b>h1</b> is the biggest heading. Open it, write, close it with <b>/</b>.</div>
+      <div class="note" data-n="3"><b>p</b> is a paragraph. <b>strong</b> is bold, <b>em</b> is italic.</div>
+      <div class="note" data-n="4"><b>ul</b> holds the list. Every item gets its own <b>li</b>.</div>
+      <div class="note" data-n="5"><b>img</b> needs no closing tag. <b>src</b> is the file, <b>alt</b> describes it.</div>
+      <div class="note" data-n="6"><b>style</b> sets background and font colors for the whole page</div>
+    </div>
+  </div>
+  <p class="where">Press → to walk through each part</p>
+</section>
+
+<section class="slide b" data-sec="Recap · color lives in code">
+  <h2 class="t">Color lives in code, <span class="lite">in two places</span></h2>
+  <div class="cards" style="grid-template-columns:1fr 1fr; grid-auto-flow:row">
+    <div class="card fill" data-step><h3>A style block, at the top</h3><p style="margin-bottom:16px">Changes the <b style="color:var(--black)">whole page</b>.</p>
+      <div class="code" style="font-size:24px;padding:16px 20px">&lt;<span class="k">style</span>&gt;
+  body { background: <span class="hl">navy</span>;
+         color: <span class="hl">white</span>; }
+&lt;/<span class="k">style</span>&gt;</div></div>
+    <div class="card fill" data-step><h3>Inline, on one tag</h3><p style="margin-bottom:16px">Changes <b style="color:var(--black)">only that tag</b>.</p>
+      <div class="code" style="font-size:24px;padding:16px 20px">&lt;<span class="k">h1</span> style="color: <span class="hl">gold</span>;"&gt;
+  Hello World!
+&lt;/<span class="k">h1</span>&gt;</div></div>
+  </div>
+  <p class="lead" data-step style="margin-top:30px;font-size:28px">When both set a color, the one closest to the tag wins. In HTML-3 you'll add a third place: one file for the whole site.</p>
+</section>
+
+<section class="slide" data-sec="Recap · the loop">
+  <h2 class="t">And the loop <span class="lite">you'll keep repeating</span></h2>
+  <div class="cards">
+    <div class="card" data-step><div class="num">1</div><h3>Edit</h3><p>Pencil icon, change one thing.</p></div>
+    <div class="card you" data-step><div class="num">2</div><h3>Commit</h3><p>Look at the change, give it a clear label.</p></div>
+    <div class="card" data-step><div class="num">3</div><h3>Wait, refresh</h3><p>About a minute, then hard-refresh.</p></div>
+    <div class="card you" data-step><div class="num">4</div><h3>Check it</h3><p>Does it look right? If not, that's your next change.</p></div>
+  </div>
+</section>
+
 
 <section class="slide b" data-sec="Where we are">
   <h2 class="t">Last time you wrote the page. <span class="lite">This time you fill it.</span></h2>
@@ -331,29 +419,77 @@ p { margin: 0; }
 <section class="slide" data-sec="Built: code that does something" data-interactive>
   <h2 class="t" style="margin-bottom:22px">Built: a few lines that make the page do something</h2>
   <div class="live">
-    <div class="pane"><div class="label">The script · change the two colors</div>
-<textarea id="ed2" spellcheck="false" aria-label="Editable dark mode script">&lt;button onclick="toggleDark()"&gt;
-  Dark mode on / off
-&lt;/button&gt;
+    <div class="pane"><div class="label">The script · try changing the two colors</div>
+<textarea id="ed2" spellcheck="false" aria-label="Editable dark mode script">&lt;script&gt;
+  // 1. Your two colors. Change these.
+  var lightColor = "#f2f2f2";
+  var darkColor  = "#222222";
 
-&lt;script&gt;
-  // change these two colors
-  var lightBackground = "lightgray";
-  var darkBackground = "#333333";
-
+  // 2. Which mode the page is in
   var dark = false;
+
+  // 3. Page one color, block the other
+  function paint() {
+    var pageColor  = dark ? darkColor  : lightColor;
+    var blockColor = dark ? lightColor : darkColor;
+    document.body.style.backgroundColor = pageColor;
+    document.body.style.color = dark ? "white" : "black";
+    var block = document.getElementById("embed-block");
+    block.style.backgroundColor = blockColor;
+    block.style.color = dark ? "black" : "white";
+  }
+
+  // 4. On click: flip, then repaint
   function toggleDark() {
     dark = !dark;
-    document.body.style.backgroundColor =
-      dark ? darkBackground : lightBackground;
-    document.body.style.color =
-      dark ? "white" : "black";
+    paint();
   }
+
+  // 5. Paint once when the page loads
+  paint();
 &lt;/script&gt;</textarea></div>
     <div class="pane"><div class="label"><span class="dot"></span> Click the button</div><iframe id="pv2" title="Dark mode preview"></iframe></div>
   </div>
   <p class="where">It runs in the visitor's browser and follows rules you wrote. Nothing leaves the page.</p>
 </section>
+
+<section class="slide b" data-sec="The dark mode code, line by line" id="s-code">
+  <h2 class="t" style="margin-bottom:22px">The dark mode code, <span class="lite">line by line</span></h2>
+  <div class="anat" style="grid-template-columns: 1.3fr 1fr">
+<div class="code" style="font-size:21px;line-height:1.5"><span class="part" data-p="1"><span class="a">// 1. Your two colors</span>
+var lightColor = "#f2f2f2";
+var darkColor  = "#222222";</span>
+
+<span class="part" data-p="2"><span class="a">// 2. Which mode we're in</span>
+var dark = false;</span>
+
+<span class="part" data-p="3"><span class="a">// 3. Page one color, block the other</span>
+function paint() {
+  var pageColor  = dark ? darkColor  : lightColor;
+  var blockColor = dark ? lightColor : darkColor;
+  document.body.style.backgroundColor = pageColor;
+  <span class="a">…the block gets blockColor</span>
+}</span>
+
+<span class="part" data-p="4"><span class="a">// 4. On click: flip, then repaint</span>
+function toggleDark() {
+  dark = !dark;
+  paint();
+}</span>
+
+<span class="part" data-p="5"><span class="a">// 5. Paint once at the start</span>
+paint();</span></div>
+    <div class="notes">
+      <div class="note" data-n="1"><b>var</b> makes a labeled box that holds a value. These two are the only lines you change.</div>
+      <div class="note" data-n="2"><b>dark</b> remembers the mode: <b>false</b> is light, <b>true</b> is dark.</div>
+      <div class="note" data-n="3"><b>a ? b : c</b> means "if a, use b, otherwise c". The block always gets the opposite color.</div>
+      <div class="note" data-n="4"><b>!dark</b> means "not dark", so each click flips it. Then it repaints.</div>
+      <div class="note" data-n="5">A <b>function</b> only runs when called. This line calls it once, so the page starts colored.</div>
+    </div>
+  </div>
+  <p class="where">Press → to walk through each part · the button's onclick="toggleDark()" is what calls part 4</p>
+</section>
+
 
 <section class="slide b" data-sec="Looking ahead">
   <h2 class="t">Your rules, or an AI's answer</h2>
@@ -366,13 +502,25 @@ p { margin: 0; }
 
 <!-- ============ THE ASSIGNMENT ============ -->
 <section class="slide" data-sec="HTML-2: Mind, Body, Craft">
-  <h2 class="t">Mind, Body, Craft: <span class="lite">one section per tier</span></h2>
+  <h2 class="t">HTML-2: <span class="lite">one thing to fix in each place</span></h2>
   <div class="cards">
-    <div class="card" data-step><h3>Mind</h3><p style="margin-bottom:14px">Done for you. Copy its pattern.</p><p class="ex">Owned image · YouTube embed · jump link</p></div>
-    <div class="card" data-step><h3>Body</h3><p style="margin-bottom:14px">Add a linked image. Fix its video, title and id.</p><p class="ex">Linked · embedded</p></div>
-    <div class="card" data-step><h3>Craft</h3><p style="margin-bottom:14px">Add <span class="mono" style="color:var(--black)">fridman.jpg</span>. Fix its video. Add one business embed.</p><p class="ex">Owned · embedded · map, form or dashboard</p></div>
-    <div class="card you" data-step><h3>Dark mode</h3><p style="margin-bottom:14px">Change the two colors to your own.</p><p class="ex" style="color:var(--black)">Built</p></div>
+    <div class="card" data-step><h3>Mind</h3><p style="margin-bottom:14px">Works. It's your model.</p><p class="ex">Compare everything to it</p></div>
+    <div class="card" data-step><h3>Body</h3><p style="margin-bottom:14px">The picture is broken, and it doesn't jump to its video.</p><p class="ex">Match the file name · match the #name to the id</p></div>
+    <div class="card" data-step><h3>Craft</h3><p style="margin-bottom:14px">The video won't play.</p><p class="ex">watch?v= vs /embed/</p></div>
+    <div class="card you" data-step><h3>Bottom block</h3><p style="margin-bottom:14px">Empty. Paste in a map or a chart.</p><p class="ex" style="color:var(--black)">Embedded · interactive</p></div>
   </div>
+  <p class="lead" data-step style="margin-top:30px;font-size:28px">Then make it yours: your two dark mode colors and your name in the tab title.</p>
+</section>
+
+<section class="slide b" data-sec="Your embed block">
+  <h2 class="t">Your embed block: <span class="lite">pick one</span></h2>
+  <div class="cards" style="grid-template-columns:1fr 1fr; grid-auto-flow:row">
+    <div class="card fill" data-step><h3>A Google Map</h3>
+      <ol class="mini-steps"><li>Search a place on <b>maps.google.com</b></li><li><b>Share</b> → <b>Embed a map</b></li><li><b>Copy HTML</b></li></ol></div>
+    <div class="card fill" data-step><h3>An Our World in Data chart</h3>
+      <ol class="mini-steps"><li>Open any chart on <b>ourworldindata.org</b></li><li><b>Share</b> → <b>Embed</b></li><li>Copy the <b>archived</b> one: it never changes</li></ol></div>
+  </div>
+  <div class="card you" data-step style="margin-top:26px"><p style="font-size:30px">Paste the whole thing, from <span class="mono">&lt;iframe</span> to <span class="mono">&lt;/iframe&gt;</span>, on the empty line in the block. Then press the dark mode button and watch the block flip.</p></div>
 </section>
 
 <section class="slide b" data-sec="Get HTML-2">
@@ -384,17 +532,17 @@ p { margin: 0; }
       <li><span class="ui">Settings</span> → <span class="ui">Pages</span> → <b>main</b> / <b>root</b> → <span class="ui">Save</span></li>
       <li>Open <span class="mono">YOUR-USERNAME.github.io/bmis235-html-2/</span></li>
     </ul>
-    <div class="check"><span class="dot"></span>You should see the Mind section working and "IMAGE GOES HERE" in Body and Craft.</div>
+    <div class="check"><span class="dot"></span>You should see Mind working, and a broken picture under Body.</div>
   </div></div>
 </section>
 
 <section class="slide" data-sec="When you're stuck">
   <h2 class="t">HTML-2's usual suspects</h2>
   <ol class="stuck">
-    <li data-step><span><b>"Video unavailable"?</b> The owner blocked embedding. Pick another video.</span></li>
-    <li data-step><span><b>A Shorts link?</b> Change <span class="mono" style="font-size:32px">/shorts/ABC</span> to <span class="mono" style="font-size:32px">/embed/ABC</span>.</span></li>
-    <li data-step><span><b>Image jumps nowhere?</b> The <span class="mono" style="font-size:32px">#name</span> and the <span class="mono" style="font-size:32px">id</span> must match exactly.</span></li>
-    <li data-step><span><b>Broken image?</b> Check the file name, or open the linked address on its own.</span></li>
+    <li data-step><span><b>Broken picture?</b> Compare the <span class="mono" style="font-size:32px">src</span> to the file name, letter by letter. Capitals count.</span></li>
+    <li data-step><span><b>Click jumps nowhere?</b> The <span class="mono" style="font-size:32px">#name</span> must match the <span class="mono" style="font-size:32px">id</span> exactly.</span></li>
+    <li data-step><span><b>"Refused to connect"?</b> Use <span class="mono" style="font-size:32px">/embed/ABC</span>, not <span class="mono" style="font-size:32px">watch?v=ABC</span>.</span></li>
+    <li data-step><span><b>Embed block still empty?</b> Paste the whole code, <span class="mono" style="font-size:32px">&lt;iframe</span> to <span class="mono" style="font-size:32px">&lt;/iframe&gt;</span>.</span></li>
     <li data-step><span><b>Still stuck?</b> "I expected ___, but I see ___." Search that.</span></li>
   </ol>
 </section>
@@ -513,7 +661,7 @@ jump.addEventListener("click", e => {
   jump.querySelectorAll(".jsec").forEach(x => x.classList.toggle("flash", x === t));
 });
 const ed2 = document.getElementById("ed2"), pv2 = document.getElementById("pv2");
-const base2 = `<style>html{font-family:Manrope,system-ui,sans-serif;font-size:28px;padding:20px 28px}button{font:800 28px Manrope,system-ui,sans-serif;padding:16px 26px;border:3px solid #141413;border-radius:14px;background:#D97757;cursor:pointer}</style><body style="background:lightgray"><h1 style="font-size:56px;letter-spacing:-.03em;margin:0 0 16px">My Podcasts</h1><p>Click the button to switch modes.</p>`;
+const base2 = `<style>html,body{margin:0}body{font-family:Manrope,system-ui,sans-serif;font-size:26px}main{padding:18px 26px}button{font:800 26px Manrope,system-ui,sans-serif;padding:14px 22px;border:3px solid #141413;border-radius:14px;background:#D97757;cursor:pointer}#embed-block{padding:24px 26px;margin-top:10px}</style><main><button onclick="toggleDark()">Dark mode on / off</button><h1 style="font-size:50px;letter-spacing:-.03em;margin:16px 0 8px">My Podcasts</h1><p>Mind, Body, Craft…</p></main><section id="embed-block"><b style="font-size:30px">My embed</b><p style="margin:6px 0 0">Always the opposite color.</p></section>`;
 const draw2 = () => { pv2.srcdoc = base2 + ed2.value; };
 ed2.addEventListener("input", draw2); draw2();
 
@@ -521,7 +669,9 @@ ed2.addEventListener("input", draw2); draw2();
 const custom = {
   "s-embed": { count: 3, set(k) { document.querySelectorAll("#embeddiag .node, #embeddiag .edge").forEach(g => g.classList.toggle("off", +g.dataset.n > k)); } },
   "s-data":  { count: 3, set(k) { document.querySelectorAll("#datadiag .node, #datadiag .edge").forEach(g => g.classList.toggle("off", +g.dataset.n > k)); } },
-  "s-owned": { count: 0, set() {} }
+  "s-owned": { count: 0, set() {} },
+  "s-recap": { count: 6, set(k) { const sl = document.getElementById("s-recap"); sl.querySelectorAll(".part").forEach(p => p.classList.toggle("lit", +p.dataset.p === k)); sl.querySelectorAll(".note").forEach(n => n.classList.toggle("lit", +n.dataset.n === k)); } },
+  "s-code":  { count: 5, set(k) { const sl = document.getElementById("s-code"); sl.querySelectorAll(".part").forEach(p => p.classList.toggle("lit", +p.dataset.p === k)); sl.querySelectorAll(".note").forEach(n => n.classList.toggle("lit", +n.dataset.n === k)); } }
 };
 const slides = [...document.querySelectorAll(".slide")];
 function stepsOf(sl) { return custom[sl.id] ? custom[sl.id].count : sl.querySelectorAll("[data-step]").length; }
