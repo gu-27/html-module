@@ -746,5 +746,94 @@ addEventListener("hashchange", () => { const n = (parseInt(location.hash.slice(1
 fit(); show(start, location.hash ? "end" : 0);
 
 </script>
+<!-- ===== Slide picker: click the counter (bottom right) to jump to any slide,
+     or type a slide number and press Enter ===== -->
+<style>
+#slidepick { font: 700 15px "Manrope", "Inter", system-ui, sans-serif; color: #141413; background: #FAF9F6;
+  border: 2px solid #141413; border-radius: 999px; padding: 7px 30px 7px 14px; max-width: 240px; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #141413 50%), linear-gradient(135deg, #141413 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+#slidepick:focus-visible { outline: 3px solid #D97757; outline-offset: 2px; }
+#jumpWrap { position: fixed; right: 18px; bottom: 14px; z-index: 50; display: flex; gap: 8px; align-items: center; }
+#jumpHint { font: 700 14px system-ui, sans-serif; color: #fff; background: #141413; border-radius: 8px; padding: 6px 10px; display: none; }
+@media print { #jumpWrap { display: none; } }
+</style>
+<script>
+(function () {
+  var slides = [].slice.call(document.querySelectorAll(".slide"));
+  if (!slides.length) return;
+  var counter = document.getElementById("count") || document.getElementById("counter");
+  var navBox = counter && counter.closest("#nav") ? counter.closest("#nav") : null;
+
+  // build the picker from each slide's heading
+  var sel = document.createElement("select");
+  sel.id = "slidepick";
+  sel.setAttribute("aria-label", "Jump to slide");
+  slides.forEach(function (s, k) {
+    var h = s.querySelector("h1, h2, .k");
+    var t = (h ? h.textContent : (s.getAttribute("data-sec") || "")).replace(/\s+/g, " ").trim();
+    if (t.length > 44) t = t.slice(0, 42) + "…";
+    var o = document.createElement("option");
+    o.value = k;
+    o.textContent = (k + 1) + " / " + slides.length + " · " + t;
+    sel.appendChild(o);
+  });
+  var hint = document.createElement("span");
+  hint.id = "jumpHint";
+
+  if (navBox) {
+    counter.style.display = "none";
+    navBox.insertBefore(sel, counter);
+    navBox.insertBefore(hint, sel);
+  } else {
+    var wrap = document.createElement("div");
+    wrap.id = "jumpWrap";
+    wrap.appendChild(hint);
+    wrap.appendChild(sel);
+    document.body.appendChild(wrap);
+    if (counter) counter.style.visibility = "hidden";
+  }
+
+  function current() {
+    var on = slides.findIndex(function (s) { return s.classList.contains("on"); });
+    return on < 0 ? 0 : on;
+  }
+  function go(n) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    if (typeof show === "function") show(n, "end");
+    sync();
+  }
+  function sync() { sel.value = String(current()); }
+
+  sel.addEventListener("change", function () { go(+sel.value); sel.blur(); });
+  ["click", "mousedown", "pointerdown"].forEach(function (ev) {
+    sel.addEventListener(ev, function (e) { e.stopPropagation(); });
+  });
+
+  // keep the picker in step with arrow keys and buttons
+  new MutationObserver(sync).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
+  sync();
+
+  // type a number, press Enter
+  var buf = "", timer;
+  window.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if (t && t.closest && t.closest("textarea, input")) return;
+    if (t === sel) { e.stopPropagation(); return; }
+    if (/^[0-9]$/.test(e.key)) {
+      buf += e.key; hint.textContent = "Go to " + buf; hint.style.display = "inline-block";
+      clearTimeout(timer); timer = setTimeout(function () { buf = ""; hint.style.display = "none"; }, 2500);
+      e.preventDefault(); e.stopImmediatePropagation();
+    } else if (e.key === "Enter" && buf) {
+      go(parseInt(buf, 10) - 1); buf = ""; hint.style.display = "none";
+      e.preventDefault(); e.stopImmediatePropagation();
+    } else if (e.key === "Escape" && buf) {
+      buf = ""; hint.style.display = "none";
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
