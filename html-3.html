@@ -13,67 +13,205 @@
   <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html" class="on">HTML-3</a><a href="html-4.html">Final</a></nav>
 </div></div>
 <main class="wrap">
+
 <div class="hero">
 <p class="kicker">HTML-3</p>
 <h1>Links + CSS: Your Own Site</h1>
-<p class="lede">Build your first multi-page site on your own idea. The pages link to each other, and one stylesheet controls all of them.</p>
-<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: your bmis235-html-3 repo</span><span class="pill">Pencil editor, no AI</span></div>
+<p class="lede">Turn a four-page template into your own site: your page names, your menu images, your brand. The pages link to each other, and one stylesheet controls all of them.</p>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Repo: bmis235-html-3</span><span class="pill">Pencil editor + Excel</span></div>
 <p><a class="btn ghost" href="slides/html-3.html">Class slides</a></p>
-</div><section class="block"><h2>Get this assignment</h2><ol>
+</div>
+
+<section class="block"><h2>Read this first</h2>
+<p>This page is long on purpose. Every step has two parts:</p>
+<ul>
+<li><strong>What to do.</strong> The numbered steps.</li>
+<li class="why-item"><strong>What's happening.</strong> The short gray note under the step. It tells you <em>why</em> the step works.</li>
+</ul>
+<p>Read the gray notes. Almost every question students ask on this assignment is answered in one of them. If something breaks, come back here and reread the step before you search anywhere else.</p>
+</section>
+
+<section class="block"><h2>Get this assignment</h2><ol>
 <li>Click the button, then <strong>Create a new repository</strong>.
   <p><a class="btn" href="https://github.com/gu-27/bmis235-html-3/generate">Use this template</a></p>
   <p><em>Button shows a 404?</em> This assignment hasn't been released yet.</p></li>
 <li>Repository name: <code>bmis235-html-3</code> (exactly this). Set it to <strong>Public</strong>.</li>
 <li>In your new repo, go to <strong>Settings → Pages</strong>. Under <em>Build and deployment</em>, choose <strong>Deploy from a branch</strong>, pick <strong>main</strong> and <strong>/ (root)</strong>, then click <strong>Save</strong>.</li>
-<li>After 1–2 minutes, open <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code>. You'll see a four-page site with a blue menu.</li>
+<li>After 1–2 minutes, open <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code>. You'll see a four-page site with a blue menu of gray buttons.</li>
 </ol>
-<p><strong>Starter files in your repo:</strong> <code>index.html</code>, <code>page2.html</code>, <code>page3.html</code>, <code>page4.html</code>, <code>styles.css</code>, <code>README.md</code></p>
-<div class="callout warn"><p><strong>Seeing a 404 on your live link?</strong> Wait up to 5 minutes. Settings → Pages says <em>Your site is live</em> when it's ready.</p></div></section><section class="block"><h2>Before and After</h2><div class="ba">
-<figure><a href="img/html-3-before.png" target="_blank"><img src="img/html-3-before.png" alt="The starter site: the styled home page with a blue menu next to the plain, unstyled page 4"></a><figcaption>What you start with</figcaption></figure>
-<figure><a href="img/html-3-after.png" target="_blank"><img src="img/html-3-after.png" alt="A finished site called Our House: the home page and one roommate's page, with a menu, an outside link and an email link"></a><figcaption>One possible finished page</figcaption></figure>
-</div></section><section class="block"><h2>Explore first</h2><ol>
-<li>Open your live site and click every menu link.</li>
-<li>One page looks different from the other three. Which one, and how?</li>
-<li>Open that page's code and another page's code. Compare the <code>&lt;head&gt;</code> sections line by line. What's missing?</li>
-</ol>
-<p>That missing line is your first fix. The rest of the assignment is turning the template into your own site.</p></section><section class="block"><h2>Three ways to add CSS</h2><ul>
-<li><strong>External:</strong> one <code>.css</code> file that every page links to. Change it once, every page changes. That's <code>styles.css</code> here.</li>
-<li><strong>Internal:</strong> a <code>&lt;style&gt;</code> block at the top of one page. Overrides the external file for that page. You used this in HTML-1 and HTML-2.</li>
-<li><strong>Inline:</strong> a <code>style="..."</code> on one tag. Overrides both.</li>
+<p><strong>Starter files in your repo:</strong></p>
+<ul>
+<li><code>index.html</code> is your home page. Keep this name.</li>
+<li><code>page1.html</code>, <code>page2.html</code>, <code>page3.html</code> are your three other pages. You'll rename them.</li>
+<li><code>styles.css</code> is your brand. One file that styles every page linked to it.</li>
+<li><code>img/</code> holds the four menu images. You'll replace them with your own.</li>
 </ul>
-<p>The one line that connects a page to the external file:</p>
-<pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre></section><section class="block"><h2>Plan your site</h2><p>Pick an idea with four natural parts. One page per roommate. One page per player on a team. A home page plus three products. A trip with three stops.</p>
-<p><strong>Write the four page names on paper first</strong>, and the file name for each one (lowercase, no spaces, ending in <code>.html</code>). Then build. Deciding before you type is the habit that saves the most time in this whole module.</p></section><section class="block"><h2>What to do</h2><ul class="tasks"><li><span>Fix <code>page4.html</code> so it uses <code>styles.css</code> like the other pages.</span><span class="pts">1 pt</span></li><li><span>Turn the template into your own idea: menu labels, headings and real content on all four pages.</span><span class="pts">3 pts</span></li><li><span>Rename at least one page file (for example <code>page2.html</code> → <code>alex.html</code>) and update the menu on <strong>all four pages</strong> so every link still works.</span><span class="pts">2 pts</span></li><li><span>Add one link to an outside website and one email link (<code>mailto:</code>).</span><span class="pts">1 pt</span></li><li><span>Add 3 new styles to <code>styles.css</code>. Commit each one separately with a message that says what it does. List them in Canvas.</span><span class="pts">2 pts</span></li><li><span>Submit a working GitHub Pages link.</span><span class="pts">1 pt</span></li></ul></section><section class="block"><h2>Steps</h2><ol>
-<li>Do <strong>Explore first</strong> above, then fix <code>page4.html</code>. Commit.</li>
-<li>Plan your four pages on paper.</li>
-<li>Change the menu labels, headings and content on all four pages. Commit after each page.</li>
-<li>Rename a page file, then fix its link in the menu on all four pages. Check every menu link live. Commit.</li>
-<li>Add an outside link and an email link somewhere that makes sense. Commit.</li>
-<li>Add 3 new styles to <code>styles.css</code>, one commit each.</li>
-</ol></section><section class="block"><h2>Hints</h2><ul>
-<li><strong>Renaming a file:</strong> open it, click the pencil, and change the name in the box above the code. Commit. The file is renamed, but every link that pointed to the old name is now broken until you fix it.</li>
-<li><strong>A menu link must match the file name exactly.</strong> <code>href="alex.html"</code> only works if the file is called <code>alex.html</code>, not <code>Alex.html</code>.</li>
-<li><strong>Email link:</strong> <code>&lt;a href="mailto:you@zagmail.gonzaga.edu"&gt;Email me&lt;/a&gt;</code></li>
-<li><strong>Outside link:</strong> <code>&lt;a href="https://www.gonzaga.edu"&gt;Gonzaga&lt;/a&gt;</code>. Include the <code>https://</code>.</li>
-<li><strong>Style ideas:</strong> a different font, link hover colors, a new background color, heading sizes, spacing around paragraphs, rounded corners on the menu. W3Schools CSS has examples for each.</li>
-<li><strong>Your live link shows a 404?</strong> A folder only loads if it has a file called <code>index.html</code>. Keep that name for your home page.</li>
-</ul></section><section class="block"><h2>Make it yours</h2><ul>
+<div class="callout warn"><p><strong>Seeing a 404 on your live link?</strong> Wait up to 5 minutes. Settings → Pages says <em>Your site is live</em> when it's ready.</p></div>
+</section>
+
+<section class="block"><h2>Before and After</h2><div class="ba">
+<figure><a href="img/html-3-before.png" target="_blank"><img src="img/html-3-before.png" alt="The starter site: a blue menu of four gray buttons labeled Home, Page 1, Page 2 and Page 3"></a><figcaption>What you start with</figcaption></figure>
+<figure><a href="img/html-3-after.png" target="_blank"><img src="img/html-3-after.png" alt="A finished site called Our House with a green menu of matching buttons: Home, Susie, Alex and Jordan"></a><figcaption>One possible finished site</figcaption></figure>
+</div>
+<p>Notice what changed: the page names, the menu images, the colors and the font all match. That's one brand, set in two places: your Excel images and your <code>styles.css</code>.</p>
+</section>
+
+<section class="block"><h2>Part 1 · Explore, then fix the plain page</h2><ol>
+<li>Open your live site and click every menu button.</li>
+<li>One page looks different from the other three. Which one, and how?</li>
+<li>Open that page's code and another page's code. Compare the <code>&lt;head&gt;</code> sections line by line until you find what's missing.</li>
+<li>Add the missing line to the plain page. Commit with a message like <em>Connect page3 to styles.css</em>.</li>
+</ol>
+<p class="why">What's happening: a page only uses <code>styles.css</code> if its <code>&lt;head&gt;</code> has this one line: <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>. No line, no styles. The browser shows the bare HTML with its built-in defaults. The <code>&lt;head&gt;</code> holds instructions for the browser that you never see on the page; the <code>&lt;body&gt;</code> holds what you do see.</p>
+</section>
+
+<section class="block"><h2>Part 2 · Plan on paper</h2><ol>
+<li>Pick an idea with a home page plus three parts. One page per roommate. One page per teammate. A home page plus three products. A trip with three stops.</li>
+<li>On paper, write the four menu labels (for example <em>Home, Susie, Alex, Jordan</em>).</li>
+<li>Next to each label, write its file name and its image name. Lowercase, no spaces:
+<pre><code>Home    → index.html   → home.png
+Susie   → susie.html   → susie.png
+Alex    → alex.html    → alex.png
+Jordan  → jordan.html  → jordan.png</code></pre></li>
+<li>Pick your brand: one font, one main color, one accent color. Write them down too.</li>
+</ol>
+<p class="why">What's happening: every later step depends on these names matching exactly. Deciding them once, before you type, is the habit that saves the most time in this whole module. Notice the home page stays <code>index.html</code>: a web address with no file name at the end always loads <code>index.html</code>.</p>
+</section>
+
+<section class="block"><h2>Part 3 · Make your menu images in Excel</h2>
+<p>Your menu is four buttons. Each button is a picture of a cell in Excel. This is the step that takes the most care, so read all of it before you start.</p>
+<h3>Build the cells</h3>
+<ol>
+<li>Open a new, blank Excel workbook.</li>
+<li>Click cell <strong>B2</strong> and type your first label (<em>Home</em>). Type the other three labels in <strong>B4</strong>, <strong>B6</strong> and <strong>B8</strong>, leaving an empty row between each one.</li>
+<li>Make column B wide: <strong>Home → Format → Column Width</strong>, type <strong>20</strong>.</li>
+<li>Make rows 2, 4, 6 and 8 tall: select them, then <strong>Home → Format → Row Height</strong>, type <strong>40</strong>.</li>
+<li>Select all four label cells and set, all at once: your <strong>font</strong>, a <strong>font size</strong> around 16, <strong>bold</strong>, your <strong>font color</strong> and your <strong>fill color</strong>.</li>
+<li>With the four cells still selected, click <strong>Center</strong> and <strong>Middle Align</strong> (the Alignment group on the Home tab).</li>
+<li>Still selected, add a border: <strong>Borders → Thick Outside Borders</strong> (or All Borders). Pick the border color under <strong>Borders → Line Color</strong> first if you want one.</li>
+<li>Turn off the gray grid: <strong>View</strong> tab, uncheck <strong>Gridlines</strong>.</li>
+</ol>
+<p class="why">What's happening: your four images need to be the same size, or your menu looks crooked. The size of each image comes from the size of its cell, so every cell gets the same width and height. Setting the style on all four cells at once is the same idea as <code>styles.css</code>: one setting, applied everywhere, so nothing drifts. The empty rows keep the cells apart so you can capture one at a time. Gridlines off means no stray lines sneak into your pictures.</p>
+<h3>Capture each cell</h3>
+<ol>
+<li>Set Excel's zoom to <strong>100%</strong> (bottom right corner) and don't change it until all four are captured.</li>
+<li>Find out how to capture <strong>part of the screen</strong> on your computer. Search exactly that: <em>how to screenshot part of the screen on Mac</em> (or Windows). Learning to find this yourself is part of the assignment.</li>
+<li>Capture one cell by dragging from <strong>the outside corner of its border</strong> to <strong>the opposite outside corner</strong>. Include the whole border, nothing outside it.</li>
+<li>Save the capture as a <strong>.png</strong> with the image name from your plan: <code>home.png</code>, <code>susie.png</code>, and so on.</li>
+<li>Repeat for the other three cells.</li>
+</ol>
+<p class="why">What's happening: a screenshot is only as big as what's on screen. Change the zoom halfway and the next picture comes out bigger or smaller. Drag corner to corner on the border and every picture has the same edges. If one button still looks wider than the rest, recapture it; don't try to fix it in code.</p>
+<h3>Upload them</h3>
+<ol>
+<li>In your repo, click the <code>img</code> folder to open it.</li>
+<li><strong>Add file → Upload files</strong>, drag in your four images, and commit with a message like <em>Add menu images</em>.</li>
+<li>Optional: open each old starter image (<code>page1.png</code> and so on), click the <strong>…</strong> menu, and delete it. Commit.</li>
+</ol>
+<p class="why">What's happening: you opened <code>img</code> first so your images land inside it. If they end up in the main folder instead, the menu won't find them, because the menu looks for <code>img/susie.png</code>, meaning "go into img, then find susie.png." Uploading a file with the same name as one that's already there (like <code>home.png</code>) replaces the old one.</p>
+</section>
+
+<section class="block"><h2>Part 4 · Rename your pages and rebuild the menu</h2>
+<h3>Rename the files</h3>
+<ol>
+<li>Open <code>page1.html</code>, click the pencil, and change the file name in the box above the code to your name from Part 2 (<code>susie.html</code>). Commit.</li>
+<li>Do the same for <code>page2.html</code> and <code>page3.html</code>.</li>
+<li>Open your live site and click the menu. Some buttons now show a 404.</li>
+</ol>
+<p class="why">What's happening: the files have new names, but every menu still points to the old ones. A link is just an address. If nothing lives at that address anymore, you get a 404. That's expected. You'll fix it next.</p>
+<h3>Fix the menu on one page</h3>
+<p>Open <code>index.html</code> and find the <code>&lt;nav&gt;</code> block. Each line is one button:</p>
+<pre><code>&lt;a href="page1.html"&gt;&lt;img src="img/page1.png" alt="Page 1"&gt;&lt;/a&gt;</code></pre>
+<p>That line has three parts to change:</p>
+<ul>
+<li><code>href</code> is <strong>where the button goes</strong>. Change it to your page's file name: <code>susie.html</code>.</li>
+<li><code>src</code> is <strong>which picture shows</strong>. Change it to your image: <code>img/susie.png</code>.</li>
+<li><code>alt</code> is <strong>the words behind the picture</strong>. Change it to the label: <code>Susie</code>.</li>
+</ul>
+<ol>
+<li>Change all four lines of the menu on <code>index.html</code>. Commit.</li>
+<li>Wait a minute, open your live home page, and click every button. Every one must open the right page with the right picture.</li>
+<li>Not working? Fix <code>index.html</code> until it does. Don't move on with a broken menu.</li>
+</ol>
+<p class="why">What's happening: the <code>&lt;a&gt;</code> tag makes something clickable, and the <code>&lt;img&gt;</code> inside it is what you click. Any text or picture can be a link this way. A menu is nothing special; it's just links in a row. Names must match exactly, including capital letters: <code>Susie.png</code> and <code>susie.png</code> are two different files.</p>
+<h3>Copy the working menu everywhere</h3>
+<ol>
+<li>On <code>index.html</code>, select the whole menu, from <code>&lt;nav&gt;</code> through <code>&lt;/nav&gt;</code>, and copy it.</li>
+<li>Open each of your other three pages, select their old <code>&lt;nav&gt;</code> block the same way, and paste over it. Commit each page.</li>
+<li>Open your live site and click every button on every page.</li>
+</ol>
+<p class="why">What's happening: you build one menu, prove it works, and copy it. Now all four menus are identical, so if one works, they all work. Fixing four menus separately is four chances to make a typo. This is a <strong>system</strong>: get it right once, then repeat it exactly.</p>
+</section>
+
+<section class="block"><h2>Part 5 · Your content</h2><ol>
+<li>On each page, change the <code>&lt;title&gt;</code>, the <code>&lt;h1&gt;</code> heading and the paragraphs to fit your idea. Commit after each page.</li>
+<li>Somewhere that makes sense, add <strong>one link to an outside website</strong>: <code>&lt;a href="https://www.gonzaga.edu"&gt;Gonzaga&lt;/a&gt;</code>. Include the <code>https://</code>.</li>
+<li>And add <strong>one email link</strong>: <code>&lt;a href="mailto:you@zagmail.gonzaga.edu"&gt;Email me&lt;/a&gt;</code>. Commit.</li>
+<li>On your home page, leave the empty <code>&lt;div class="showcase"&gt;</code> where it is.</li>
+</ol>
+<p class="why">What's happening: you now have three kinds of links. Your menu links use just a file name, so the browser looks in your own folder. The outside link uses a full address that starts with <code>https://</code>, so it leaves your site. The email link uses <code>mailto:</code>, so it opens an email instead of a page. Same tag, different address.</p>
+</section>
+
+<section class="block"><h2>Part 6 · Your brand in styles.css</h2><ol>
+<li>Open <code>styles.css</code>. Change the font and colors to match the brand you chose in Part 2 and used in your Excel images.</li>
+<li>Add <strong>3 new styles</strong> of your own. Commit <strong>each one separately</strong> with a message that says what it does, for example <em>Rounded corners on the menu</em>.</li>
+<li>Open your live site and click through all four pages.</li>
+</ol>
+<p class="why">What's happening: you changed one file and every page changed with it. That's the whole point of an external stylesheet. It's a brand guide the browser actually follows: define it once, and every page that links to it stays consistent. If a rule seems to be ignored, check whether a page has its own <code>style="..."</code> or <code>&lt;style&gt;</code> block. Those sit closer to the tag, so they win.</p>
+<p><strong>Style ideas:</strong> a different font, link hover colors, a new background color, heading sizes, spacing around paragraphs, rounded corners on the menu (<code>border-radius</code>). W3Schools CSS has examples for each.</p>
+</section>
+
+<section class="block"><h2>Commit as you go</h2>
+<ul>
+<li>Commit after every step that works. Each commit is a saved version you can go back to.</li>
+<li>Write messages that say what changed: <em>Rename page1 to susie</em>, not <em>Update page1.html</em>.</li>
+<li>Your 3 styles must be <strong>3 separate commits</strong>. That's how your work is graded.</li>
+</ul>
+</section>
+
+<section class="block"><h2>Make it yours</h2><ul>
 <li>Fill in the <strong>author comment</strong> at the top of every file with your name and GU username.</li>
 <li>Fill in <code>&lt;meta name="author"&gt;</code> with your name.</li>
 <li>Fill in the <strong>footer</strong>: <em>Built by YOUR NAME · BMIS 235</em>.</li>
-<li>Make <strong>at least 3 commits</strong> with clear messages (not "Update index.html").</li>
-</ul><ul><li>Your idea, your page names, your three styles. Your commit messages are how we see what you added.</li></ul></section><section class="block"><h2>When you're stuck</h2><ol>
+<li>Fill in <code>README.md</code> with your name and your live link.</li>
+</ul></section>
+
+<section class="block"><h2>When you're stuck</h2><ol>
 <li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
 <li><strong>Pick one problem.</strong> Ignore the rest for now.</li>
+<li><strong>Reread the step.</strong> Especially the gray note.</li>
 <li><strong>Find the line.</strong> Which tag or file is it in?</li>
 <li><strong>Search your one sentence</strong> (W3Schools, Google, YouTube).</li>
 <li><strong>Change one thing,</strong> commit, check. Didn't work? Undo it and try the next idea.</li>
 </ol>
-<p>"Nothing works" can't be searched. "My image shows a broken icon" can.</p></section><section class="block"><h2>Submit</h2><ol>
+<h3>The usual suspects</h3>
+<ul>
+<li><strong>A page looks plain.</strong> Its <code>&lt;link&gt;</code> line is missing or misspelled.</li>
+<li><strong>A button shows a 404.</strong> Its <code>href</code> doesn't match the file name exactly.</li>
+<li><strong>A button shows a broken-image icon or its alt text.</strong> Its <code>src</code> doesn't match the image name exactly, or the image isn't inside <code>img</code>.</li>
+<li><strong>Buttons are different widths.</strong> Your Excel cells or captures are different sizes. Recapture.</li>
+<li><strong>Menu works on one page but not another.</strong> That page has an old copy of the menu. Paste the working one again.</li>
+<li><strong>You changed something but the site didn't.</strong> Wait 1–2 minutes, then hard refresh (search <em>hard refresh</em> for your browser).</li>
+</ul>
+<p>"Nothing works" can't be searched. "My menu button shows a broken image" can.</p>
+</section>
+
+<section class="block"><h2>Submit</h2><ol>
 <li>Wait 1–2 minutes after your last commit.</li>
-<li>Open your live link and click every menu link on every page: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code></li>
+<li>Open your live link and click every menu button on every page: <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/</code></li>
 <li>Paste that link into Canvas. In the Canvas text box, list the 3 styles you added.</li>
-</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>page4.html uses styles.css</td><td class='n'>1</td></tr><tr><td>Your own idea on all 4 pages (menu labels, headings, content)</td><td class='n'>3</td></tr><tr><td>At least one file renamed, menu works on all 4 pages</td><td class='n'>2</td></tr><tr><td>One outside link and one email link</td><td class='n'>1</td></tr><tr><td>3 new styles, each its own commit (listed in Canvas)</td><td class='n'>2</td></tr><tr><td>Working GitHub Pages link</td><td class='n'>1</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
+</ol></section>
+
+<section class="block"><h2>Rubric</h2><table class="rubric">
+<tr><th>Criteria</th><th style="text-align:right">Pts</th></tr>
+<tr><td>Plain page connected to <code>styles.css</code></td><td class="n">1</td></tr>
+<tr><td>Four menu images made in Excel: same size, your brand, named after their pages</td><td class="n">2</td></tr>
+<tr><td>Three pages renamed; the same working menu on all four pages</td><td class="n">2</td></tr>
+<tr><td>Your own idea on all four pages (titles, headings, content), with one outside link and one email link</td><td class="n">2</td></tr>
+<tr><td>Brand in <code>styles.css</code>: 3 new styles, each its own commit (listed in Canvas)</td><td class="n">2</td></tr>
+<tr><td>Working GitHub Pages link</td><td class="n">1</td></tr>
+<tr class="total"><td>Total</td><td class="n">10</td></tr>
+</table></section>
+
 <div class="next"><a class="btn ghost" href="html-2.html">&larr; HTML-2</a><a class="btn" href="html-4.html">Final &rarr;</a></div>
 </main>
 <div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>

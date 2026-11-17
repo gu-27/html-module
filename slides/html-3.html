@@ -196,8 +196,8 @@ p { margin: 0; }
 .folder li.new { background: var(--orange); }
 .win.site { position: relative; left: auto; top: auto; display: flex; flex-direction: column; height: 100%; }
 .snav { background: #2b5d8c; display: flex; justify-content: center; gap: 10px; padding: 14px; }
-.snav button { font: 800 22px Georgia, serif; color: #fff; background: transparent; border: 0; padding: 6px 12px; cursor: pointer; border-radius: 8px; }
-.snav button.cur { background: rgba(255,255,255,.2); }
+.snav button { font: 700 22px Carlito, Calibri, Arial, sans-serif; color: #000; background: #e7e6e6; border: 2px solid #000; width: 150px; padding: 8px 0; cursor: pointer; }
+.snav button.cur { outline: 3px solid var(--orange); outline-offset: 2px; }
 .sbody { flex: 1; background: #f4efe6; padding: 30px 40px; font-family: Georgia, serif; color: #2b2b2b; }
 .sbody h4 { color: #2b5d8c; font-size: 46px; margin: 0 0 14px; text-align: center; }
 .sbody p { font-size: 24px; text-align: center; }
@@ -230,6 +230,9 @@ p { margin: 0; }
 .tasklist div.big { background: var(--orange); }
 .tasklist b { font-size: 40px; font-weight: 800; flex: none; }
 .tasklist .mono { font-size: 28px; }
+#s-excel .do { margin-bottom: 16px; }
+#s-excel .do li { font-size: 34px; padding: 6px 0 6px 44px; }
+#s-excel .do li::before { top: 24px; }
 .stuck.nolink li { font-size: 35px; line-height: 1.3; }
 .stuck.nolink li::before { font-size: 38px; }
 </style>
@@ -241,8 +244,18 @@ p { margin: 0; }
   <div style="margin:auto 0">
     <p style="font-size:30px;font-weight:700;color:var(--soft);margin-bottom:28px">BMIS 235 · HTML-3</p>
     <h1 class="t xl" style="max-width:13ch">From one page <span class="lite">to a site.</span></h1>
-    <p class="lead">Pages that link to each other, and one file that styles all of them at once.</p>
+    <p class="lead">Your page names, your menu, your brand. Four pages that link to each other, styled from one file.</p>
   </div>
+</section>
+
+<section class="slide dark" data-sec="Growth">
+  <h2 class="t" style="max-width:20ch">Why we build it <span class="lite">the hard way</span></h2>
+  <div class="cards" style="margin-top:10px">
+    <div class="card" data-step style="border-color:var(--paper)"><h3>Errors are information</h3><p style="color:#d9d6cf">A broken link isn't failure. It tells you exactly where to look next.</p></div>
+    <div class="card" data-step style="border-color:var(--paper)"><h3>Read before you click</h3><p style="color:#d9d6cf">Every step comes with a note on what's happening. The answer is usually already there.</p></div>
+    <div class="card you" data-step><h3>Simplify first</h3><p>Plan on paper. One problem at a time. One change, then check.</p></div>
+  </div>
+  <p class="lead" data-step style="margin-top:34px;font-size:30px">You grow from the struggle, not from the shortcut.</p>
 </section>
 
 <section class="slide b" data-sec="Where we are">
@@ -250,11 +263,62 @@ p { margin: 0; }
   <div class="cards">
     <div class="card fill" data-step><h3>HTML-1</h3><p>One page. Words, a list, an image, colors.</p></div>
     <div class="card fill" data-step><h3>HTML-2</h3><p>One page that pulls in images, videos and tools, and runs a little code.</p></div>
-    <div class="card you" data-step><h3>HTML-3</h3><p>Four pages about your own idea, linked together, styled from one file.</p></div>
+    <div class="card you" data-step><h3>HTML-3</h3><p>Four pages about your own idea, a menu you made, styled from one file.</p></div>
   </div>
 </section>
 
-<!-- ============ LINKS ============ -->
+<section class="slide b" data-sec="Concept vs system">
+  <h2 class="t">Define it once. <span class="lite">Use it everywhere.</span></h2>
+  <p class="lead" data-step style="margin-bottom:34px">That's the concept. Today you'll build three systems that run on it:</p>
+  <div class="cards">
+    <div class="card fill" data-step><h3>One stylesheet</h3><p>Your brand lives in <span class="mono" style="color:var(--black)">styles.css</span>. Change one color, every page changes.</p></div>
+    <div class="card fill" data-step><h3>One menu</h3><p>Build it on one page, prove it works, copy it to the rest.</p></div>
+    <div class="card you" data-step><h3>One cell size</h3><p>Same-size cells in Excel give you same-size buttons.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="Head vs body">
+  <h2 class="t">Every page has <span class="lite">two halves</span></h2>
+  <div class="setup" style="grid-template-columns: 1.15fr 1fr; gap: 48px">
+    <div class="code" style="font-size:25px;line-height:1.6">&lt;<span class="k">html</span>&gt;
+&lt;<span class="k">head</span>&gt;
+  &lt;title&gt;Susie&lt;/title&gt;
+  <span class="hl">&lt;link rel="stylesheet" href="styles.css"&gt;</span>
+&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">body</span>&gt;
+  &lt;nav&gt;…menu…&lt;/nav&gt;
+  &lt;h1&gt;Susie&lt;/h1&gt;
+  &lt;p&gt;Susie studies…&lt;/p&gt;
+&lt;/<span class="k">body</span>&gt;
+&lt;/<span class="k">html</span>&gt;</div>
+    <div class="notes">
+      <div class="note lit" data-step><b>head</b> = instructions for the browser. You never see them on the page.</div>
+      <div class="note lit" data-step><b>body</b> = everything you see: menu, headings, words, pictures.</div>
+      <div class="note lit" data-step>The stylesheet link lives in the <b>head</b>. No link, no styles.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide b" data-sec="Folders and paths">
+  <h2 class="t">A link is an address <span class="lite">inside your folder</span></h2>
+  <div class="setup" style="grid-template-columns: 1fr 1.25fr; gap: 48px">
+    <div class="code" style="font-size:28px;line-height:1.65">bmis235-html-3/
+  index.html
+  susie.html
+  alex.html
+  jordan.html
+  styles.css
+  <span class="hl">img/</span>
+    home.png
+    <span class="hl">susie.png</span></div>
+    <div class="notes">
+      <div class="note lit" data-step><span class="mono" style="color:var(--black)">href="susie.html"</span><br>"Find susie.html right here, next to me."</div>
+      <div class="note lit" data-step><span class="mono" style="color:var(--black)">src="img/susie.png"</span><br>"Go into img, then find susie.png."</div>
+      <div class="note lit" data-step>Wrong folder, wrong spelling, or a capital letter, and the browser can't find it. <b>Susie.png ≠ susie.png</b></div>
+    </div>
+  </div>
+</section>
+
 <section class="slide" data-sec="Three kinds of links">
   <h2 class="t">Three kinds of links</h2>
   <div class="cards">
@@ -277,13 +341,23 @@ href="mailto:you@…"</div></div>
   <p class="lead" data-step style="margin-top:30px;font-size:30px">The file name must match <b style="color:var(--black)">exactly</b>. <span class="mono" style="color:var(--black)">Alex.html</span> is not <span class="mono" style="color:var(--black)">alex.html</span>.</p>
 </section>
 
+<section class="slide b" data-sec="A menu is just links">
+  <h2 class="t">A menu is just links <span class="lite">wrapped around pictures</span></h2>
+  <div class="code" style="font-size:34px;margin-bottom:34px">&lt;<span class="k">a</span> href="<span class="hl">susie.html</span>"&gt;&lt;<span class="k">img</span> src="<span class="hl">img/susie.png</span>" alt="<span class="hl">Susie</span>"&gt;&lt;/<span class="k">a</span>&gt;</div>
+  <div class="cards">
+    <div class="card fill" data-step><h3>href</h3><p>Where the button goes. Your page's file name.</p></div>
+    <div class="card fill" data-step><h3>src</h3><p>Which picture shows. Your Excel image.</p></div>
+    <div class="card you" data-step><h3>alt</h3><p>The words behind the picture. Screen readers read it out loud, search engines index it, and it shows if the image breaks.</p></div>
+  </div>
+</section>
+
 <section class="slide" data-sec="Try it: click around a site" data-interactive id="s-site">
   <h2 class="t" style="margin-bottom:22px">Rename a page, watch the link break</h2>
   <div class="sitedemo">
     <div class="folder">
       <div class="label">Your folder</div>
       <ul id="files"></ul>
-      <button class="mini" id="renameBtn">Rename page2 → alex</button>
+      <button class="mini" id="renameBtn">Rename page1 → susie</button>
       <button class="mini ghost" id="fixBtn" disabled>Fix the menu</button>
       <button class="mini ghost" id="resetBtn">Start over</button>
     </div>
@@ -296,7 +370,6 @@ href="mailto:you@…"</div></div>
   <p class="where">Click the menu, then rename a page and click the menu again</p>
 </section>
 
-<!-- ============ CSS ============ -->
 <section class="slide b" data-sec="What CSS looks like">
   <h2 class="t">CSS is a list of rules</h2>
   <div class="tagdiag" style="font-size:48px">
@@ -333,16 +406,16 @@ href="mailto:you@…"</div></div>
         <button class="sw" data-c="#6A4FC4" style="background:#6A4FC4" aria-label="Purple"></button>
         <button class="mini ghost" id="fontBtn">Change font</button>
       </div>
-      <button class="mini" id="linkBtn" style="margin-top:6px">Add the link line to page 4</button>
+      <button class="mini" id="linkBtn" style="margin-top:6px">Add the link line to page 3</button>
     </div>
     <div class="pages" id="pages">
       <div class="pg linked"><div class="lk">&lt;link&gt; ✓</div><div class="pn"></div><h4>Home</h4><p>index.html</p></div>
+      <div class="pg linked"><div class="lk">&lt;link&gt; ✓</div><div class="pn"></div><h4>Page 1</h4><p>page1.html</p></div>
       <div class="pg linked"><div class="lk">&lt;link&gt; ✓</div><div class="pn"></div><h4>Page 2</h4><p>page2.html</p></div>
-      <div class="pg linked"><div class="lk">&lt;link&gt; ✓</div><div class="pn"></div><h4>Page 3</h4><p>page3.html</p></div>
-      <div class="pg" id="pg4"><div class="lk miss">no &lt;link&gt;</div><div class="pn"></div><h4>Page 4</h4><p>page4.html</p></div>
+      <div class="pg" id="pg4"><div class="lk miss">no &lt;link&gt;</div><div class="pn"></div><h4>Page 3</h4><p>page3.html</p></div>
     </div>
   </div>
-  <p class="where">Page 4 is missing <span class="mono">&lt;link rel="stylesheet" href="styles.css"&gt;</span> in its head</p>
+  <p class="where">Page 3 is missing <span class="mono">&lt;link rel="stylesheet" href="styles.css"&gt;</span> in its head</p>
 </section>
 
 <section class="slide" data-sec="Explore first">
@@ -356,41 +429,67 @@ href="mailto:you@…"</div></div>
   <p class="lead" data-step style="margin-top:30px;font-size:28px">Comparing something broken to something that works is how most bugs get found.</p>
 </section>
 
-<!-- ============ PLAN + BUILD ============ -->
 <section class="slide b" data-sec="Plan on paper first">
   <h2 class="t">Plan on paper <span class="lite">before you type</span></h2>
   <div class="diagram" id="mapdiag" style="flex:0 0 330px"></div>
   <div class="cards" style="margin-top:22px">
-    <div class="card fill" data-step><h3>Pick an idea with four parts</h3><p>Roommates, teammates, three products, a trip with three stops.</p></div>
-    <div class="card you" data-step><h3>Name every file now</h3><p>Lowercase, no spaces, ends in <span class="mono">.html</span>. The home page stays <span class="mono">index.html</span>.</p></div>
+    <div class="card fill" data-step><h3>A home page plus three parts</h3><p>Roommates, teammates, three products, a trip with three stops.</p></div>
+    <div class="card you" data-step><h3>Name every file and image now</h3><p>Lowercase, no spaces. <span class="mono">susie.html</span> gets <span class="mono">susie.png</span>. Home stays <span class="mono">index.html</span>.</p></div>
   </div>
+</section>
+
+<section class="slide" data-sec="Menu images in Excel" id="s-excel">
+  <h2 class="t">Make your buttons <span class="lite">in Excel</span></h2>
+  <div class="setup" style="grid-template-columns: 1fr 1fr; gap: 48px">
+    <ul class="do">
+      <li data-step><b>Same width, same height</b> for every cell</li>
+      <li data-step><b>Style all four at once:</b> font, colors, border</li>
+      <li data-step><b>Center</b> and <b>middle</b> the words</li>
+      <li data-step>Gridlines off, zoom at <b>100%</b></li>
+    </ul>
+    <ul class="do">
+      <li data-step>Screenshot <b>corner to corner</b> on the border</li>
+      <li data-step>Don't know how? <b>Search it</b> for your computer</li>
+      <li data-step>Save as <span class="mono">susie.png</span>, matching the page</li>
+      <li data-step>Upload into the <span class="mono">img</span> folder</li>
+    </ul>
+  </div>
+  <div class="check" data-step style="align-self:flex-start"><span class="dot"></span>Same cells in, same buttons out. Different sizes? Recapture, don't code around it.</div>
 </section>
 
 <section class="slide" data-sec="Renaming safely">
   <h2 class="t">Rename a file, <span class="lite">then fix every link to it</span></h2>
-  <div class="setup" style="grid-template-columns: 1fr 1fr; gap: 40px">
+  <div class="setup" style="grid-template-columns: 1fr 1.25fr; gap: 40px">
     <div>
       <ul class="do">
         <li>Open the file, click the <b>pencil</b></li>
-        <li>Change the name in the box above the code → commit</li>
-        <li>Now every link to the old name is <b>broken</b></li>
-        <li>Fix the menu on <b>all four pages</b></li>
-        <li>Click every link live</li>
+        <li>Change the name above the code → commit</li>
+        <li>Every link to the old name is now <b>broken</b></li>
+        <li>That's expected. Fix it next.</li>
       </ul>
     </div>
-    <div class="code" style="font-size:26px;line-height:1.7">&lt;<span class="k">nav</span>&gt;
-  &lt;<span class="k">a</span> href="index.html"&gt;Home&lt;/<span class="k">a</span>&gt;
-  &lt;<span class="k">a</span> href="<span class="hl">alex.html</span>"&gt;Alex&lt;/<span class="k">a</span>&gt;
-  &lt;<span class="k">a</span> href="page3.html"&gt;Page 3&lt;/<span class="k">a</span>&gt;
-  &lt;<span class="k">a</span> href="page4.html"&gt;Page 4&lt;/<span class="k">a</span>&gt;
-&lt;/<span class="k">nav</span>&gt;
-
-<span class="a">same menu, on every page</span></div>
+    <div class="code" style="font-size:22px;line-height:1.75">&lt;<span class="k">nav</span>&gt;
+  &lt;a href="index.html"&gt;&lt;img src="img/home.png"&gt;&lt;/a&gt;
+  &lt;a href="<span class="hl">susie.html</span>"&gt;&lt;img src="<span class="hl">img/susie.png</span>"&gt;&lt;/a&gt;
+  &lt;a href="<span class="hl">alex.html</span>"&gt;&lt;img src="<span class="hl">img/alex.png</span>"&gt;&lt;/a&gt;
+  &lt;a href="<span class="hl">jordan.html</span>"&gt;&lt;img src="<span class="hl">img/jordan.png</span>"&gt;&lt;/a&gt;
+&lt;/<span class="k">nav</span>&gt;</div>
   </div>
 </section>
 
+<section class="slide b" data-sec="Build once, copy everywhere">
+  <h2 class="t">Build one menu. <span class="lite">Then copy it.</span></h2>
+  <ol class="stuck">
+    <li data-step><span><b>Fix the menu on index.html</b> only.</span></li>
+    <li data-step><span><b>Click every button live.</b> Fix until all four work.</span></li>
+    <li data-step><span><b>Copy</b> from <span class="mono" style="font-size:32px">&lt;nav&gt;</span> to <span class="mono" style="font-size:32px">&lt;/nav&gt;</span>.</span></li>
+    <li data-step><span><b>Paste over</b> the old menu on the other three pages.</span></li>
+  </ol>
+  <p class="lead" data-step style="margin-top:30px;font-size:28px">Four identical menus: if one works, they all work. Fixing four separately is four chances for a typo.</p>
+</section>
+
 <section class="slide b" data-sec="Three new styles">
-  <h2 class="t">Three new styles, <span class="lite">one commit each</span></h2>
+  <h2 class="t">Your stylesheet is your brand. <span class="lite">Add three styles.</span></h2>
   <div class="cards">
     <div class="card fill" data-step><h3>A new font</h3><div class="code sm" style="margin-top:12px">body {
   font-family: Arial;
@@ -402,18 +501,17 @@ href="mailto:you@…"</div></div>
   border-radius: 12px;
 }</div></div>
   </div>
-  <p class="lead" data-step style="margin-top:30px;font-size:28px">Commit message says what it does: <span class="mono" style="color:var(--black)">"Added gold hover color to menu links"</span>. That's how your styles get graded.</p>
+  <p class="lead" data-step style="margin-top:30px;font-size:28px">Commit message says what it does: <span class="mono" style="color:var(--black)">"Added gold hover color to menu links"</span>. One commit per style. Match the font and colors you used in Excel.</p>
 </section>
 
-<!-- ============ THE ASSIGNMENT ============ -->
 <section class="slide" data-sec="HTML-3: your own site">
   <h2 class="t">HTML-3: your own four-page site</h2>
   <div class="tasklist">
-    <div data-step><span>Fix page 4 so it uses <span class="mono">styles.css</span></span><b>1</b></div>
-    <div data-step class="big"><span>Your own idea on all 4 pages: menu labels, headings, real content</span><b>3</b></div>
-    <div data-step><span>Rename at least one file, and the menu still works everywhere</span><b>2</b></div>
-    <div data-step><span>One outside link and one email link</span><b>1</b></div>
-    <div data-step><span>3 new styles, one commit each, listed in Canvas</span><b>2</b></div>
+    <div data-step><span>Connect the plain page to <span class="mono">styles.css</span></span><b>1</b></div>
+    <div data-step class="big"><span>Four Excel menu images: same size, your brand, named after the pages</span><b>2</b></div>
+    <div data-step class="big"><span>Three pages renamed, the same working menu on all four</span><b>2</b></div>
+    <div data-step><span>Your own idea on every page, plus one outside link and one email link</span><b>2</b></div>
+    <div data-step><span>3 new styles in your brand, one commit each, listed in Canvas</span><b>2</b></div>
     <div data-step><span>A working GitHub Pages link</span><b>1</b></div>
   </div>
 </section>
@@ -427,18 +525,19 @@ href="mailto:you@…"</div></div>
       <li><span class="ui">Settings</span> → <span class="ui">Pages</span> → <b>main</b> / <b>root</b> → <span class="ui">Save</span></li>
       <li>Open <span class="mono">YOUR-USERNAME.github.io/bmis235-html-3/</span></li>
     </ul>
-    <div class="check"><span class="dot"></span>You should see a four-page site with a blue menu.</div>
+    <div class="check"><span class="dot"></span>You should see a four-page site with gray menu buttons.</div>
   </div></div>
 </section>
 
 <section class="slide" data-sec="When you're stuck">
   <h2 class="t">HTML-3's usual suspects</h2>
-  <ol class="stuck">
+  <ol class="stuck nolink">
     <li data-step><span><b>A page looks plain?</b> Its <span class="mono" style="font-size:32px">&lt;link&gt;</span> line is missing or misspelled.</span></li>
-    <li data-step><span><b>A menu link shows a 404?</b> The <span class="mono" style="font-size:32px">href</span> doesn't match the file name exactly.</span></li>
-    <li data-step><span><b>A new style does nothing?</b> Look for a missing <span class="mono" style="font-size:32px">;</span> or <span class="mono" style="font-size:32px">}</span>.</span></li>
-    <li data-step><span><b>Email link opens a web page?</b> It needs <span class="mono" style="font-size:32px">mailto:</span> in front.</span></li>
-    <li data-step><span><b>Still stuck?</b> "I expected ___, but I see ___." Search that.</span></li>
+    <li data-step><span><b>A button shows a 404?</b> The <span class="mono" style="font-size:32px">href</span> doesn't match the file name exactly.</span></li>
+    <li data-step><span><b>A broken image or just words?</b> The <span class="mono" style="font-size:32px">src</span> doesn't match, or the image isn't in <span class="mono" style="font-size:32px">img</span>.</span></li>
+    <li data-step><span><b>Buttons different widths?</b> Different-size cells or captures. Recapture.</span></li>
+    <li data-step><span><b>Works on one page, not another?</b> Paste the working menu again.</span></li>
+    <li data-step><span><b>Still stuck?</b> Reread the step. Then search "I expected ___, but I see ___."</span></li>
   </ol>
 </section>
 
@@ -481,7 +580,7 @@ href="mailto:you@…"</div></div>
 <section class="slide dark" data-sec="Next">
   <div style="margin:auto 0">
     <h2 class="t" style="max-width:20ch">You built a website. <span class="lite">By hand, from files, live on the internet.</span></h2>
-    <p class="lead">Next, the final: build what you want, with the full editor and AI. You'll still commit, check, and decide what stays.</p>
+    <p class="lead">Your own pages, your own menu, your own brand. And one empty box on your home page. Leave it there. We'll use it next.</p>
   </div>
 </section>
 
@@ -514,9 +613,9 @@ document.getElementById("mapdiag").innerHTML = render({
   w: 1400, h: 330,
   nodes: [
     { id: "home", x: 520, y: 0, w: 360, h: 110, title: "Our House", sub: "index.html", kind: "you" },
-    { id: "a", x: 40,   y: 210, w: 360, h: 110, title: "Alex", sub: "alex.html" },
-    { id: "b", x: 520,  y: 210, w: 360, h: 110, title: "Jordan", sub: "jordan.html" },
-    { id: "c", x: 1000, y: 210, w: 360, h: 110, title: "Sam", sub: "sam.html" }
+    { id: "a", x: 40,   y: 210, w: 360, h: 110, title: "Susie", sub: "susie.html · .png" },
+    { id: "b", x: 520,  y: 210, w: 360, h: 110, title: "Alex", sub: "alex.html · .png" },
+    { id: "c", x: 1000, y: 210, w: 360, h: 110, title: "Jordan", sub: "jordan.html · .png" }
   ],
   edges: [
     { start: [700, 110], via: [[700, 160], [220, 160]], end: [220, 206] },
@@ -527,13 +626,13 @@ document.getElementById("mapdiag").innerHTML = render({
 
 /* ===================== SITE DEMO: links + rename ===================== */
 const site = {
-  files: ["index.html", "page2.html", "page3.html", "page4.html", "styles.css"],
-  menu: [["Home", "index.html"], ["Page 2", "page2.html"], ["Page 3", "page3.html"], ["Page 4", "page4.html"]],
+  files: ["index.html", "page1.html", "page2.html", "page3.html", "styles.css", "img/"],
+  menu: [["Home", "index.html"], ["Page 1", "page1.html"], ["Page 2", "page2.html"], ["Page 3", "page3.html"]],
   cur: "index.html", renamed: false, fixed: false
 };
-const TEXT = { "index.html": ["Home", "The home page introduces the idea."], "page2.html": ["Page 2", "The second page."], "alex.html": ["Alex", "Alex's page. Same file, new name."], "page3.html": ["Page 3", "The third page."], "page4.html": ["Page 4", "The fourth page."] };
+const TEXT = { "index.html": ["Home", "The home page introduces the idea."], "page1.html": ["Page 1", "The first page."], "susie.html": ["Susie", "Susie's page. Same file, new name."], "page2.html": ["Page 2", "The second page."], "page3.html": ["Page 3", "The third page."] };
 function drawSite() {
-  document.getElementById("files").innerHTML = site.files.map(f => `<li class="${f === "alex.html" ? "new" : ""}">${f}</li>`).join("");
+  document.getElementById("files").innerHTML = site.files.map(f => `<li class="${f === "susie.html" ? "new" : ""}">${f}</li>`).join("");
   document.getElementById("snav").innerHTML = site.menu.map(([t, h]) => `<button data-h="${h}" class="${h === site.cur ? "cur" : ""}">${t}</button>`).join("");
   document.getElementById("url").textContent = "you.github.io/bmis235-html-3/" + site.cur;
   const body = document.getElementById("sbody");
@@ -543,9 +642,9 @@ function drawSite() {
   document.getElementById("fixBtn").disabled = !site.renamed || site.fixed;
 }
 document.getElementById("snav").addEventListener("click", e => { const b = e.target.closest("[data-h]"); if (b) { site.cur = b.dataset.h; drawSite(); } });
-document.getElementById("renameBtn").onclick = () => { site.files[1] = "alex.html"; site.renamed = true; drawSite(); };
-document.getElementById("fixBtn").onclick = () => { site.menu[1] = ["Alex", "alex.html"]; site.fixed = true; if (site.cur === "page2.html") site.cur = "alex.html"; drawSite(); };
-document.getElementById("resetBtn").onclick = () => { Object.assign(site, { files: ["index.html", "page2.html", "page3.html", "page4.html", "styles.css"], menu: [["Home", "index.html"], ["Page 2", "page2.html"], ["Page 3", "page3.html"], ["Page 4", "page4.html"]], cur: "index.html", renamed: false, fixed: false }); drawSite(); };
+document.getElementById("renameBtn").onclick = () => { site.files[1] = "susie.html"; site.renamed = true; drawSite(); };
+document.getElementById("fixBtn").onclick = () => { site.menu[1] = ["Susie", "susie.html"]; site.fixed = true; if (site.cur === "page1.html") site.cur = "susie.html"; drawSite(); };
+document.getElementById("resetBtn").onclick = () => { Object.assign(site, { files: ["index.html", "page1.html", "page2.html", "page3.html", "styles.css", "img/"], menu: [["Home", "index.html"], ["Page 1", "page1.html"], ["Page 2", "page2.html"], ["Page 3", "page3.html"]], cur: "index.html", renamed: false, fixed: false }); drawSite(); };
 drawSite();
 
 /* ===================== CSS DEMO ===================== */
@@ -573,7 +672,7 @@ document.getElementById("linkBtn").onclick = e => {
   p4.classList.toggle("linked", on);
   p4.querySelector(".lk").className = on ? "lk" : "lk miss";
   p4.querySelector(".lk").innerHTML = on ? "&lt;link&gt; ✓" : "no &lt;link&gt;";
-  e.target.textContent = on ? "Remove the link line" : "Add the link line to page 4";
+  e.target.textContent = on ? "Remove the link line" : "Add the link line to page 3";
 };
 drawCss();
 
