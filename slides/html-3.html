@@ -226,6 +226,7 @@ p { margin: 0; }
 
 /* task list */
 .tasklist { display: flex; flex-direction: column; gap: 14px; }
+.tasklist div { padding-top: 12px !important; padding-bottom: 12px !important; }
 .tasklist div { display: flex; justify-content: space-between; align-items: center; gap: 30px; border: 3px solid var(--black); border-radius: 16px; padding: 16px 26px; font-size: 32px; font-weight: 600; background: var(--paper); }
 .tasklist div.big { background: var(--orange); }
 .tasklist b { font-size: 40px; font-weight: 800; flex: none; }
@@ -504,14 +505,44 @@ href="mailto:you@…"</div></div>
   <p class="lead" data-step style="margin-top:30px;font-size:28px">Commit message says what it does: <span class="mono" style="color:var(--black)">"Added gold hover color to menu links"</span>. One commit per style. Match the font and colors you used in Excel.</p>
 </section>
 
+<section class="slide b" data-sec="One empty box">
+  <h2 class="t">Your home page has <span class="lite">one empty box</span></h2>
+  <div class="setup" style="grid-template-columns: 1.1fr 1fr; gap: 48px">
+    <div class="code" style="font-size:26px;line-height:1.7">&lt;<span class="k">body</span>&gt;
+  &lt;nav&gt;…your menu…&lt;/nav&gt;
+  &lt;h1&gt;Our House&lt;/h1&gt;
+  &lt;p&gt;Four roommates…&lt;/p&gt;
+  <span class="hl">&lt;div class="showcase"&gt;</span>
+     <span class="a">← paste the graphic here</span>
+  <span class="hl">&lt;/div&gt;</span>
+&lt;/<span class="k">body</span>&gt;</div>
+    <div class="notes">
+      <div class="note lit" data-step>The fanciest sites are still pages like yours, with <b>boxes</b> full of pieces.</div>
+      <div class="note lit" data-step>You'll ask Claude or ChatGPT to build <b>one piece</b> that fits your box.</div>
+      <div class="note lit" data-step>Your menu, your pages and your brand stay exactly as <b>you</b> built them.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-sec="The prompt is the spec">
+  <h2 class="t">The prompt is the spec: <span class="lite">it has to fit</span></h2>
+  <div class="cards">
+    <div class="card fill" data-step><h3>One block</h3><p>Pasted inside <span class="mono" style="color:var(--black)">.showcase</span>. One box, one piece.</p></div>
+    <div class="card fill" data-step><h3>No libraries</h3><p>Plain HTML, CSS, JavaScript. Nothing to install, runs on GitHub Pages.</p></div>
+    <div class="card you" data-step><h3>Scoped styles</h3><p>Every rule starts with <span class="mono">.showcase</span>, so it can't overwrite your brand.</p></div>
+  </div>
+  <p class="lead" data-step style="margin-top:30px;font-size:28px">Read it before you paste it. Whole page changed? The AI broke a rule. Tell it which one.</p>
+</section>
+
 <section class="slide" data-sec="HTML-3: your own site">
   <h2 class="t">HTML-3: your own four-page site</h2>
   <div class="tasklist">
     <div data-step><span>Connect the plain page to <span class="mono">styles.css</span></span><b>1</b></div>
     <div data-step class="big"><span>Four Excel menu images: same size, your brand, named after the pages</span><b>2</b></div>
     <div data-step class="big"><span>Three pages renamed, the same working menu on all four</span><b>2</b></div>
-    <div data-step><span>Your own idea on every page, plus one outside link and one email link</span><b>2</b></div>
+    <div data-step><span>Your own idea on every page, plus one outside link and one email link</span><b>1</b></div>
     <div data-step><span>3 new styles in your brand, one commit each, listed in Canvas</span><b>2</b></div>
+    <div data-step class="big"><span>An interactive graphic inside the <span class="mono">showcase</span> box</span><b>1</b></div>
     <div data-step><span>A working GitHub Pages link</span><b>1</b></div>
   </div>
 </section>
@@ -580,7 +611,7 @@ href="mailto:you@…"</div></div>
 <section class="slide dark" data-sec="Next">
   <div style="margin:auto 0">
     <h2 class="t" style="max-width:20ch">You built a website. <span class="lite">By hand, from files, live on the internet.</span></h2>
-    <p class="lead">Your own pages, your own menu, your own brand. And one empty box on your home page. Leave it there. We'll use it next.</p>
+    <p class="lead">Your own pages, your own menu, your own brand, built by hand. Then one piece you specified and dropped in. You know where every part goes.</p>
   </div>
 </section>
 

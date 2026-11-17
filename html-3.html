@@ -17,7 +17,7 @@
 <div class="hero">
 <p class="kicker">HTML-3</p>
 <h1>Links + CSS: Your Own Site</h1>
-<p class="lede">Turn a four-page template into your own site: your page names, your menu images, your brand. The pages link to each other, and one stylesheet controls all of them.</p>
+<p class="lede">Turn a four-page template into your own site: your page names, your menu images, your brand, and one interactive graphic. The pages link to each other, and one stylesheet controls all of them.</p>
 <div class="meta"><span class="pill">10 points</span><span class="pill">Repo: bmis235-html-3</span><span class="pill">Pencil editor + Excel</span></div>
 <p><a class="btn ghost" href="slides/html-3.html">Class slides</a></p>
 </div>
@@ -146,7 +146,7 @@ Jordan  → jordan.html  → jordan.png</code></pre></li>
 <li>On each page, change the <code>&lt;title&gt;</code>, the <code>&lt;h1&gt;</code> heading and the paragraphs to fit your idea. Commit after each page.</li>
 <li>Somewhere that makes sense, add <strong>one link to an outside website</strong>: <code>&lt;a href="https://www.gonzaga.edu"&gt;Gonzaga&lt;/a&gt;</code>. Include the <code>https://</code>.</li>
 <li>And add <strong>one email link</strong>: <code>&lt;a href="mailto:you@zagmail.gonzaga.edu"&gt;Email me&lt;/a&gt;</code>. Commit.</li>
-<li>On your home page, leave the empty <code>&lt;div class="showcase"&gt;</code> where it is.</li>
+<li>On your home page, leave the empty <code>&lt;div class="showcase"&gt;</code> where it is. You'll fill it in Part 7.</li>
 </ol>
 <p class="why">What's happening: you now have three kinds of links. Your menu links use just a file name, so the browser looks in your own folder. The outside link uses a full address that starts with <code>https://</code>, so it leaves your site. The email link uses <code>mailto:</code>, so it opens an email instead of a page. Same tag, different address.</p>
 </section>
@@ -158,6 +158,59 @@ Jordan  → jordan.html  → jordan.png</code></pre></li>
 </ol>
 <p class="why">What's happening: you changed one file and every page changed with it. That's the whole point of an external stylesheet. It's a brand guide the browser actually follows: define it once, and every page that links to it stays consistent. If a rule seems to be ignored, check whether a page has its own <code>style="..."</code> or <code>&lt;style&gt;</code> block. Those sit closer to the tag, so they win.</p>
 <p><strong>Style ideas:</strong> a different font, link hover colors, a new background color, heading sizes, spacing around paragraphs, rounded corners on the menu (<code>border-radius</code>). W3Schools CSS has examples for each.</p>
+</section>
+
+<section class="block"><h2>Part 7 · Bring in an interactive graphic</h2>
+<p>Your site is done by hand. Now you'll add one piece you didn't hand-code: an interactive graphic, built by an AI tool and pasted into the empty box on your home page.</p>
+<h3>Pick your graphic</h3>
+<p>Pick something that fits your idea. A few examples:</p>
+<ul>
+<li>Your roommates' names bouncing around, and clicking one shows a fun fact.</li>
+<li>A simple map of your trip, and clicking each stop shows what you did there.</li>
+<li>A countdown to a date that matters to your site.</li>
+<li>Cards that flip over when you click them.</li>
+</ul>
+<h3>Ask for it</h3>
+<ol>
+<li>Open <strong>Claude</strong> (claude.ai) or <strong>ChatGPT</strong>.</li>
+<li>Copy the prompt below. Fill in every part in <strong>[brackets]</strong> with your own idea, font and colors from <code>styles.css</code>. Don't skip the rules.</li>
+</ol>
+<pre><code>Build an interactive graphic for my website's home page.
+My site is about: [YOUR IDEA, e.g. four roommates who share a house]
+The graphic should: [WHAT IT DOES, e.g. show our names bouncing around;
+clicking a name shows a fun fact about that person]
+Use my brand: font [YOUR FONT], main color [#YOUR COLOR],
+accent color [#YOUR ACCENT].
+
+Rules:
+- Give me ONE block of code that I paste inside an existing
+  &lt;div class="showcase"&gt;&lt;/div&gt; on my page.
+- Plain HTML, CSS and JavaScript only. No libraries, no frameworks,
+  no imports, no links to outside files.
+- Put the CSS in a &lt;style&gt; tag and the JavaScript in a &lt;script&gt; tag,
+  both inside that one block.
+- Start every CSS rule with .showcase so it can't change the rest of my page.
+- Don't style body, html, h1, p, nav or footer.
+- Keep it under 500px tall, and make it fit on a phone screen.
+- Put a short comment above the HTML, CSS and JavaScript parts saying
+  what each part does.</code></pre>
+<p class="why">What's happening: the prompt is a specification. Every rule is there because your page already has a structure, and the graphic has to fit inside it. "One block" means it fits in one box. "No libraries" means it runs on GitHub Pages with nothing to install. "Start every rule with <code>.showcase</code>" uses the cascade from Part 6: the graphic's styles only reach things inside its box, so they can't overwrite your brand.</p>
+<h3>Paste it in</h3>
+<ol>
+<li>Read what the AI gave you before you paste it. Find its three comments, and check that every CSS rule starts with <code>.showcase</code>.</li>
+<li>Copy the whole block.</li>
+<li>Open <code>index.html</code>, click the pencil, and find <code>&lt;div class="showcase"&gt;&lt;/div&gt;</code>.</li>
+<li>Click between <code>&gt;</code> and <code>&lt;/div&gt;</code>, press Enter, and paste. The block must end up <strong>between</strong> the opening and closing tags of that box.</li>
+<li>Commit with a message like <em>Add interactive graphic</em>. Wait a minute, then open your live home page and try it.</li>
+</ol>
+<p class="why">What's happening: the sites that look the most advanced are still pages like yours, with boxes holding pieces like this one. You already know where every part goes: the box is in the <code>&lt;body&gt;</code>, the menu and brand stay as you built them, and the graphic only lives inside its <code>div</code>.</p>
+<h3>If it doesn't work</h3>
+<ul>
+<li><strong>Your whole page changed fonts or colors.</strong> The AI broke the <code>.showcase</code> rule. Tell it which rule it broke and ask again.</li>
+<li><strong>Nothing shows up.</strong> Check that you pasted between the box's tags, not after <code>&lt;/div&gt;</code>. Then check for words like <em>import</em>, <em>React</em> or a <code>src="https://…"</code> link. Those break the "no libraries" rule.</li>
+<li><strong>It shows up but doesn't do anything.</strong> Copy the problem as one sentence ("I expected ___, but I see ___") and paste it back to the AI with the code.</li>
+</ul>
+<p>Want to keep hand-coding instead? You can also build the graphic yourself, or both. Either way, it has to live inside the <code>showcase</code> box.</p>
 </section>
 
 <section class="block"><h2>Commit as you go</h2>
@@ -206,8 +259,9 @@ Jordan  → jordan.html  → jordan.png</code></pre></li>
 <tr><td>Plain page connected to <code>styles.css</code></td><td class="n">1</td></tr>
 <tr><td>Four menu images made in Excel: same size, your brand, named after their pages</td><td class="n">2</td></tr>
 <tr><td>Three pages renamed; the same working menu on all four pages</td><td class="n">2</td></tr>
-<tr><td>Your own idea on all four pages (titles, headings, content), with one outside link and one email link</td><td class="n">2</td></tr>
+<tr><td>Your own idea on all four pages (titles, headings, content), with one outside link and one email link</td><td class="n">1</td></tr>
 <tr><td>Brand in <code>styles.css</code>: 3 new styles, each its own commit (listed in Canvas)</td><td class="n">2</td></tr>
+<tr><td>Interactive graphic working inside the <code>showcase</code> box, without changing the rest of the page</td><td class="n">1</td></tr>
 <tr><td>Working GitHub Pages link</td><td class="n">1</td></tr>
 <tr class="total"><td>Total</td><td class="n">10</td></tr>
 </table></section>
