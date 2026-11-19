@@ -244,6 +244,15 @@ p { margin: 0; }
 .three .card h3 { font-size: 34px; }
 .three .card p { font-size: 24px; margin: 0 0 8px; }
 .three .card .tag { display: inline-block; font: 700 20px var(--mono); border: 2px solid var(--black); border-radius: 999px; padding: 2px 12px; margin-bottom: 14px; background: var(--paper); }
+.layers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.layers .card { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; }
+.layers .card h3 { font-size: 34px; margin: 0; }
+.layers .card .tag { align-self: flex-start; font: 700 18px var(--mono); border: 2px solid var(--black); border-radius: 999px; padding: 2px 12px; background: var(--paper); }
+.layers .card p { font-size: 21px; line-height: 1.35; margin: 0; }
+.layers .card p b { color: var(--black); }
+.layers .card .lim { margin-top: auto; padding-top: 10px; border-top: 2px dashed var(--black); }
+.punch { margin-top: 24px; border: 3px solid var(--black); border-radius: 18px; padding: 18px 28px; font-size: 32px; font-weight: 800; background: var(--orange); }
+.punch span { font-weight: 500; }
 .diagram.d4 { height: 250px; flex: none; margin-top: 10px; }
 </style>
 </head>
@@ -268,36 +277,42 @@ p { margin: 0; }
   <p class="lead" data-step style="margin-top:30px;font-size:30px;max-width:none">That's the foundation. Everything today sits on top of it.</p>
 </section>
 
-<section class="slide" data-sec="The pipeline you know">
-  <h2 class="t">The pipeline <span class="lite">you already know</span></h2>
-  <div class="diagram d4" id="d-known"></div>
+<section class="slide" data-sec="What is a website?">
+  <h2 class="t">What is a website, <span class="lite">really?</span></h2>
+  <div class="cards">
+    <div class="card fill" data-step><h3>A way to communicate</h3><p>Formatted text that can do what a Word doc can't: link, expand, nest, show video. Built around the person reading it.</p></div>
+    <div class="card you" data-step><h3>A way to give people a tool</h3><p>Something that does work for you: calculates, saves, logs you in, teaches.</p></div>
+  </div>
+  <p class="lead" data-step style="margin-top:30px;font-size:30px;max-width:none">HTML-1 to HTML-3 were mostly communication. Today: what it takes for a site to <b style="color:var(--black)">do</b> things.</p>
+</section>
+
+<section class="slide b" data-sec="Build it up">
+  <h2 class="t">Same code, <span class="lite">four layers</span></h2>
+  <div class="layers">
+    <div class="card fill" data-step><span class="tag">1 · HTML</span><h3>A document</h3><p><b>Adds:</b> formatted text, links, menus, video.</p><p><b>Runs:</b> the browser handles the built-in stuff.</p><p class="lim"><b>Limit:</b> only does what's built in.</p></div>
+    <div class="card fill" data-step><span class="tag">2 · GitHub</span><h3>Published</h3><p><b>Adds:</b> a link anyone in the world can open.</p><p><b>Runs:</b> nothing. GitHub Pages only hands out files.</p><p class="lim"><b>Limit:</b> just files, no processing.</p></div>
+    <div class="card fill" data-step><span class="tag">3 · JavaScript</span><h3>Interactive</h3><p><b>Adds:</b> logic, graphics, games, tools.</p><p><b>Runs:</b> on each visitor's own computer, in their browser.</p><p class="lim"><b>Limit:</b> anything saved stays in that one browser.</p></div>
+    <div class="card you" data-step><span class="tag">4 · Cloudflare</span><h3>An app</h3><p><b>Adds:</b> logins, saved data, data shared between people.</p><p><b>Runs:</b> on Cloudflare's servers, with a database.</p><p class="lim"><b>Now:</b> it remembers, on any device.</p></div>
+  </div>
+  <div class="punch" data-step>Same HTML. Same JavaScript. <span>What changes is where it's stored and where it runs.</span></div>
+</section>
+
+<section class="slide" data-sec="Where JavaScript runs">
+  <h2 class="t">JavaScript runs <span class="lite">on your computer</span></h2>
+  <div class="diagram d4" id="d-js"></div>
   <div class="notes" style="margin-top:20px">
-    <div class="note lit" data-step>You edit files. Every commit is a saved version: your <b>undo button</b>.</div>
-    <div class="note lit" data-step>GitHub holds the <b>official copy</b>. Pages turns it into a live link.</div>
+    <div class="note lit" data-step>The host just sends files. Your browser has a <b>JavaScript engine</b> built in, and it runs the code on <b>your</b> processor.</div>
+    <div class="note lit" data-step>Heavy page? Your fan spins up. Close the tab and it stops.</div>
+    <div class="note lit" data-step>HTML and CSS say <b>what</b> to do; the browser knows how. JavaScript is when you write the <b>how</b> yourself.</div>
   </div>
 </section>
 
-<section class="slide b" data-sec="Swap one box">
-  <h2 class="t">Now swap one box: <span class="lite">Claude, your developer</span></h2>
-  <div class="diagram d4" id="d-swap"></div>
-  <div class="notes" style="margin-top:20px">
-    <div class="note lit" data-step>Connect Claude to your GitHub. It reads your files, changes them and <b>commits</b>, the same way you did.</div>
-    <div class="note lit" data-step>Same repo, same history. Claude can <b>roll back</b> a commit too, so your undo button still works.</div>
-  </div>
-</section>
-
-<section class="slide" data-sec="How Claude Code works">
-  <h2 class="t">Three ways in. <span class="lite">One repo.</span></h2>
-  <div class="diagram" id="d-ways" style="height:520px;flex:none"></div>
-  <p class="lead" data-step style="font-size:28px;max-width:none;margin-top:10px">Chat is where you think and sketch. Claude Code is the one that writes to your repo, from the web or your own computer.</p>
-</section>
-
-<section class="slide b" data-sec="Add Cloudflare">
-  <h2 class="t">Add one more step: <span class="lite">Cloudflare</span></h2>
-  <div class="diagram d4" id="d-cf"></div>
-  <div class="notes" style="margin-top:20px">
-    <div class="note lit" data-step>Cloudflare watches your repo. <b>Every push</b> deploys automatically.</div>
-    <div class="note lit" data-step>Same idea as GitHub Pages, with a professional host in front.</div>
+<section class="slide b" data-sec="Where data lives">
+  <h2 class="t">Three places <span class="lite">data can live</span></h2>
+  <div class="cards">
+    <div class="card fill" data-step><h3>Cache</h3><p>A temporary copy of the site's files, so it loads faster. The thing a hard refresh clears.</p></div>
+    <div class="card fill" data-step><h3>Local storage</h3><p>A page saves your stuff, like a to-do list or settings. Survives closing the tab, but only in <b>this browser on this computer</b>.</p></div>
+    <div class="card you" data-step><h3>Database</h3><p>Saved on a server. Follows you to any device, and can be shared with other people. Needs a host like Cloudflare.</p></div>
   </div>
 </section>
 
@@ -309,6 +324,34 @@ p { margin: 0; }
     <div class="card fill" data-step><h3>Preview links</h3><p>Check a change on its own link before it goes live.</p></div>
     <div class="card fill" data-step><h3>Private code</h3><p>Your repo can stay private. Only the site is public.</p></div>
     <div class="card you" data-step style="grid-column: span 2"><h3>Sites become apps</h3><p>Small bits of server code and a database on the back end: forms, saved data, logins.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="Who's typing?">
+  <h2 class="t">Same repo. <span class="lite">Who's typing?</span></h2>
+  <div class="diagram" id="d-typing" style="height:400px;flex:none"></div>
+  <div class="notes" style="margin-top:14px">
+    <div class="note lit" data-step>Only the middle box changes. The repo, the commits and the host stay the same.</div>
+    <div class="note lit" data-step>Claude Code writes the code and <b>commits</b> it. Every change is still in the history, and it can undo too.</div>
+  </div>
+</section>
+
+<section class="slide b" data-sec="You in the middle">
+  <h2 class="t">You're in the middle</h2>
+  <div class="diagram d4" id="d-middle"></div>
+  <div class="notes" style="margin-top:20px">
+    <div class="note lit" data-step><b>Chat</b> is for thinking: ideas, questions, plans. Talk or type, back and forth.</div>
+    <div class="note lit" data-step><b>Claude Code</b> is for building. Back and forth until it's right. Only Claude Code touches the repo.</div>
+    <div class="note lit" data-step><b>You</b> decide what's worth building. The judgment never leaves the middle box.</div>
+  </div>
+</section>
+
+<section class="slide dark" data-sec="So what can a website do?">
+  <h2 class="t" style="max-width:22ch">So what can a website do? <span class="lite">Now you know.</span></h2>
+  <div class="cards" style="margin-top:6px">
+    <div class="card" data-step style="border-color:var(--paper)"><h3>Communicate</h3><p style="color:#d9d6cf">Everything you've built: text, images, menus, video, one brand.</p></div>
+    <div class="card" data-step style="border-color:var(--paper)"><h3>Do</h3><p style="color:#d9d6cf">Run logic, save data, log people in, teach. The list doesn't end.</p></div>
+    <div class="card you" data-step><h3>Your job</h3><p>Decide what's worth building. The tools will build almost anything you can describe.</p></div>
   </div>
 </section>
 
@@ -446,7 +489,7 @@ function render(spec, key) {
   <defs><marker id="${M}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L12,6 L0,12 z" fill="${K.black}"/></marker></defs>`;
   spec.edges.forEach(e => {
     const d = [e.start, ...(e.via || []), e.end].map((p, i) => (i ? "L" : "M") + p.join(",")).join(" ");
-    s += `<path d="${d}" fill="none" stroke="${K.black}" stroke-width="3.5" stroke-linejoin="round" ${e.dashed ? 'stroke-dasharray="12 9"' : ""} marker-end="url(#${M})"/>`;
+    s += `<path d="${d}" fill="none" stroke="${K.black}" stroke-width="3.5" stroke-linejoin="round" ${e.dashed ? 'stroke-dasharray="12 9"' : ""} marker-end="url(#${M})" ${e.both ? `marker-start="url(#${M})"` : ""}/>`;
   });
   spec.nodes.forEach(n => {
     const you = n.kind === "you";
@@ -463,25 +506,31 @@ const row = (titles, youIdx) => {
   const edges = nodes.slice(0, -1).map((n, k) => ({ start: [n.x + n.w, 105], end: [nodes[k + 1].x - 4, 105] }));
   return { w: 1460, h: 210, nodes, edges };
 };
-document.getElementById("d-known").innerHTML = render(row([["You", "pencil editor"], ["GitHub repo", "files + commits"], ["GitHub Pages", "builds the site"], ["Anyone", "in a browser"]], 0), "known");
-document.getElementById("d-swap").innerHTML = render(row([["Claude", "your developer"], ["GitHub repo", "files + commits"], ["GitHub Pages", "builds the site"], ["Anyone", "in a browser"]], 0), "swap");
-document.getElementById("d-cf").innerHTML = render(row([["You + Claude", "edit + commit"], ["GitHub repo", "official copy"], ["Cloudflare", "deploys on push"], ["Anyone", "your-site.com"]], 2), "cf");
-document.getElementById("d-ways").innerHTML = render({
-  w: 1460, h: 520,
+document.getElementById("d-js").innerHTML = render(row([["The host", "sends files"], ["Your browser", "JavaScript engine"], ["Your computer", "processor + memory"], ["The page", "moves, reacts"]], 2), "js");
+const five = (titles, youIdx, bothTo) => {
+  const w = 250, gap = 52, nodes = titles.map((t, k) => ({ x: k * (w + gap) + 1, y: 40, w, h: 130, title: t[0], sub: t[1], kind: k === youIdx ? "you" : "" }));
+  const edges = nodes.slice(0, -1).map((n, k) => ({ start: [n.x + n.w + (k < bothTo ? 4 : 0), 105], end: [nodes[k + 1].x - 4, 105], both: k < bothTo }));
+  return { w: 1460, h: 210, nodes, edges };
+};
+document.getElementById("d-middle").innerHTML = render(five([["Claude chat", "think · ideas"], ["You", "decides"], ["Claude Code", "builds · commits"], ["GitHub repo", "official copy"], ["Cloudflare", "live + data"]], 1, 2), "middle");
+document.getElementById("d-typing").innerHTML = render({
+  w: 1460, h: 360,
   nodes: [
-    { x: 10, y: 10, w: 470, h: 130, title: "Claude chat", sub: "think · sketch · artifacts" },
-    { x: 10, y: 195, w: 470, h: 130, title: "Claude Code: web", sub: "claude.ai, in the cloud", kind: "you" },
-    { x: 10, y: 380, w: 470, h: 130, title: "Claude Code: computer", sub: "VS Code · terminal · app" },
-    { x: 600, y: 195, w: 400, h: 130, title: "GitHub repo", sub: "the official copy" },
-    { x: 1110, y: 195, w: 340, h: 130, title: "Live site", sub: "Pages or Cloudflare" }
+    { x: 10, y: 10, w: 300, h: 130, title: "You", sub: "keyboard + mouse" },
+    { x: 376, y: 10, w: 300, h: 130, title: "Pencil editor", sub: "you write the code" },
+    { x: 10, y: 220, w: 300, h: 130, title: "You", sub: "describe it" },
+    { x: 376, y: 220, w: 300, h: 130, title: "Claude Code", sub: "writes the code", kind: "you" },
+    { x: 760, y: 115, w: 300, h: 130, title: "GitHub repo", sub: "files + commits" },
+    { x: 1140, y: 115, w: 300, h: 130, title: "Cloudflare", sub: "or GitHub Pages" }
   ],
   edges: [
-    { start: [245, 140], end: [245, 191], dashed: true },
-    { start: [480, 260], end: [596, 260] },
-    { start: [480, 445], via: [[540, 445], [540, 300]], end: [596, 300] },
-    { start: [1000, 260], end: [1106, 260] }
+    { start: [310, 75], end: [372, 75] },
+    { start: [310, 285], end: [372, 285] },
+    { start: [676, 75], via: [[718, 75], [718, 160]], end: [756, 160] },
+    { start: [676, 285], via: [[718, 285], [718, 200]], end: [756, 200] },
+    { start: [1060, 180], end: [1136, 180] }
   ]
-}, "ways");
+}, "typing");
 document.getElementById("d-paths").innerHTML = render({
   w: 1460, h: 520,
   nodes: [
