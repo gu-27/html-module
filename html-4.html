@@ -6,6 +6,14 @@
 <meta name="author" content="John Correia">
 <title>HTML-4 · BMIS 235 HTML Module</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.paths .p { border: 2px solid #141413; border-radius: 12px; padding: 1rem 1.1rem; background: #fff; }
+.paths .p.hot { background: #fbe3d9; }
+.paths .p h3 { margin: .2rem 0 .4rem; }
+.paths .p p { margin: .3rem 0; font-size: .95rem; }
+.paths .p .lvl { font: 700 .75rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+</style>
 </head>
 <body>
 <div class="top"><div class="wrap">
@@ -13,51 +21,137 @@
   <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html">HTML-3</a><a href="html-4.html" class="on">Final</a></nav>
 </div></div>
 <main class="wrap">
+
 <div class="hero">
 <p class="kicker">HTML-4 · Final</p>
-<h1>Your Own Site</h1>
-<p class="lede">Build a multi-page site on any topic you want, using everything from HTML-1 to HTML-3. This time you can use the full editor and AI.</p>
-<div class="meta"><span class="pill">10 points</span><span class="pill">Folder: assignment4</span><span class="pill">Full editor + AI unlocked</span></div>
-</div><section class="block"><h2>Unlock the full editor</h2><p>You've earned it. On your repo's main page, press the <kbd>.</kbd> (period) key. A full code editor opens in your browser, with color-coding and error underlines.</p>
-<ol>
-<li>In the file list on the left, right-click <code>assignment3</code> → <strong>Copy</strong>.</li>
-<li>Right-click an empty spot in the list → <strong>Paste</strong>. Rename the copy to <code>assignment4</code>.</li>
-<li>Click the <strong>Source Control</strong> icon (the branch icon on the left), type a message, and click <strong>Commit &amp; Push</strong>.</li>
+<h1>Your Site, Your Path</h1>
+<p class="lede">Take your site as far as you want, with the tools you choose. Fewer steps this time: you know how this works now.</p>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Repo: bmis235-html-4</span><span class="pill">Three paths</span></div>
+<p><a class="btn ghost" href="slides/html-4.html">Class slides</a> <a class="btn ghost" href="html-4-blocks.html">Block library</a></p>
+</div>
+
+<section class="block"><h2>1 · Copy your HTML-3 site</h2><ol>
+<li>Go to <a href="https://github.com/new/import">github.com/new/import</a>.</li>
+<li>Paste your HTML-3 repo's address: <code>https://github.com/YOUR-GITHUB-USERNAME/bmis235-html-3</code></li>
+<li>Name the new repository <code>bmis235-html-4</code>, set it to <strong>Public</strong>, and click <strong>Begin import</strong>.</li>
+<li>When it's done: <strong>Settings → Pages</strong> → Deploy from a branch, <strong>main</strong>, <strong>/ (root)</strong>, Save.</li>
 </ol>
-<p>Now change the files in <code>assignment4</code> to fit your new idea: new file names (except <code>index.html</code>), new menu images and new content.</p>
-<p><strong>Making menu images:</strong> design small buttons in <a href="https://www.canva.com">Canva</a> or any image tool. Export as PNG, give them simple lowercase names, and upload them. Or skip images and style text links with CSS.</p></section><section class="block"><h2>Requirements</h2><ol>
-<li><strong>Depth:</strong> your site uses everything we covered: links, tables and external CSS.</li>
-<li><strong>Friendly:</strong> it's easy to find links and to move back and forth between pages.</li>
-<li><strong>Visual appeal:</strong> think about fonts (size and family), colors, images and overall balance.</li>
-</ol></section><section class="block"><h2>What earns points</h2><ul class="tasks"><li><span><strong>CSS:</strong> 2 new styles beyond the template earns half, 6 new styles earns full.</span><span class="pts">2 pts</span></li><li><span><strong>Tables:</strong> 3 properly formatted tables.</span><span class="pts">1 pt</span></li><li><span><strong>Links:</strong> 3 external links (email, other sites), 2 internal links (within a page), and no broken links. The menu bar doesn't count.</span><span class="pts">1 pt</span></li><li><span><strong>Images:</strong> 3 new images earns half, 6 new images that are sized and balanced earns full.</span><span class="pts">3 pts</span></li><li><span><strong>Home page:</strong> named <code>index.html</code>, so your link ends in <code>/assignment4/</code>, not a file name.</span><span class="pts">1 pt</span></li><li><span><strong>Consistent menu:</strong> linked on every page, with images, using your CSS.</span><span class="pts">2 pts</span></li></ul></section><section class="block"><h2>Self-grade in a README</h2><p>Instead of a Word document, add a file called <code>README.md</code> inside <code>assignment4</code>. GitHub displays it nicely on your repo page. Copy this and fill it in:</p>
+<p class="why">What's happening: importing makes a full copy, history and all. Your HTML-3 site stays exactly as you turned it in, and HTML-4 starts from everything you've already built.</p>
+<p>Want a fresh idea instead of your HTML-3 one? Fine. Keep the structure (menu, stylesheet, pages) and change the content.</p>
+</section>
+
+<section class="block"><h2>2 · Pick your path</h2>
+<div class="paths">
+<div class="p"><p class="lvl">No AI</p><h3>Path 1 · By hand</h3><p>Finish your site yourself, using ready-made blocks from the <a href="html-4-blocks.html">block library</a>. Any idea. A simple site, done well.</p></div>
+<div class="p"><p class="lvl">Some AI</p><h3>Path 2 · Mix</h3><p>Your hand-built site plus pieces built with an AI helper. You must be able to explain every piece.</p></div>
+<div class="p hot"><p class="lvl">Full AI</p><h3>Path 3 · Full build</h3><p>Claude or ChatGPT connected to your GitHub, deployed through Cloudflare. Higher bar: you build a learning tool.</p></div>
+</div>
+<p>More power means a higher bar. Pick the one you can finish well.</p>
+</section>
+
+<section class="block"><h2>Path 1 · By hand</h2><ol>
+<li>Plan your pages on paper again: at least <strong>4 pages</strong>, same menu on every one.</li>
+<li>Open the <a href="html-4-blocks.html">block library</a>. Pick <strong>3 blocks</strong> that fit your idea.</li>
+<li>For each block: paste its HTML into a page, paste its CSS at the bottom of <code>styles.css</code>, then change the words, photos, <code>alt</code> text and colors until it's yours.</li>
+<li>Add <strong>3 new styles</strong> of your own to <code>styles.css</code>, each as its own commit.</li>
+</ol></section>
+
+<section class="block"><h2>Path 2 · Mix</h2><ol>
+<li>Start from Path 1's site: at least <strong>4 pages</strong>, same menu, your stylesheet on every page.</li>
+<li>Pick an AI helper:
+<ul>
+<li><strong>GitHub Copilot</strong>: on your repo page, press the <code>.</code> (period) key to open the full editor, then open the chat panel. Free for students through <a href="https://education.github.com/pack">GitHub Education</a>; search <em>GitHub Copilot free for students</em> if you're not sure how to turn it on.</li>
+<li><strong>Claude</strong> (claude.ai) or <strong>ChatGPT</strong> in a browser tab, then copy the code into your file.</li>
+</ul></li>
+<li>Add at least <strong>2 AI-built pieces</strong>. Use the HTML-3 rules in your prompt: one block, plain HTML/CSS/JavaScript, no libraries, every CSS rule scoped to its own box.</li>
+<li>Above each piece, write an HTML comment <strong>in your own words</strong>: what it does and how it works.
+<pre><code>&lt;!-- AI piece: photo slider (made with Copilot).
+     Shows one photo at a time. The arrows run a short script
+     that hides the current photo and shows the next one. --&gt;</code></pre></li>
+</ol>
+<p class="why">The rule: if you can't explain it, it doesn't go in. Reading the code well enough to write that comment is the skill this path teaches.</p>
+</section>
+
+<section class="block"><h2>Path 3 · Full build</h2>
+<p><strong>The setup:</strong> a paid AI plan (Claude Pro, or ChatGPT's equivalent) connected to your GitHub, so the AI edits and commits to your repo directly, plus Cloudflare to host it.</p>
+<ol>
+<li><strong>Connect Claude to GitHub.</strong> Use Claude Code, on the web at claude.ai or in VS Code, and give it access to your <code>bmis235-html-4</code> repo. From then on you describe changes in chat and it commits them. Your commit history still records every change, and you can ask it to undo one.</li>
+<li><strong>Connect your repo to Cloudflare.</strong> Make a free account at <a href="https://dash.cloudflare.com/sign-up">cloudflare.com</a>, go to <strong>Workers &amp; Pages</strong>, create an application, connect your GitHub, and pick your repo. There's no build step: it's plain HTML. You'll get a free <code>.pages.dev</code> or <code>.workers.dev</code> link that updates on every push. Screens look different? Search <em>connect GitHub repo to Cloudflare Pages</em>.</li>
+<li><strong>Build a learning tool.</strong> Not "a cool site." A tool that helps someone learn an HTML-1 to HTML-3 concept (tags, head vs body, links, paths, the stylesheet, the cascade), built for <strong>how you learn</strong>:
+<ul>
+<li><em>Listen:</em> type in a concept, get a ready-to-use NotebookLM prompt for an audio explainer.</li>
+<li><em>See:</em> an animation of a link finding a file, or one stylesheet styling four pages.</li>
+<li><em>Story:</em> turns a concept into a short story with characters.</li>
+<li><em>Practice:</em> a quiz, a broken-menu debugger, a "find the missing link line" game.</li>
+</ul></li>
+<li><strong>Have a Path 1 classmate test it.</strong> Did it teach them? Make at least one change from their feedback, and write down what you changed.</li>
+</ol>
+<p class="why">What's happening: with the most powerful tools, building something is easy. Building something that teaches correctly is not. You have to understand the concept to know whether the AI got it right.</p>
+<div class="callout"><p><strong>Setup tip:</strong> Claude in Chrome (a browser extension) can click through the GitHub and Cloudflare setup screens for you. You type your own usernames and passwords; never paste them into a chat.</p></div>
+</section>
+
+<section class="block"><h2>3 · Everyone: your README</h2>
+<p>Replace your <code>README.md</code> with this and fill it in:</p>
 <pre><code># HTML-4: YOUR SITE NAME
 **By:** YOUR NAME (YOUR-GU-USERNAME)
-**Live site:** https://YOUR-GITHUB-USERNAME.github.io/bmis235/assignment4/
+**Live site:** YOUR LIVE LINK
 
-| Trait | What I did | My score |
-|---|---|---|
-| CSS (2) | List each new style and what it does | |
-| Tables (1) | Which pages, and what each table organizes | |
-| Links (1) | List external and internal links | |
-| Images (3) | List images and where they appear | |
-| index.html (1) | | |
-| Consistent menu (2) | | |</code></pre></section><section class="block"><h2>Make it yours</h2><ul>
-<li>Fill in the <strong>author comment</strong> at the top of every file with your name and GU username.</li>
-<li>Fill in <code>&lt;meta name="author"&gt;</code> with your name.</li>
-<li>Fill in the <strong>footer</strong>: <em>Built by YOUR NAME · BMIS 235</em>.</li>
-<li>Make <strong>at least 3 commits</strong> with clear messages (not "Update index.html").</li>
-</ul><ul><li>Your own topic, design and images. No two sites should look alike.</li></ul></section><section class="block"><h2>When you're stuck</h2><ol>
+## My path
+Path 1, 2 or 3, and why I picked it.
+
+## By hand vs by AI
+**I made:** (pages, menu, styles, blocks you adapted…)
+**AI made:** (each AI piece and which tool; write "nothing" for Path 1)
+**I checked it by:** (how you tested that it works and is correct)
+
+## Path 3 only
+**Concept it teaches:**
+**Built for how I learn because:**
+**Tested by:** (classmate's first name) **What I changed:**</code></pre>
+<p class="why">No path is cheating. Hiding what made what is. "How I checked it" is the part an employer would care about most.</p>
+</section>
+
+<section class="block"><h2>Make it yours</h2><ul>
+<li>Author comment, <code>&lt;meta name="author"&gt;</code> and footer filled in on every page.</li>
+<li>Commit as you go, with messages that say what changed.</li>
+</ul></section>
+
+<section class="block"><h2>When you're stuck</h2><ol>
 <li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
-<li><strong>Pick one problem.</strong> Ignore the rest for now.</li>
-<li><strong>Find the line.</strong> Which tag or file is it in?</li>
-<li><strong>Search your one sentence</strong> (W3Schools, Google, YouTube).</li>
-<li><strong>Change one thing,</strong> commit, check. Didn't work? Undo it and try the next idea.</li>
+<li><strong>Pick one problem.</strong> Find the line or file it's in.</li>
+<li><strong>Search it,</strong> or on Paths 2 and 3, ask your AI with that exact sentence.</li>
+<li><strong>Change one thing,</strong> commit, check. Didn't work? Undo it.</li>
 </ol>
-<p>"Nothing works" can't be searched. "My image shows a broken icon" can.</p></section><section class="block"><h2>Submit</h2><ol>
-<li>Check every page and every link on your live site.</li>
-<li>In Canvas, paste your live link, <code>https://YOUR-GITHUB-USERNAME.github.io/bmis235/assignment4/</code>, and the link to your README on GitHub.</li>
-</ol></section><section class="block"><h2>Rubric</h2><table class="rubric"><tr><th>Criteria</th><th style="text-align:right">Pts</th></tr><tr><td>Cascading Style Sheet</td><td class='n'>2</td></tr><tr><td>Tables</td><td class='n'>1</td></tr><tr><td>Links</td><td class='n'>1</td></tr><tr><td>Images</td><td class='n'>3</td></tr><tr><td>Home page called index.html</td><td class='n'>1</td></tr><tr><td>Consistent menu across all pages using CSS</td><td class='n'>2</td></tr><tr class="total"><td>Total</td><td class="n">10</td></tr></table></section>
-<div class="next"><a class="btn ghost" href="html-3.html">&larr; HTML-3</a><span></span></div>
+<p>Pages not updating? Wait 1–2 minutes and hard refresh. No live link at all? Check <strong>Settings → Pages</strong> again.</p>
+</section>
+
+<section class="block"><h2>Submit</h2><ol>
+<li>Click every link on every page of your live site.</li>
+<li>In Canvas, paste your <strong>live link</strong> (GitHub Pages, or Cloudflare for Path 3) and the link to your repo, so your README shows.</li>
+</ol></section>
+
+<section class="block"><h2>Rubric</h2>
+<table class="rubric">
+<tr><th>Everyone</th><th style="text-align:right">Pts</th></tr>
+<tr><td>Working live link; every link and image works</td><td class="n">1</td></tr>
+<tr><td>README: your path and an honest "by hand vs by AI"</td><td class="n">2</td></tr>
+<tr><th>Path 1 · By hand</th><th></th></tr>
+<tr><td>3 blocks from the library, made your own (words, photos, alt text, colors)</td><td class="n">3</td></tr>
+<tr><td>4+ pages, the same working menu, your stylesheet on every page</td><td class="n">2</td></tr>
+<tr><td>3 new styles, each its own commit</td><td class="n">2</td></tr>
+<tr><th>Path 2 · Mix</th><th></th></tr>
+<tr><td>2+ AI-built pieces that work and fit your brand</td><td class="n">3</td></tr>
+<tr><td>An own-words comment above each AI piece</td><td class="n">2</td></tr>
+<tr><td>4+ pages, the same working menu, your stylesheet on every page</td><td class="n">2</td></tr>
+<tr><th>Path 3 · Full build</th><th></th></tr>
+<tr><td>Learning tool teaches an HTML-1 to HTML-3 concept accurately</td><td class="n">3</td></tr>
+<tr><td>Tested by a Path 1 classmate, with one change from their feedback</td><td class="n">2</td></tr>
+<tr><td>Built for how you learn (explained in README)</td><td class="n">1</td></tr>
+<tr><td>Deployed from GitHub through Cloudflare</td><td class="n">1</td></tr>
+<tr class="total"><td>Total (Everyone + your path)</td><td class="n">10</td></tr>
+</table></section>
+
+<div class="next"><a class="btn ghost" href="html-3.html">&larr; HTML-3</a><a class="btn" href="html-4-blocks.html">Block library &rarr;</a></div>
 </main>
 <div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
 </body>

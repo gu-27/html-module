@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Correia">
+<title>Block Library · BMIS 235 HTML Module</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.blkprev { width: 100%; height: 380px; border: 2px solid #c3c9d2; border-radius: 10px; background: #f4efe6; margin: .4rem 0 1rem; }
+.copywrap { position: relative; }
+.copy { position: absolute; top: 8px; right: 8px; font: 700 .85rem system-ui, sans-serif; padding: .35rem .8rem; border-radius: 6px; border: 2px solid #141413; background: #fff; cursor: pointer; }
+.copy.done { background: #D97757; }
+.dim { font-weight: 400; color: var(--muted); font-size: .85rem; }
+pre { max-height: 340px; overflow: auto; }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="brand" href="index.html">BMIS 235 · HTML Module</a>
+  <nav class="nav"><a href="index.html">Start</a><a href="html-1.html">HTML-1</a><a href="html-2.html">HTML-2</a><a href="html-3.html">HTML-3</a><a href="html-4.html" class="on">Final</a></nav>
+</div></div>
+<main class="wrap">
+<div class="hero">
+<p class="kicker">HTML-4 · Path 1</p>
+<h1>Block Library</h1>
+<p class="lede">Ready-made pieces for your site. Copy one in, then make it yours: your words, your photos, your colors.</p>
+<p><a class="btn ghost" href="html-4.html">&larr; Back to HTML-4</a></p>
+</div>
+
+<section class="block"><h2>How to use a block</h2><ol>
+<li>Pick a block below. Look at the preview.</li>
+<li>Copy its <strong>HTML</strong>. Open the page where you want it, click the pencil, and paste it inside the <code>&lt;body&gt;</code>, where it should appear. Commit.</li>
+<li>Copy its <strong>CSS</strong>. Open <code>styles.css</code>, paste it at the very bottom. Commit.</li>
+<li>Now make it yours: change the words, swap <code>img/sample-1.jpg</code> for your own photos, write real <code>alt</code> text, and change the colors to your brand. Commit.</li>
+<li>The sample photos only live on this page, so on your site they'll show as broken images at first. That's your cue: upload your own photos into <code>img</code> and change each <code>src</code> to match.</li>
+</ol>
+<p class="why">What's happening: each block is two halves, like every page you've built. The HTML is <em>what</em> shows up; the CSS is <em>how it looks</em>. Every class name starts with <code>blk-</code> so the block's styles only touch the block, not your menu or headings. Paste the HTML without the CSS and it still works, it just looks plain, exactly like your unlinked page in HTML-3.</p>
+<p><strong>Blocks:</strong> <a href="#banner">Banner</a> · <a href="#cards">Cards</a> · <a href="#gallery">Photo gallery</a> · <a href="#table">Table</a> · <a href="#faq">Questions and answers</a> · <a href="#contact">Contact</a></p>
+</section>
+
+<section class="block" id="banner"><h2>Banner</h2>
+<p>A big opening section at the top of a page: a headline, one line under it, and a button.</p>
+<iframe class="blkprev" title="Banner preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* BANNER */
+.blk-banner {
+    background-color: #2b5d8c;   /* change to your brand color */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+.blk-banner h2 { font-size: 40px; margin: 0 0 10px 0; }
+.blk-banner p { font-size: 20px; margin: 0 auto 24px auto; }
+.blk-button {
+    display: inline-block;
+    background-color: white;
+    color: #2b5d8c;              /* same brand color */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- BANNER: big opening section --&gt;
+&lt;section class=&quot;blk-banner&quot;&gt;
+    &lt;h2&gt;Welcome to Our House&lt;/h2&gt;
+    &lt;p&gt;Four roommates. One house. Meet us below.&lt;/p&gt;
+    &lt;a class=&quot;blk-button&quot; href=&quot;susie.html&quot;&gt;Meet Susie&lt;/a&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- BANNER: big opening section --&gt;
+&lt;section class=&quot;blk-banner&quot;&gt;
+    &lt;h2&gt;Welcome to Our House&lt;/h2&gt;
+    &lt;p&gt;Four roommates. One house. Meet us below.&lt;/p&gt;
+    &lt;a class=&quot;blk-button&quot; href=&quot;susie.html&quot;&gt;Meet Susie&lt;/a&gt;
+&lt;/section&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* BANNER */
+.blk-banner {
+    background-color: #2b5d8c;   /* change to your brand color */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+.blk-banner h2 { font-size: 40px; margin: 0 0 10px 0; }
+.blk-banner p { font-size: 20px; margin: 0 auto 24px auto; }
+.blk-button {
+    display: inline-block;
+    background-color: white;
+    color: #2b5d8c;              /* same brand color */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}</code></pre></div>
+</section>
+<section class="block" id="cards"><h2>Cards</h2>
+<p>Three boxes side by side, each with a picture, a title and a few words. They stack on a phone.</p>
+<iframe class="blkprev" title="Cards preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* CARDS */
+.blk-cards {
+    display: flex;
+    flex-wrap: wrap;             /* lets the cards stack on a phone */
+    gap: 20px;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.blk-card {
+    flex: 1 1 240px;
+    background-color: white;
+    border: 2px solid #dddddd;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+.blk-card img { width: 100%; height: 160px; object-fit: cover; }
+.blk-card h3 { margin: 14px 0 6px 0; }
+.blk-card p { margin: 0 16px 18px 16px; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- CARDS: three boxes side by side --&gt;
+&lt;div class=&quot;blk-cards&quot;&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-1.jpg&quot; alt=&quot;Describe photo 1&quot;&gt;
+        &lt;h3&gt;Susie&lt;/h3&gt;
+        &lt;p&gt;Studies finance. Runs before sunrise.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-2.jpg&quot; alt=&quot;Describe photo 2&quot;&gt;
+        &lt;h3&gt;Alex&lt;/h3&gt;
+        &lt;p&gt;Studies marketing. Cooks every Sunday.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-3.jpg&quot; alt=&quot;Describe photo 3&quot;&gt;
+        &lt;h3&gt;Jordan&lt;/h3&gt;
+        &lt;p&gt;Studies MIS. Owns 40 plants.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- CARDS: three boxes side by side --&gt;
+&lt;div class=&quot;blk-cards&quot;&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-1.jpg&quot; alt=&quot;Describe photo 1&quot;&gt;
+        &lt;h3&gt;Susie&lt;/h3&gt;
+        &lt;p&gt;Studies finance. Runs before sunrise.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-2.jpg&quot; alt=&quot;Describe photo 2&quot;&gt;
+        &lt;h3&gt;Alex&lt;/h3&gt;
+        &lt;p&gt;Studies marketing. Cooks every Sunday.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;blk-card&quot;&gt;
+        &lt;img src=&quot;img/sample-3.jpg&quot; alt=&quot;Describe photo 3&quot;&gt;
+        &lt;h3&gt;Jordan&lt;/h3&gt;
+        &lt;p&gt;Studies MIS. Owns 40 plants.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* CARDS */
+.blk-cards {
+    display: flex;
+    flex-wrap: wrap;             /* lets the cards stack on a phone */
+    gap: 20px;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.blk-card {
+    flex: 1 1 240px;
+    background-color: white;
+    border: 2px solid #dddddd;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+.blk-card img { width: 100%; height: 160px; object-fit: cover; }
+.blk-card h3 { margin: 14px 0 6px 0; }
+.blk-card p { margin: 0 16px 18px 16px; }</code></pre></div>
+</section>
+<section class="block" id="gallery"><h2>Photo gallery</h2>
+<p>A grid of photos with a short caption under each one.</p>
+<iframe class="blkprev" title="Photo gallery preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* GALLERY */
+.blk-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.blk-gallery figure { margin: 0; }
+.blk-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;           /* crops photos to the same shape */
+    border-radius: 10px;
+}
+.blk-gallery figcaption { text-align: center; font-size: 15px; margin-top: 6px; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- GALLERY: grid of photos with captions --&gt;
+&lt;div class=&quot;blk-gallery&quot;&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-1.jpg&quot; alt=&quot;Describe photo 1&quot;&gt;
+        &lt;figcaption&gt;Move-in day&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-2.jpg&quot; alt=&quot;Describe photo 2&quot;&gt;
+        &lt;figcaption&gt;Sunday dinner&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-3.jpg&quot; alt=&quot;Describe photo 3&quot;&gt;
+        &lt;figcaption&gt;Game night&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- GALLERY: grid of photos with captions --&gt;
+&lt;div class=&quot;blk-gallery&quot;&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-1.jpg&quot; alt=&quot;Describe photo 1&quot;&gt;
+        &lt;figcaption&gt;Move-in day&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-2.jpg&quot; alt=&quot;Describe photo 2&quot;&gt;
+        &lt;figcaption&gt;Sunday dinner&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;img/sample-3.jpg&quot; alt=&quot;Describe photo 3&quot;&gt;
+        &lt;figcaption&gt;Game night&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* GALLERY */
+.blk-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.blk-gallery figure { margin: 0; }
+.blk-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;           /* crops photos to the same shape */
+    border-radius: 10px;
+}
+.blk-gallery figcaption { text-align: center; font-size: 15px; margin-top: 6px; }</code></pre></div>
+</section>
+<section class="block" id="table"><h2>Table</h2>
+<p>Rows and columns for anything you'd put in a spreadsheet: a schedule, prices, a comparison.</p>
+<iframe class="blkprev" title="Table preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* TABLE */
+.blk-table {
+    border-collapse: collapse;   /* removes the double lines */
+    margin: 30px auto;
+    width: 100%;
+    max-width: 600px;
+}
+.blk-table th {
+    background-color: #2b5d8c;   /* your brand color */
+    color: white;
+    text-align: left;
+}
+.blk-table th, .blk-table td { padding: 10px 14px; border-bottom: 1px solid #dddddd; }
+.blk-table tr:nth-child(even) td { background-color: #f2f2f2; }  /* stripes */&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- TABLE: rows and columns --&gt;
+&lt;table class=&quot;blk-table&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Chore&lt;/th&gt;
+        &lt;th&gt;Who&lt;/th&gt;
+        &lt;th&gt;When&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Dishes&lt;/td&gt;
+        &lt;td&gt;Alex&lt;/td&gt;
+        &lt;td&gt;Every night&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Trash&lt;/td&gt;
+        &lt;td&gt;Jordan&lt;/td&gt;
+        &lt;td&gt;Tuesday&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Groceries&lt;/td&gt;
+        &lt;td&gt;Susie&lt;/td&gt;
+        &lt;td&gt;Saturday&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- TABLE: rows and columns --&gt;
+&lt;table class=&quot;blk-table&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Chore&lt;/th&gt;
+        &lt;th&gt;Who&lt;/th&gt;
+        &lt;th&gt;When&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Dishes&lt;/td&gt;
+        &lt;td&gt;Alex&lt;/td&gt;
+        &lt;td&gt;Every night&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Trash&lt;/td&gt;
+        &lt;td&gt;Jordan&lt;/td&gt;
+        &lt;td&gt;Tuesday&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Groceries&lt;/td&gt;
+        &lt;td&gt;Susie&lt;/td&gt;
+        &lt;td&gt;Saturday&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* TABLE */
+.blk-table {
+    border-collapse: collapse;   /* removes the double lines */
+    margin: 30px auto;
+    width: 100%;
+    max-width: 600px;
+}
+.blk-table th {
+    background-color: #2b5d8c;   /* your brand color */
+    color: white;
+    text-align: left;
+}
+.blk-table th, .blk-table td { padding: 10px 14px; border-bottom: 1px solid #dddddd; }
+.blk-table tr:nth-child(even) td { background-color: #f2f2f2; }  /* stripes */</code></pre></div>
+</section>
+<section class="block" id="faq"><h2>Questions and answers</h2>
+<p>Questions people can click to open the answer. No code needed to make it open: the browser does it.</p>
+<iframe class="blkprev" title="Questions and answers preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* FAQ */
+.blk-faq { max-width: 600px; margin: 30px auto; }
+.blk-faq details {
+    border: 2px solid #dddddd;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.blk-faq summary { font-weight: bold; cursor: pointer; }
+.blk-faq p { margin: 10px 0 0 0; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- FAQ: click a question to open the answer --&gt;
+&lt;div class=&quot;blk-faq&quot;&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Can I visit?&lt;/summary&gt;
+        &lt;p&gt;Yes. Text first, and bring snacks.&lt;/p&gt;
+    &lt;/details&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Who does the dishes?&lt;/summary&gt;
+        &lt;p&gt;Alex, every night. Check the chore table.&lt;/p&gt;
+    &lt;/details&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Is there parking?&lt;/summary&gt;
+        &lt;p&gt;Street parking only.&lt;/p&gt;
+    &lt;/details&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- FAQ: click a question to open the answer --&gt;
+&lt;div class=&quot;blk-faq&quot;&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Can I visit?&lt;/summary&gt;
+        &lt;p&gt;Yes. Text first, and bring snacks.&lt;/p&gt;
+    &lt;/details&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Who does the dishes?&lt;/summary&gt;
+        &lt;p&gt;Alex, every night. Check the chore table.&lt;/p&gt;
+    &lt;/details&gt;
+    &lt;details&gt;
+        &lt;summary&gt;Is there parking?&lt;/summary&gt;
+        &lt;p&gt;Street parking only.&lt;/p&gt;
+    &lt;/details&gt;
+&lt;/div&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* FAQ */
+.blk-faq { max-width: 600px; margin: 30px auto; }
+.blk-faq details {
+    border: 2px solid #dddddd;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.blk-faq summary { font-weight: bold; cursor: pointer; }
+.blk-faq p { margin: 10px 0 0 0; }</code></pre></div>
+</section>
+<section class="block" id="contact"><h2>Contact</h2>
+<p>A closing box with an email link and links to other sites.</p>
+<iframe class="blkprev" title="Contact preview" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&#x27;utf-8&#x27;&gt;&lt;style&gt;body{font-family:Georgia,serif;margin:0;padding:10px 16px;background:#f4efe6;color:#2b2b2b}/* CONTACT */
+.blk-contact {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+.blk-contact a { color: #2b5d8c; font-weight: bold; }   /* your brand color */&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- CONTACT: email and outside links --&gt;
+&lt;div class=&quot;blk-contact&quot;&gt;
+    &lt;h3&gt;Get in touch&lt;/h3&gt;
+    &lt;p&gt;&lt;a href=&quot;mailto:you@zagmail.gonzaga.edu&quot;&gt;Email us&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://www.gonzaga.edu&quot;&gt;Gonzaga&lt;/a&gt; &amp;middot;
+        &lt;a href=&quot;https://www.instagram.com&quot;&gt;Instagram&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<h3>1 · HTML <span class="dim">paste into a page's &lt;body&gt;, where you want it</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>&lt;!-- CONTACT: email and outside links --&gt;
+&lt;div class=&quot;blk-contact&quot;&gt;
+    &lt;h3&gt;Get in touch&lt;/h3&gt;
+    &lt;p&gt;&lt;a href=&quot;mailto:you@zagmail.gonzaga.edu&quot;&gt;Email us&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://www.gonzaga.edu&quot;&gt;Gonzaga&lt;/a&gt; &amp;middot;
+        &lt;a href=&quot;https://www.instagram.com&quot;&gt;Instagram&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+<h3>2 · CSS <span class="dim">paste at the bottom of styles.css</span></h3>
+<div class="copywrap"><button class="copy" type="button">Copy</button><pre><code>/* CONTACT */
+.blk-contact {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+.blk-contact a { color: #2b5d8c; font-weight: bold; }   /* your brand color */</code></pre></div>
+</section>
+<div class="next"><a class="btn ghost" href="html-4.html">&larr; Back to HTML-4</a></div>
+</main>
+<div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
+<script>
+document.querySelectorAll(".copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var t = b.parentNode.querySelector("code").textContent;
+    function ok() { b.textContent = "Copied"; b.classList.add("done"); setTimeout(function () { b.textContent = "Copy"; b.classList.remove("done"); }, 1500); }
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, function () { b.textContent = "Select and copy"; });
+  });
+});
+</script>
+</body>
+</html>
