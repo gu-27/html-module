@@ -287,6 +287,23 @@ p { margin: 0; }
 .punch { margin-top: 24px; border: 3px solid var(--black); border-radius: 18px; padding: 18px 28px; font-size: 32px; font-weight: 800; background: var(--orange); }
 .punch span { font-weight: 500; }
 .diagram.d4 { height: 250px; flex: none; margin-top: 10px; }
+.bands { display: flex; flex-direction: column; gap: 16px; flex: 1 1 auto; max-height: 600px; }
+.band { flex: 1; display: grid; grid-template-columns: 250px repeat(3, 1fr); gap: 16px; align-items: stretch; border: 3px solid var(--black); border-radius: 18px; padding: 14px; background: #fbe3d9; }
+.band.two { grid-template-columns: 250px 1fr 1fr; }
+.band .lbl { display: flex; flex-direction: column; justify-content: center; padding-left: 8px; }
+.band .lbl b { font-size: 30px; }
+.band .lbl span { font: 600 18px var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--soft); }
+.band .bx { background: var(--paper); border: 2px solid var(--black); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8px 12px; }
+.band .bx b { font-size: 30px; }
+.band .bx span { font-size: 22px; color: var(--soft); }
+.stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 34px; flex: 1 1 auto; max-height: 440px; margin-top: 10px; }
+.stage { position: relative; border: 3px solid var(--black); border-radius: 16px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: center; background: var(--paper); }
+.stage.you { background: var(--orange); }
+.stage .st { font: 700 18px var(--mono); letter-spacing: .06em; color: var(--soft); margin-bottom: 10px; }
+.stage.you .st { color: var(--black); }
+.stage h3 { font-size: 34px; margin: 0 0 8px; }
+.stage p { font-size: 23px; margin: 0; line-height: 1.35; }
+.stage:not(:last-child)::after { content: "→"; position: absolute; right: -32px; top: 50%; transform: translateY(-50%); font-size: 34px; font-weight: 800; }
 </style>
 </head>
 <body>
@@ -418,6 +435,23 @@ p { margin: 0; }
   </div>
 </section>
 
+<section class="slide b" data-sec="Inside Cloudflare">
+  <h2 class="t">Inside Cloudflare: <span class="lite">a building</span></h2>
+  <div class="bands">
+    <div class="band" data-step><div class="lbl"><span>Front door</span><b>At the edge</b></div>
+      <div class="bx"><b>DNS</b><span>points your domain</span></div>
+      <div class="bx"><b>Global network</b><span>fast copies worldwide</span></div>
+      <div class="bx"><b>Access</b><span>login or password gate</span></div></div>
+    <div class="band two" data-step><div class="lbl"><span>The building</span><b>Runs your site</b></div>
+      <div class="bx"><b>Pages</b><span>your site, built from your GitHub repo</span></div>
+      <div class="bx"><b>Workers</b><span>small pieces of server code</span></div></div>
+    <div class="band" data-step><div class="lbl"><span>Storage room</span><b>Keeps your data</b></div>
+      <div class="bx"><b>D1</b><span>a database</span></div>
+      <div class="bx"><b>R2</b><span>files and media</span></div>
+      <div class="bx"><b>KV</b><span>quick lookups</span></div></div>
+  </div>
+</section>
+
 <section class="slide b" data-sec="Files vs code">
   <h2 class="t">Two kinds of hosting: <span class="lite">files or code</span></h2>
   <div class="cards">
@@ -466,6 +500,16 @@ p { margin: 0; }
   </div>
 </section>
 
+<section class="slide b" data-sec="Branch, then pull request">
+  <h2 class="t">Claude proposes. <span class="lite">You approve.</span></h2>
+  <div class="diagram d4" id="d-pr"></div>
+  <div class="notes" style="margin-top:20px">
+    <div class="note lit" data-step>In the pencil editor, you commit <b>straight to main</b>: it's live in a minute.</div>
+    <div class="note lit" data-step>Claude Code usually works on a <b>branch</b>, a side copy, and opens a <b>pull request</b>: every change, side by side.</div>
+    <div class="note lit" data-step>Nothing reaches main, or your live site, until <b>you</b> approve it.</div>
+  </div>
+</section>
+
 <section class="slide b" data-sec="You in the middle">
   <h2 class="t">You're in the middle</h2>
   <div class="diagram d4" id="d-middle"></div>
@@ -474,6 +518,18 @@ p { margin: 0; }
     <div class="note lit" data-step><b>Claude Code</b> is for building. Back and forth until it's right. Only Claude Code touches the repo.</div>
     <div class="note lit" data-step><b>You</b> decide what's worth building. The judgment never leaves the middle box.</div>
   </div>
+</section>
+
+<section class="slide" data-sec="The whole loop">
+  <h2 class="t">The whole loop, <span class="lite">start to live</span></h2>
+  <div class="stages">
+    <div class="stage" data-step><div class="st">THINK</div><h3>Chat</h3><p>Ideas, questions, a plan.</p></div>
+    <div class="stage you" data-step><div class="st">DECIDE</div><h3>You</h3><p>What's worth building.</p></div>
+    <div class="stage" data-step><div class="st">WRITE</div><h3>Claude Code</h3><p>Writes and tests on a branch.</p></div>
+    <div class="stage you" data-step><div class="st">REVIEW</div><h3>Pull request</h3><p>You approve. It merges to main.</p></div>
+    <div class="stage" data-step><div class="st">SHIP</div><h3>Live</h3><p>Pages or Cloudflare publishes it.</p></div>
+  </div>
+  <p class="lead" data-step style="margin-top:28px;font-size:30px;max-width:none;color:var(--black);font-weight:700">Paths 1 and 2: you do the writing. Path 3: Claude Code writes, you decide and review.</p>
 </section>
 
 <section class="slide b" data-sec="Three paths, one pipeline">
@@ -682,6 +738,7 @@ document.getElementById("d-cfnet").innerHTML = render({
     { start: [870, 195], via: [[975, 195], [975, 335]], end: [1076, 335] }
   ]
 }, "cfnet");
+document.getElementById("d-pr").innerHTML = render(five([["Claude Code", "writes the change"], ["Branch", "a side copy"], ["Pull request", "you approve"], ["Main", "official copy"], ["Live site", "updates"]], 2, 0), "pr");
 document.getElementById("d-paths").innerHTML = render({
   w: 1460, h: 520,
   nodes: [
