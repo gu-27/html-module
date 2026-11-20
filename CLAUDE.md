@@ -42,9 +42,10 @@ Professor John Correia's HTML module (Gonzaga, BMIS 235, business students, no p
      HTML-1–3 concept, built for how the student learns, tested by a Path 1 classmate.
    - Each path's rubric = 7 path pts + README 2 + working live link 1 = 10.
    - Import-error help: Fix 1 (use the real repo address `github.com/user/repo`, not the `github.io` live link;
-     replace the capital-letter placeholders), Fix 2 (Download ZIP → upload into a new repo). A failed import leaves a
-     broken `bmis235-html-4` that must be deleted first.
-   - **John removed the "make HTML-3 a template" fix on purpose: he considers it a cheat. Don't add it back.**
+     replace the capital-letter placeholders), Fix 2 (check "Template repository" on the HTML-3 repo, then
+     "Use this template"), Fix 3 (Download ZIP → upload into a new repo). A failed import leaves a broken
+     `bmis235-html-4` that must be deleted first. (John briefly asked to remove "the second option"; he meant the
+     Mix path, not Fix 2. Fix 2 was restored at his request.)
 
 ## HTML-4 deck (32 slides) flow
 
