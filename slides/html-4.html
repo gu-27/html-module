@@ -306,6 +306,12 @@ p { margin: 0; }
 .stage:not(:last-child)::after { content: "→"; position: absolute; right: -32px; top: 50%; transform: translateY(-50%); font-size: 34px; font-weight: 800; }
 #grade2 .card h3 { font-size: 50px; }
 #grade2 .card p { font-size: 32px; margin-bottom: 14px; }
+.figrow { display: grid; grid-template-columns: auto 1fr; gap: 44px; flex: 1 1 auto; min-height: 0; align-items: center; margin-top: 6px; }
+.figcard { background: #fff; border: 3px solid var(--black); border-radius: 18px; padding: 14px; height: 640px; display: flex; align-items: center; justify-content: center; }
+.figcard img { max-height: 100%; max-width: 100%; display: block; }
+.figwide { background: #fff; border: 3px solid var(--black); border-radius: 18px; padding: 18px 24px; display: flex; justify-content: center; margin-top: 6px; }
+.figwide img { max-height: 460px; width: auto; max-width: 100%; display: block; }
+.figrow .notes .note { font-size: 29px; }
 </style>
 </head>
 <body>
@@ -428,6 +434,14 @@ p { margin: 0; }
   </div>
 </section>
 
+<section class="slide" data-sec="Two ways to publish">
+  <h2 class="t">One repo. <span class="lite">Two ways to publish.</span></h2>
+  <div class="figwide"><img src="img/publishing-routes.png" alt="Main branch publishes to GitHub Pages at you.github.io, or Cloudflare watches the repo and rebuilds at yourdomain.com"></div>
+  <div class="notes" style="margin-top:22px">
+    <div class="note lit" data-step>Same files on <b>main</b>. Pages is built in; Cloudflare <b>watches the repo</b>.</div>
+  </div>
+</section>
+
 <section class="slide" data-sec="What is Cloudflare?">
   <h2 class="t">Layer 4 · Cloudflare <span class="lite">is everywhere</span></h2>
   <div class="diagram" id="d-cfnet" style="height:350px;flex:none"></div>
@@ -502,6 +516,19 @@ p { margin: 0; }
   </div>
 </section>
 
+<section class="slide b" data-sec="Three ways Claude Code works">
+  <h2 class="t">Where Claude Code <span class="lite">works</span></h2>
+  <div class="figrow">
+    <div class="figcard"><img src="img/claude-code-routes.png" alt="Chat on claude.ai or mobile hands off three ways: you carry it over, the desktop app, or a cloud virtual machine. Local and cloud both push commits to a branch, open a pull request you review, merge to main, then publish."></div>
+    <div class="notes">
+      <div class="note lit" data-step><b>Chat</b> thinks and hands off. Same model everywhere.</div>
+      <div class="note lit" data-step><b>Local:</b> Claude Code works in a copy on your computer: VS Code or the desktop app.</div>
+      <div class="note lit" data-step><b>Cloud:</b> a fresh copy on a virtual machine. Nothing to install.</div>
+      <div class="note lit" data-step>Every route ends the same way: a <b>branch</b> and a <b>pull request</b> you review.</div>
+    </div>
+  </div>
+</section>
+
 <section class="slide b" data-sec="Branch, then pull request">
   <h2 class="t">Claude proposes. <span class="lite">You approve.</span></h2>
   <div class="diagram d4" id="d-pr"></div>
@@ -509,6 +536,19 @@ p { margin: 0; }
     <div class="note lit" data-step>In the pencil editor, you commit <b>straight to main</b>: it's live in a minute.</div>
     <div class="note lit" data-step>Claude Code usually works on a <b>branch</b>, a side copy, and opens a <b>pull request</b>: every change, side by side.</div>
     <div class="note lit" data-step>Nothing reaches main, or your live site, until <b>you</b> approve it.</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="How a change travels">
+  <h2 class="t">How a change <span class="lite">travels</span></h2>
+  <div class="figrow">
+    <div class="figcard"><img src="img/github-loop.png" alt="Your computer: clone or pull a copy of main, edit files, commit a labeled snapshot. GitHub: push to a branch, review the pull request, merge to main, publish the site."></div>
+    <div class="notes">
+      <div class="note lit" data-step><b>Clone or pull:</b> a copy of main comes down to you.</div>
+      <div class="note lit" data-step><b>Edit, then commit:</b> save a labeled snapshot.</div>
+      <div class="note lit" data-step><b>Push to a branch,</b> review the pull request, merge to <b>main</b>.</div>
+      <div class="note lit" data-step>Main publishes. The next change starts from the <b>new</b> main.</div>
+    </div>
   </div>
 </section>
 
@@ -524,14 +564,15 @@ p { margin: 0; }
 
 <section class="slide" data-sec="The whole loop">
   <h2 class="t">The whole loop, <span class="lite">start to live</span></h2>
-  <div class="stages">
-    <div class="stage" data-step><div class="st">THINK</div><h3>Chat</h3><p>Ideas, questions, a plan.</p></div>
-    <div class="stage you" data-step><div class="st">DECIDE</div><h3>You</h3><p>What's worth building.</p></div>
-    <div class="stage" data-step><div class="st">WRITE</div><h3>Claude Code</h3><p>Writes and tests on a branch.</p></div>
-    <div class="stage you" data-step><div class="st">REVIEW</div><h3>Pull request</h3><p>You approve. It merges to main.</p></div>
-    <div class="stage" data-step><div class="st">SHIP</div><h3>Live</h3><p>Pages or Cloudflare publishes it.</p></div>
+  <div class="figrow">
+    <div class="figcard"><img src="img/big-picture.png" alt="Think in chat, hand off to you in VS Code, the desktop app or a cloud session, write in a local or cloud clone, review on GitHub from branch to pull request to main, then publish to GitHub Pages or Cloudflare."></div>
+    <div class="notes">
+      <div class="note lit" data-step><b>Think</b> in chat. <b>Hand off</b> to wherever Claude Code runs.</div>
+      <div class="note lit" data-step><b>Write:</b> it writes and tests in its own copy.</div>
+      <div class="note lit" data-step><b>Review:</b> you approve the pull request. <b>Ship:</b> main goes live.</div>
+      <div class="note lit" data-step><b>Path 1:</b> you do the writing. <b>Path 2:</b> Claude Code writes, you decide and review.</div>
+    </div>
   </div>
-  <p class="lead" data-step style="margin-top:28px;font-size:30px;max-width:none;color:var(--black);font-weight:700">Path 1: you do the writing. Path 2: Claude Code writes, you decide and review.</p>
 </section>
 
 <section class="slide b" data-sec="Two paths, one pipeline">

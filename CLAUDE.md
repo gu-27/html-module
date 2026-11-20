@@ -47,16 +47,17 @@ Professor John Correia's HTML module (Gonzaga, BMIS 235, business students, no p
      `bmis235-html-4` that must be deleted first. (John briefly asked to remove "the second option"; he meant the
      Mix path, not Fix 2. Fix 2 was restored at his request.)
 
-## HTML-4 deck (32 slides) flow
+## HTML-4 deck (35 slides) flow
 
 Concepts first, then how sites get built, then the paths:
 title → what you know now → what is a website (communicate vs give a tool) → four layers (HTML, GitHub,
 JavaScript, Cloudflare; "same code, where it's stored and runs changes") → HTML built-in → what is a repo →
 a commit up close → GitHub Pages files in/site out → JavaScript runs on your computer → why JS not Python →
-three places data lives (cache / local storage / database) → Cloudflare is everywhere → inside Cloudflare
+three places data lives (cache / local storage / database) → one repo, two ways to publish (John's diagram) →
+Cloudflare is everywhere → inside Cloudflare
 (front door / building / storage room) → files vs code hosting → click Save: browser ↔ Worker ↔ database →
-why Cloudflare → so what can a website do → who's typing → Claude proposes, you approve (branch → PR → main) →
-you're in the middle (chat ↔ you ↔ Claude Code → repo → Cloudflare) → the whole loop → two paths → path
+why Cloudflare → so what can a website do → who's typing → where Claude Code works (John's diagram) → Claude proposes, you approve (branch → PR → main) →
+how a change travels (John's diagram) → you're in the middle (chat ↔ you ↔ Claude Code → repo → Cloudflare) → the whole loop (John's big-picture diagram) → two paths → path
 slides → README → get started → import error: two fixes → grading → troubleshooting → close.
 
 ## John's preferences (apply to everything)
@@ -66,6 +67,7 @@ slides → README → get started → import error: two fixes → grading → tr
 - Hard way first, AI only at the end of each stage. Growth mindset: errors are information.
 - Decks: professional, bold large type, big simple blocks, very little text per slide, content fills the frame
   (no big empty space at the bottom). Not dark gray-and-red. Concepts before mechanics.
+- **Use John's own diagrams when he supplies them** (as images in `slides/img/`, white card frame), not redraws.
 - Keep replies to John short. He reviews decks in the panel before they go live (see workflow).
 
 ## Workflow and gotchas
