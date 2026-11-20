@@ -67,7 +67,7 @@ slides → README → get started → import error: two fixes → grading → tr
 - Hard way first, AI only at the end of each stage. Growth mindset: errors are information.
 - Decks: professional, bold large type, big simple blocks, very little text per slide, content fills the frame
   (no big empty space at the bottom). Not dark gray-and-red. Concepts before mechanics.
-- **Use John's own diagrams when he supplies them** (as images in `slides/img/`, white card frame), not redraws.
+- **When John supplies diagrams, rebuild them natively in the deck** (render() SVG, deck colors: paper boxes, orange for the human/decision step, stone groups), keeping his structure and wording. Not pasted PNGs.
 - Keep replies to John short. He reviews decks in the panel before they go live (see workflow).
 
 ## Workflow and gotchas

@@ -312,6 +312,11 @@ p { margin: 0; }
 .figwide { background: #fff; border: 3px solid var(--black); border-radius: 18px; padding: 18px 24px; display: flex; justify-content: center; margin-top: 6px; }
 .figwide img { max-height: 460px; width: auto; max-width: 100%; display: block; }
 .figrow .notes .note { font-size: 29px; }
+.typing-stack { position: relative; }
+.typing-stack .lyr { position: absolute; inset: 0; transition: opacity .6s ease; }
+.typing-stack .lyr svg { width: 100%; height: 100%; display: block; }
+.figdiag { width: 790px; height: 630px; }
+.figdiag svg { width: 100%; height: 100%; }
 </style>
 </head>
 <body>
@@ -436,7 +441,7 @@ p { margin: 0; }
 
 <section class="slide" data-sec="Two ways to publish">
   <h2 class="t">One repo. <span class="lite">Two ways to publish.</span></h2>
-  <div class="figwide"><img src="img/publishing-routes.png" alt="Main branch publishes to GitHub Pages at you.github.io, or Cloudflare watches the repo and rebuilds at yourdomain.com"></div>
+  <div class="diagram" id="d-publish" style="height:470px;flex:none;margin-top:6px"></div>
   <div class="notes" style="margin-top:22px">
     <div class="note lit" data-step>Same files on <b>main</b>. Pages is built in; Cloudflare <b>watches the repo</b>.</div>
   </div>
@@ -507,9 +512,9 @@ p { margin: 0; }
   </div>
 </section>
 
-<section class="slide" data-sec="Who's typing?">
+<section class="slide" data-sec="Who's typing?" id="s-typing">
   <h2 class="t">Same repo. <span class="lite">Who's typing?</span></h2>
-  <div class="diagram" id="d-typing" style="height:400px;flex:none"></div>
+  <div class="diagram typing-stack" id="d-typing" style="height:400px;flex:none"></div>
   <div class="notes" style="margin-top:14px">
     <div class="note lit" data-step>Only the middle box changes. The repo, the commits and the host stay the same.</div>
     <div class="note lit" data-step>Claude Code writes the code and <b>commits</b> it. Every change is still in the history, and it can undo too.</div>
@@ -519,7 +524,7 @@ p { margin: 0; }
 <section class="slide b" data-sec="Three ways Claude Code works">
   <h2 class="t">Where Claude Code <span class="lite">works</span></h2>
   <div class="figrow">
-    <div class="figcard"><img src="img/claude-code-routes.png" alt="Chat on claude.ai or mobile hands off three ways: you carry it over, the desktop app, or a cloud virtual machine. Local and cloud both push commits to a branch, open a pull request you review, merge to main, then publish."></div>
+    <div class="diagram figdiag" id="d-routes"></div>
     <div class="notes">
       <div class="note lit" data-step><b>Chat</b> thinks and hands off. Same model everywhere.</div>
       <div class="note lit" data-step><b>Local:</b> Claude Code works in a copy on your computer: VS Code or the desktop app.</div>
@@ -542,7 +547,7 @@ p { margin: 0; }
 <section class="slide" data-sec="How a change travels">
   <h2 class="t">How a change <span class="lite">travels</span></h2>
   <div class="figrow">
-    <div class="figcard"><img src="img/github-loop.png" alt="Your computer: clone or pull a copy of main, edit files, commit a labeled snapshot. GitHub: push to a branch, review the pull request, merge to main, publish the site."></div>
+    <div class="diagram figdiag" id="d-loop"></div>
     <div class="notes">
       <div class="note lit" data-step><b>Clone or pull:</b> a copy of main comes down to you.</div>
       <div class="note lit" data-step><b>Edit, then commit:</b> save a labeled snapshot.</div>
@@ -565,7 +570,7 @@ p { margin: 0; }
 <section class="slide" data-sec="The whole loop">
   <h2 class="t">The whole loop, <span class="lite">start to live</span></h2>
   <div class="figrow">
-    <div class="figcard"><img src="img/big-picture.png" alt="Think in chat, hand off to you in VS Code, the desktop app or a cloud session, write in a local or cloud clone, review on GitHub from branch to pull request to main, then publish to GitHub Pages or Cloudflare."></div>
+    <div class="diagram figdiag" id="d-big"></div>
     <div class="notes">
       <div class="note lit" data-step><b>Think</b> in chat. <b>Hand off</b> to wherever Claude Code runs.</div>
       <div class="note lit" data-step><b>Write:</b> it writes and tests in its own copy.</div>
@@ -705,6 +710,13 @@ function render(spec, key) {
   const M = "m-" + key;
   let s = `<svg viewBox="0 0 ${spec.w} ${spec.h}" xmlns="http://www.w3.org/2000/svg" font-family="Manrope, Segoe UI, system-ui, sans-serif">
   <defs><marker id="${M}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L12,6 L0,12 z" fill="${K.black}"/></marker></defs>`;
+  (spec.groups || []).forEach(g => {
+    s += `<rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" rx="26" fill="${K.stone}" stroke="${K.black}" stroke-width="3"/>
+      <text x="${g.x + g.w / 2}" y="${g.y + 44}" text-anchor="middle" font-size="${g.fs || 32}" font-weight="800" letter-spacing="-0.5" fill="${K.black}">${esc(g.title)}</text>`;
+  });
+  (spec.labels || []).forEach(l => {
+    s += `<text x="${l.x}" y="${l.y}" font-size="${l.fs || 24}" font-weight="700" letter-spacing="3" font-family="JetBrains Mono, ui-monospace, monospace" fill="${K.muted}">${esc(l.text)}</text>`;
+  });
   spec.edges.forEach(e => {
     const d = [e.start, ...(e.via || []), e.end].map((p, i) => (i ? "L" : "M") + p.join(",")).join(" ");
     s += `<path d="${d}" fill="none" stroke="${K.black}" stroke-width="3.5" stroke-linejoin="round" ${e.dashed ? 'stroke-dasharray="12 9"' : ""} marker-end="url(#${M})" ${e.both ? `marker-start="url(#${M})"` : ""}/>`;
@@ -712,8 +724,8 @@ function render(spec, key) {
   spec.nodes.forEach(n => {
     const you = n.kind === "you";
     s += `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="20" fill="${you ? K.orange : K.paper}" stroke="${K.black}" stroke-width="3"/>
-      <text x="${n.x + n.w / 2}" y="${n.y + n.h / 2 - 4}" text-anchor="middle" font-size="34" font-weight="800" letter-spacing="-1" fill="${K.black}">${esc(n.title)}</text>
-      <text x="${n.x + n.w / 2}" y="${n.y + n.h / 2 + 30}" text-anchor="middle" font-size="22" font-weight="600" font-family="JetBrains Mono, ui-monospace, monospace" fill="${K.muted}">${esc(n.sub)}</text>`;
+      <text x="${n.x + n.w / 2}" y="${n.y + n.h / 2 - 4}" text-anchor="middle" font-size="${n.fs || 34}" font-weight="800" letter-spacing="-1" fill="${K.black}">${esc(n.title)}</text>
+      <text x="${n.x + n.w / 2}" y="${n.y + n.h / 2 + 30}" text-anchor="middle" font-size="${n.sfs || 22}" font-weight="600" font-family="JetBrains Mono, ui-monospace, monospace" fill="${K.muted}">${esc(n.sub)}</text>`;
   });
   return s + "</svg>";
 }
@@ -731,24 +743,35 @@ const five = (titles, youIdx, bothTo) => {
   return { w: 1460, h: 210, nodes, edges };
 };
 document.getElementById("d-middle").innerHTML = render(five([["Claude chat", "think · ideas"], ["You", "decides"], ["Claude Code", "builds · commits"], ["GitHub repo", "official copy"], ["Cloudflare", "live + data"]], 1, 2), "middle");
-document.getElementById("d-typing").innerHTML = render({
-  w: 1460, h: 360,
-  nodes: [
-    { x: 10, y: 10, w: 300, h: 130, title: "You", sub: "keyboard + mouse" },
-    { x: 376, y: 10, w: 300, h: 130, title: "Pencil editor", sub: "you write the code" },
-    { x: 10, y: 220, w: 300, h: 130, title: "You", sub: "describe it" },
-    { x: 376, y: 220, w: 300, h: 130, title: "Claude Code", sub: "writes the code", kind: "you" },
-    { x: 760, y: 115, w: 300, h: 130, title: "GitHub repo", sub: "files + commits" },
-    { x: 1140, y: 115, w: 300, h: 130, title: "Cloudflare", sub: "or GitHub Pages" }
-  ],
-  edges: [
-    { start: [310, 75], end: [372, 75] },
-    { start: [310, 285], end: [372, 285] },
-    { start: [676, 75], via: [[718, 75], [718, 160]], end: [756, 160] },
-    { start: [676, 285], via: [[718, 285], [718, 200]], end: [756, 200] },
-    { start: [1060, 180], end: [1136, 180] }
-  ]
-}, "typing");
+(function () {
+  const W = 1460, H = 360;
+  const shared = render({ w: W, h: H,
+    nodes: [
+      { x: 760, y: 115, w: 300, h: 130, title: "GitHub repo", sub: "files + commits" },
+      { x: 1140, y: 115, w: 300, h: 130, title: "Cloudflare", sub: "or GitHub Pages" }
+    ],
+    edges: [{ start: [1060, 180], end: [1136, 180] }] }, "typing-s");
+  const before = render({ w: W, h: H,
+    nodes: [
+      { x: 10, y: 10, w: 300, h: 130, title: "You", sub: "keyboard + mouse" },
+      { x: 376, y: 10, w: 300, h: 130, title: "Pencil editor", sub: "you write the code" }
+    ],
+    edges: [
+      { start: [310, 75], end: [372, 75] },
+      { start: [676, 75], via: [[718, 75], [718, 160]], end: [756, 160] }
+    ] }, "typing-a");
+  const now = render({ w: W, h: H,
+    nodes: [
+      { x: 10, y: 220, w: 300, h: 130, title: "You", sub: "describe it" },
+      { x: 376, y: 220, w: 300, h: 130, title: "Claude Code", sub: "writes the code", kind: "you" }
+    ],
+    edges: [
+      { start: [310, 285], end: [372, 285] },
+      { start: [676, 285], via: [[718, 285], [718, 200]], end: [756, 200] }
+    ] }, "typing-b");
+  document.getElementById("d-typing").innerHTML =
+    '<div class="lyr" id="ty-shared">' + shared + '</div><div class="lyr" id="ty-before">' + before + '</div><div class="lyr" id="ty-now">' + now + '</div>';
+})();
 document.getElementById("d-commits").innerHTML = render(row([["Add menu images", "Mon 10:02"], ["Rename page1", "Mon 10:14"], ["Brand colors", "Tue 9:30"], ["Now", "your live site"]], 3), "commits");
 document.getElementById("d-pages").innerHTML = render(row([["You commit", "a saved version"], ["GitHub Pages", "copies the files"], ["you.github.io", "a public link"], ["Visitor's browser", "does the rest"]], 1), "pages");
 document.getElementById("d-request").innerHTML = render({
@@ -780,6 +803,109 @@ document.getElementById("d-cfnet").innerHTML = render({
   ]
 }, "cfnet");
 document.getElementById("d-pr").innerHTML = render(five([["Claude Code", "writes the change"], ["Branch", "a side copy"], ["Pull request", "you approve"], ["Main", "official copy"], ["Live site", "updates"]], 2, 0), "pr");
+document.getElementById("d-publish").innerHTML = render({
+  w: 1460, h: 470,
+  nodes: [
+    { x: 10, y: 170, w: 320, h: 130, title: "Main", sub: "just merged" },
+    { x: 500, y: 20, w: 400, h: 130, title: "GitHub Pages", sub: "built into GitHub" },
+    { x: 500, y: 320, w: 400, h: 130, title: "Cloudflare", sub: "watches repo, rebuilds", kind: "you" },
+    { x: 1070, y: 20, w: 380, h: 130, title: "Live site", sub: "you.github.io" },
+    { x: 1070, y: 320, w: 380, h: 130, title: "Live site", sub: "yourdomain.com" }
+  ],
+  edges: [
+    { start: [330, 235], via: [[415, 235], [415, 85]], end: [496, 85] },
+    { start: [330, 235], via: [[415, 235], [415, 385]], end: [496, 385] },
+    { start: [900, 85], end: [1066, 85] },
+    { start: [900, 385], end: [1066, 385] }
+  ]
+}, "publish");
+document.getElementById("d-routes").innerHTML = render({
+  w: 1000, h: 830,
+  nodes: [
+    { x: 250, y: 0, w: 500, h: 110, title: "Chat", sub: "claude.ai or mobile" },
+    { x: 0, y: 170, w: 310, h: 100, title: "You carry it", sub: "copy it over", kind: "you", fs: 32 },
+    { x: 350, y: 170, w: 300, h: 100, title: "Desktop app", sub: "hands it off", fs: 32 },
+    { x: 0, y: 330, w: 650, h: 110, title: "Local: your computer", sub: "your copy: writes, tests" },
+    { x: 700, y: 330, w: 300, h: 110, title: "Cloud VM", sub: "fresh copy" },
+    { x: 30, y: 570, w: 290, h: 110, title: "Branch", sub: "commits pushed", sfs: 20 },
+    { x: 355, y: 570, w: 290, h: 110, title: "Pull request", sub: "you review", kind: "you", fs: 31 },
+    { x: 680, y: 570, w: 290, h: 110, title: "Main", sub: "merged, official", sfs: 20 },
+    { x: 300, y: 730, w: 400, h: 100, title: "Publish", sub: "Pages or Cloudflare" }
+  ],
+  groups: [{ x: 0, y: 495, w: 1000, h: 210, title: "GitHub repo" }],
+  edges: [
+    { start: [420, 110], via: [[420, 140], [155, 140]], end: [155, 166] },
+    { start: [500, 110], end: [500, 166] },
+    { start: [580, 110], via: [[580, 140], [850, 140]], end: [850, 326] },
+    { start: [155, 270], end: [155, 326] },
+    { start: [500, 270], end: [500, 326] },
+    { start: [325, 440], end: [325, 491] },
+    { start: [850, 440], end: [850, 491] },
+    { start: [320, 625], end: [351, 625] },
+    { start: [645, 625], end: [676, 625] },
+    { start: [825, 680], via: [[825, 715], [500, 715]], end: [500, 726] }
+  ]
+}, "routes");
+document.getElementById("d-loop").innerHTML = render({
+  w: 1060, h: 860,
+  nodes: [
+    { x: 70, y: 120, w: 380, h: 120, title: "Clone or pull", sub: "copy of main comes down", sfs: 20 },
+    { x: 70, y: 300, w: 380, h: 120, title: "Edit files", sub: "change your copy" },
+    { x: 70, y: 480, w: 380, h: 120, title: "Commit", sub: "a labeled snapshot" },
+    { x: 620, y: 120, w: 380, h: 120, title: "Branch", sub: "your changes, pushed up", sfs: 20 },
+    { x: 620, y: 300, w: 380, h: 120, title: "Pull request", sub: "you review + approve", kind: "you" },
+    { x: 620, y: 480, w: 380, h: 120, title: "Main", sub: "the official copy" },
+    { x: 590, y: 730, w: 440, h: 120, title: "Publish", sub: "site goes live" }
+  ],
+  groups: [
+    { x: 40, y: 40, w: 440, h: 600, title: "Your computer" },
+    { x: 590, y: 40, w: 440, h: 600, title: "GitHub (online)" }
+  ],
+  edges: [
+    { start: [260, 240], end: [260, 296] },
+    { start: [260, 420], end: [260, 476] },
+    { start: [450, 540], via: [[535, 540], [535, 180]], end: [616, 180] },
+    { start: [810, 240], end: [810, 296] },
+    { start: [810, 420], end: [810, 476] },
+    { start: [810, 600], end: [810, 726] },
+    { start: [1000, 560], via: [[1048, 560], [1048, 4], [14, 4], [14, 180]], end: [66, 180], dashed: true }
+  ],
+  labels: [{ x: 312, y: 30, text: "START: MAIN COMES DOWN TO YOU", fs: 18 }]
+}, "loop");
+document.getElementById("d-big").innerHTML = render({
+  w: 1130, h: 890,
+  labels: [
+    { x: 0, y: 72, text: "THINK" }, { x: 0, y: 228, text: "HAND OFF" }, { x: 0, y: 388, text: "WRITE" },
+    { x: 0, y: 632, text: "REVIEW" }, { x: 0, y: 838, text: "SHIP" }
+  ],
+  nodes: [
+    { x: 330, y: 10, w: 560, h: 110, title: "Chat", sub: "thinks, drafts, reads the repo", sfs: 20 },
+    { x: 170, y: 170, w: 320, h: 100, title: "You, VS Code", sub: "you hand it off", kind: "you", fs: 31 },
+    { x: 520, y: 170, w: 260, h: 100, title: "Desktop app", sub: "on your computer", fs: 30, sfs: 18 },
+    { x: 810, y: 170, w: 290, h: 100, title: "Cloud", sub: "a cloud session", fs: 31 },
+    { x: 170, y: 325, w: 610, h: 110, title: "Claude Code, local", sub: "writes and tests" },
+    { x: 810, y: 325, w: 290, h: 110, title: "Cloud VM", sub: "writes and tests", sfs: 20 },
+    { x: 195, y: 570, w: 270, h: 120, title: "Branch", sub: "proposed", fs: 32 },
+    { x: 495, y: 570, w: 280, h: 120, title: "Pull request", sub: "you approve", kind: "you", fs: 30 },
+    { x: 805, y: 570, w: 270, h: 120, title: "Main", sub: "official copy", fs: 32 },
+    { x: 620, y: 775, w: 480, h: 110, title: "Publish", sub: "Pages or Cloudflare" }
+  ],
+  groups: [{ x: 170, y: 495, w: 930, h: 220, title: "GitHub" }],
+  edges: [
+    { start: [470, 120], via: [[470, 145], [330, 145]], end: [330, 166] },
+    { start: [650, 120], end: [650, 166] },
+    { start: [830, 120], via: [[830, 145], [955, 145]], end: [955, 166] },
+    { start: [330, 270], end: [330, 321] },
+    { start: [650, 270], end: [650, 321] },
+    { start: [955, 270], end: [955, 321] },
+    { start: [475, 435], end: [475, 491] },
+    { start: [955, 435], end: [955, 491] },
+    { start: [465, 630], end: [491, 630] },
+    { start: [775, 630], end: [801, 630] },
+    { start: [940, 690], end: [940, 771] },
+    { start: [1100, 600], via: [[1122, 600], [1122, 65]], end: [894, 65], dashed: true }
+  ]
+}, "big");
 document.getElementById("d-paths").innerHTML = render({
   w: 1460, h: 560,
   nodes: [
@@ -796,7 +922,13 @@ document.getElementById("d-paths").innerHTML = render({
 }, "paths");
 
 /* ===================== STEPPING + NAV ===================== */
-const custom = {};
+const custom = {
+  "s-typing": { count: 3, set(k) {
+    document.getElementById("ty-before").style.opacity = k >= 1 ? 0.18 : 1;
+    document.getElementById("ty-now").style.opacity = k >= 1 ? 1 : 0;
+    document.querySelectorAll("#s-typing [data-step]").forEach((el, idx) => el.classList.toggle("hide", idx >= k - 1));
+  } }
+};
 const slides = [...document.querySelectorAll(".slide")];
 function stepsOf(sl) { return custom[sl.id] ? custom[sl.id].count : sl.querySelectorAll("[data-step]").length; }
 function applyStep(sl, k) {
