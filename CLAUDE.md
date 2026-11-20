@@ -34,18 +34,19 @@ Professor John Correia's HTML module (Gonzaga, BMIS 235, business students, no p
    mailto link. **Part 7:** paste an AI-built interactive graphic into the empty `<div class="showcase">` on the home
    page using a provided prompt (one block, vanilla JS, every CSS rule prefixed `.showcase`). 10 pts.
 4. **HTML-4 · Final, "Your Site, Your Path":** copy the HTML-3 site into a new `bmis235-html-4` repo via
-   github.com/new/import, then pick a path:
+   github.com/new/import, then pick **one of two paths** (decided by John 2026-11-19; the old "Mix" path is gone).
+   The instructions page shows two clickable path cards; only the chosen path's steps, README and rubric appear
+   (`.pathpanel`, links `html-4.html#by-hand` / `#full-build`).
    - **Path 1 By hand:** 3 blocks from the block library, 4+ pages, 3 new styles.
-   - **Path 2 Mix:** 2+ AI pieces (Copilot / Claude / ChatGPT), own-words comment above each.
-   - **Path 3 Full build:** Claude Code + GitHub + Cloudflare; must build a *learning tool* that teaches an
+   - **Path 2 Full build:** Claude Code + GitHub + Cloudflare; must build a *learning tool* that teaches an
      HTML-1–3 concept, built for how the student learns, tested by a Path 1 classmate.
-   - Everyone: README with path + "by hand vs by AI". Everyone 3 pts + path 7 pts.
+   - Each path's rubric = 7 path pts + README 2 + working live link 1 = 10.
    - Import-error help: Fix 1 (use the real repo address `github.com/user/repo`, not the `github.io` live link;
      replace the capital-letter placeholders), Fix 2 (Download ZIP → upload into a new repo). A failed import leaves a
      broken `bmis235-html-4` that must be deleted first.
    - **John removed the "make HTML-3 a template" fix on purpose: he considers it a cheat. Don't add it back.**
 
-## HTML-4 deck (33 slides) flow
+## HTML-4 deck (32 slides) flow
 
 Concepts first, then how sites get built, then the paths:
 title → what you know now → what is a website (communicate vs give a tool) → four layers (HTML, GitHub,
@@ -54,7 +55,7 @@ a commit up close → GitHub Pages files in/site out → JavaScript runs on your
 three places data lives (cache / local storage / database) → Cloudflare is everywhere → inside Cloudflare
 (front door / building / storage room) → files vs code hosting → click Save: browser ↔ Worker ↔ database →
 why Cloudflare → so what can a website do → who's typing → Claude proposes, you approve (branch → PR → main) →
-you're in the middle (chat ↔ you ↔ Claude Code → repo → Cloudflare) → the whole loop → three paths → path
+you're in the middle (chat ↔ you ↔ Claude Code → repo → Cloudflare) → the whole loop → two paths → path
 slides → README → get started → import error: two fixes → grading → troubleshooting → close.
 
 ## John's preferences (apply to everything)
@@ -82,13 +83,9 @@ slides → README → get started → import error: two fixes → grading → tr
   The container cannot fetch `*.github.io` directly. GitHub GraphQL is blocked here; use `gh api` REST.
 - Repo visibility changes can't be done via API from here; they need John in the browser (GitHub asks him to verify).
 
-## Open request (not started), from John on 2026-11-19
+## Open request from John on 2026-11-19 (items 2–3 not started)
 
-1. **Restructure HTML-4 paths:** state the choice right at the top; students click a path and see **only that path's
-   instructions** (tabs or similar). John said the paths should be "one or two". **Still undecided:** which two.
-   Options offered: (a) By hand vs With AI (merge Mix + Full build), (b) By hand vs Full build (drop Mix),
-   (c) keep all three as tabs, (d) Mix vs Full build. Ask John before building; update the deck's path slides,
-   grading slide and rubric to match.
+1. ~~Restructure HTML-4 paths~~ **Done 2026-11-19:** two paths (By hand, Full build), clickable, one shown at a time.
 2. **Make every instructions page easier to read:** short chunks a student can finish one at a time; the extra help
    ("Stuck?", troubleshooting, detailed sub-steps, import errors) collapsed behind click-to-expand (`<details>`), so the
    default view is short. Students already find the pages hard to get through.

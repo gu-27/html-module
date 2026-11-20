@@ -13,6 +13,16 @@
 .paths .p h3 { margin: .2rem 0 .4rem; }
 .paths .p p { margin: .3rem 0; font-size: .95rem; }
 .paths .p .lvl { font: 700 .75rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.paths .p { font: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: .2rem; transition: transform .1s; }
+.paths .p:hover { transform: translateY(-2px); }
+.paths .p[aria-selected="true"] { outline: 4px solid #D97757; outline-offset: 3px; }
+.paths .p .u { text-decoration: underline; }
+.paths .p .go { margin-top: .5rem; font-weight: 700; font-size: .9rem; }
+.paths .p[aria-selected="true"] .go::before { content: "✓ "; }
+.js .pathpanel { display: none; }
+.js .pathpanel.on { display: block; }
+.pathpanel.on > .block:first-child { border-color: #D97757; }
+.pickhint { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -26,7 +36,7 @@
 <p class="kicker">HTML-4 · Final</p>
 <h1>Your Site, Your Path</h1>
 <p class="lede">Take your site as far as you want, with the tools you choose. Fewer steps this time: you know how this works now.</p>
-<div class="meta"><span class="pill">10 points</span><span class="pill">Repo: bmis235-html-4</span><span class="pill">Three paths</span></div>
+<div class="meta"><span class="pill">10 points</span><span class="pill">Repo: bmis235-html-4</span><span class="pill">Two paths</span></div>
 <p><a class="btn ghost" href="slides/html-4.html">Class slides</a> <a class="btn ghost" href="html-4-blocks.html">Block library</a></p>
 </div>
 
@@ -65,15 +75,16 @@ Repo address (right): <code>https://github.com/alex-zag/my-house-site</code></p>
 <p>Want a fresh idea instead of your HTML-3 one? Fine. Keep the structure (menu, stylesheet, pages) and change the content.</p>
 </section>
 
-<section class="block"><h2>2 · Pick your path</h2>
-<div class="paths">
-<div class="p"><p class="lvl">No AI</p><h3>Path 1 · By hand</h3><p>Finish your site yourself, using ready-made blocks from the <a href="html-4-blocks.html">block library</a>. Any idea. A simple site, done well.</p></div>
-<div class="p"><p class="lvl">Some AI</p><h3>Path 2 · Mix</h3><p>Your hand-built site plus pieces built with an AI helper. You must be able to explain every piece.</p></div>
-<div class="p hot"><p class="lvl">Full AI</p><h3>Path 3 · Full build</h3><p>Claude or ChatGPT connected to your GitHub, deployed through Cloudflare. Higher bar: you build a learning tool.</p></div>
+<section class="block" id="pick"><h2>2 · Pick your path</h2>
+<p>Two paths. Pick one, and only its steps will show below.</p>
+<div class="paths" role="tablist">
+<button type="button" class="p" role="tab" data-path="by-hand" aria-selected="false"><p class="lvl">No AI</p><h3>Path 1 · By hand</h3><p>Finish your site yourself, using ready-made blocks from the <span class="u">block library</span>. A simple site, done well.</p><span class="go">Show Path 1 steps</span></button>
+<button type="button" class="p hot" role="tab" data-path="full-build" aria-selected="false"><p class="lvl">Full AI</p><h3>Path 2 · Full build</h3><p>Claude connected to your GitHub, deployed through Cloudflare. Higher bar: you build a learning tool.</p><span class="go">Show Path 2 steps</span></button>
 </div>
-<p>More power means a higher bar. Pick the one you can finish well.</p>
+<p class="pickhint">More power means a higher bar. Pick the one you can finish well. You can switch back and forth to compare.</p>
 </section>
 
+<div class="pathpanel" id="by-hand" role="tabpanel">
 <section class="block"><h2>Path 1 · By hand</h2><ol>
 <li>Plan your pages on paper again: at least <strong>4 pages</strong>, same menu on every one.</li>
 <li>Open the <a href="html-4-blocks.html">block library</a>. Pick <strong>3 blocks</strong> that fit your idea.</li>
@@ -81,23 +92,35 @@ Repo address (right): <code>https://github.com/alex-zag/my-house-site</code></p>
 <li>Add <strong>3 new styles</strong> of your own to <code>styles.css</code>, each as its own commit.</li>
 </ol></section>
 
-<section class="block"><h2>Path 2 · Mix</h2><ol>
-<li>Start from Path 1's site: at least <strong>4 pages</strong>, same menu, your stylesheet on every page.</li>
-<li>Pick an AI helper:
-<ul>
-<li><strong>GitHub Copilot</strong>: on your repo page, press the <code>.</code> (period) key to open the full editor, then open the chat panel. Free for students through <a href="https://education.github.com/pack">GitHub Education</a>; search <em>GitHub Copilot free for students</em> if you're not sure how to turn it on.</li>
-<li><strong>Claude</strong> (claude.ai) or <strong>ChatGPT</strong> in a browser tab, then copy the code into your file.</li>
-</ul></li>
-<li>Add at least <strong>2 AI-built pieces</strong>. Use the HTML-3 rules in your prompt: one block, plain HTML/CSS/JavaScript, no libraries, every CSS rule scoped to its own box.</li>
-<li>Above each piece, write an HTML comment <strong>in your own words</strong>: what it does and how it works.
-<pre><code>&lt;!-- AI piece: photo slider (made with Copilot).
-     Shows one photo at a time. The arrows run a short script
-     that hides the current photo and shows the next one. --&gt;</code></pre></li>
-</ol>
-<p class="why">The rule: if you can't explain it, it doesn't go in. Reading the code well enough to write that comment is the skill this path teaches.</p>
+<section class="block"><h2>3 · Your README</h2>
+<p>Replace your <code>README.md</code> with this and fill it in:</p>
+<pre><code># HTML-4: YOUR SITE NAME
+**By:** YOUR NAME (YOUR-GU-USERNAME)
+**Live site:** YOUR LIVE LINK
+
+## My path
+Path 1 · By hand, and why I picked it.
+
+## By hand vs by AI
+**I made:** (pages, menu, styles, the blocks you adapted…)
+**AI made:** nothing
+**I checked it by:** (how you tested that every page and link works)</code></pre>
 </section>
 
-<section class="block"><h2>Path 3 · Full build</h2>
+<section class="block"><h2>Rubric · Path 1</h2>
+<table class="rubric">
+<tr><th>Criteria</th><th style="text-align:right">Pts</th></tr>
+<tr><td>3 blocks from the library, made your own (words, photos, alt text, colors)</td><td class="n">3</td></tr>
+<tr><td>4+ pages, the same working menu, your stylesheet on every page</td><td class="n">2</td></tr>
+<tr><td>3 new styles, each its own commit</td><td class="n">2</td></tr>
+<tr><td>README: your path and an honest "by hand vs by AI"</td><td class="n">2</td></tr>
+<tr><td>Working live link; every link and image works</td><td class="n">1</td></tr>
+<tr class="total"><td>Total</td><td class="n">10</td></tr>
+</table></section>
+</div>
+
+<div class="pathpanel" id="full-build" role="tabpanel">
+<section class="block"><h2>Path 2 · Full build</h2>
 <p><strong>The setup:</strong> a paid AI plan (Claude Pro, or ChatGPT's equivalent) connected to your GitHub, so the AI edits and commits to your repo directly, plus Cloudflare to host it.</p>
 <ol>
 <li><strong>Connect Claude to GitHub.</strong> Use Claude Code, on the web at claude.ai or in VS Code, and give it access to your <code>bmis235-html-4</code> repo. From then on you describe changes in chat and it commits them. Your commit history still records every change, and you can ask it to undo one.</li>
@@ -115,26 +138,39 @@ Repo address (right): <code>https://github.com/alex-zag/my-house-site</code></p>
 <div class="callout"><p><strong>Setup tip:</strong> Claude in Chrome (a browser extension) can click through the GitHub and Cloudflare setup screens for you. You type your own usernames and passwords; never paste them into a chat.</p></div>
 </section>
 
-<section class="block"><h2>3 · Everyone: your README</h2>
+<section class="block"><h2>3 · Your README</h2>
 <p>Replace your <code>README.md</code> with this and fill it in:</p>
 <pre><code># HTML-4: YOUR SITE NAME
 **By:** YOUR NAME (YOUR-GU-USERNAME)
-**Live site:** YOUR LIVE LINK
+**Live site:** YOUR CLOUDFLARE LINK
 
 ## My path
-Path 1, 2 or 3, and why I picked it.
+Path 2 · Full build, and why I picked it.
 
 ## By hand vs by AI
-**I made:** (pages, menu, styles, blocks you adapted…)
-**AI made:** (each AI piece and which tool; write "nothing" for Path 1)
-**I checked it by:** (how you tested that it works and is correct)
+**I made:** (your HTML-3 site, your decisions, what you asked for…)
+**AI made:** (what Claude built, and which tool)
+**I checked it by:** (how you tested that it works and teaches correctly)
 
-## Path 3 only
+## My learning tool
 **Concept it teaches:**
 **Built for how I learn because:**
 **Tested by:** (classmate's first name) **What I changed:**</code></pre>
-<p class="why">No path is cheating. Hiding what made what is. "How I checked it" is the part an employer would care about most.</p>
+<p class="why">Using AI isn't cheating. Hiding what made what is. "How I checked it" is the part an employer would care about most.</p>
 </section>
+
+<section class="block"><h2>Rubric · Path 2</h2>
+<table class="rubric">
+<tr><th>Criteria</th><th style="text-align:right">Pts</th></tr>
+<tr><td>Learning tool teaches an HTML-1 to HTML-3 concept accurately</td><td class="n">3</td></tr>
+<tr><td>Tested by a Path 1 classmate, with one change from their feedback</td><td class="n">2</td></tr>
+<tr><td>Built for how you learn (explained in README)</td><td class="n">1</td></tr>
+<tr><td>Deployed from GitHub through Cloudflare</td><td class="n">1</td></tr>
+<tr><td>README: your path and an honest "by hand vs by AI"</td><td class="n">2</td></tr>
+<tr><td>Working live link; everything works</td><td class="n">1</td></tr>
+<tr class="total"><td>Total</td><td class="n">10</td></tr>
+</table></section>
+</div>
 
 <section class="block"><h2>Make it yours</h2><ul>
 <li>Author comment, <code>&lt;meta name="author"&gt;</code> and footer filled in on every page.</li>
@@ -144,7 +180,7 @@ Path 1, 2 or 3, and why I picked it.
 <section class="block"><h2>When you're stuck</h2><ol>
 <li><strong>Say it in one sentence:</strong> "I expected ___, but I see ___."</li>
 <li><strong>Pick one problem.</strong> Find the line or file it's in.</li>
-<li><strong>Search it,</strong> or on Paths 2 and 3, ask your AI with that exact sentence.</li>
+<li><strong>Search it,</strong> or on Path 2, ask your AI with that exact sentence.</li>
 <li><strong>Change one thing,</strong> commit, check. Didn't work? Undo it.</li>
 </ol>
 <p>Pages not updating? Wait 1–2 minutes and hard refresh. No live link at all? Check <strong>Settings → Pages</strong> again.</p>
@@ -152,32 +188,26 @@ Path 1, 2 or 3, and why I picked it.
 
 <section class="block"><h2>Submit</h2><ol>
 <li>Click every link on every page of your live site.</li>
-<li>In Canvas, paste your <strong>live link</strong> (GitHub Pages, or Cloudflare for Path 3) and the link to your repo, so your README shows.</li>
+<li>In Canvas, paste your <strong>live link</strong> (GitHub Pages for Path 1, Cloudflare for Path 2) and the link to your repo, so your README shows.</li>
 </ol></section>
-
-<section class="block"><h2>Rubric</h2>
-<table class="rubric">
-<tr><th>Everyone</th><th style="text-align:right">Pts</th></tr>
-<tr><td>Working live link; every link and image works</td><td class="n">1</td></tr>
-<tr><td>README: your path and an honest "by hand vs by AI"</td><td class="n">2</td></tr>
-<tr><th>Path 1 · By hand</th><th></th></tr>
-<tr><td>3 blocks from the library, made your own (words, photos, alt text, colors)</td><td class="n">3</td></tr>
-<tr><td>4+ pages, the same working menu, your stylesheet on every page</td><td class="n">2</td></tr>
-<tr><td>3 new styles, each its own commit</td><td class="n">2</td></tr>
-<tr><th>Path 2 · Mix</th><th></th></tr>
-<tr><td>2+ AI-built pieces that work and fit your brand</td><td class="n">3</td></tr>
-<tr><td>An own-words comment above each AI piece</td><td class="n">2</td></tr>
-<tr><td>4+ pages, the same working menu, your stylesheet on every page</td><td class="n">2</td></tr>
-<tr><th>Path 3 · Full build</th><th></th></tr>
-<tr><td>Learning tool teaches an HTML-1 to HTML-3 concept accurately</td><td class="n">3</td></tr>
-<tr><td>Tested by a Path 1 classmate, with one change from their feedback</td><td class="n">2</td></tr>
-<tr><td>Built for how you learn (explained in README)</td><td class="n">1</td></tr>
-<tr><td>Deployed from GitHub through Cloudflare</td><td class="n">1</td></tr>
-<tr class="total"><td>Total (Everyone + your path)</td><td class="n">10</td></tr>
-</table></section>
 
 <div class="next"><a class="btn ghost" href="html-3.html">&larr; HTML-3</a><a class="btn" href="html-4-blocks.html">Block library &rarr;</a></div>
 </main>
 <div class="wrap"><footer>BMIS 235 · Professor Correia · Built with plain HTML and CSS, the same tools you're learning.</footer></div>
+<script>
+document.documentElement.classList.add("js");
+(function () {
+  var tabs = document.querySelectorAll(".paths .p");
+  function pick(id, scroll) {
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", t.dataset.path === id ? "true" : "false"); });
+    document.querySelectorAll(".pathpanel").forEach(function (p) { p.classList.toggle("on", p.id === id); });
+    if (id) { try { history.replaceState(null, "", "#" + id); } catch (e) {} }
+    if (scroll) document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  tabs.forEach(function (t) { t.addEventListener("click", function () { pick(t.dataset.path, true); }); });
+  var h = location.hash.slice(1);
+  if (h === "by-hand" || h === "full-build") pick(h, false);
+})();
+</script>
 </body>
 </html>

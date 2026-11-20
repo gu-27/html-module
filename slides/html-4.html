@@ -304,6 +304,8 @@ p { margin: 0; }
 .stage h3 { font-size: 34px; margin: 0 0 8px; }
 .stage p { font-size: 23px; margin: 0; line-height: 1.35; }
 .stage:not(:last-child)::after { content: "→"; position: absolute; right: -32px; top: 50%; transform: translateY(-50%); font-size: 34px; font-weight: 800; }
+#grade2 .card h3 { font-size: 50px; }
+#grade2 .card p { font-size: 32px; margin-bottom: 14px; }
 </style>
 </head>
 <body>
@@ -529,12 +531,12 @@ p { margin: 0; }
     <div class="stage you" data-step><div class="st">REVIEW</div><h3>Pull request</h3><p>You approve. It merges to main.</p></div>
     <div class="stage" data-step><div class="st">SHIP</div><h3>Live</h3><p>Pages or Cloudflare publishes it.</p></div>
   </div>
-  <p class="lead" data-step style="margin-top:28px;font-size:30px;max-width:none;color:var(--black);font-weight:700">Paths 1 and 2: you do the writing. Path 3: Claude Code writes, you decide and review.</p>
+  <p class="lead" data-step style="margin-top:28px;font-size:30px;max-width:none;color:var(--black);font-weight:700">Path 1: you do the writing. Path 2: Claude Code writes, you decide and review.</p>
 </section>
 
-<section class="slide b" data-sec="Three paths, one pipeline">
-  <h2 class="t">Three paths. <span class="lite">One pipeline.</span></h2>
-  <div class="diagram" id="d-paths" style="height:520px;flex:none"></div>
+<section class="slide b" data-sec="Two paths, one pipeline">
+  <h2 class="t">Two paths. <span class="lite">One pipeline.</span></h2>
+  <div class="diagram" id="d-paths" style="height:560px;flex:none"></div>
   <p class="lead" data-step style="font-size:28px;max-width:none;margin-top:10px">Pick the path. Everyone lands in a repo, a commit history and a live link.</p>
 </section>
 
@@ -549,19 +551,8 @@ p { margin: 0; }
   <div class="check" data-step style="align-self:flex-start"><span class="dot" style="background:var(--black);border-radius:50%"></span>You can say you hand-coded every line.</div>
 </section>
 
-<section class="slide b" data-sec="Path 2: Mix">
-  <h2 class="t">Path 2: <span class="lite">Mix</span></h2>
-  <ul class="do">
-    <li data-step>Your hand-built site, plus <b>AI-added pieces</b></li>
-    <li data-step>Use an AI helper: GitHub's built-in <b>Copilot</b> chat, or Claude or ChatGPT in a browser tab</li>
-    <li data-step>Use the HTML-3 move: <b>one block</b>, plain code, scoped to its box</li>
-    <li data-step>Above every AI piece, a <b>comment in your own words</b> saying what it does</li>
-  </ul>
-  <div class="check" data-step style="align-self:flex-start"><span class="dot" style="background:var(--orange);border-radius:50%"></span>If you can't explain it, it doesn't go in.</div>
-</section>
-
-<section class="slide dark" data-sec="Path 3: Full build">
-  <h2 class="t" style="max-width:22ch">Path 3: Full build. <span class="lite">More power, higher bar.</span></h2>
+<section class="slide dark" data-sec="Path 2: Full build">
+  <h2 class="t" style="max-width:22ch">Path 2: Full build. <span class="lite">More power, higher bar.</span></h2>
   <div class="cards" style="margin-top:6px">
     <div class="card" data-step style="border-color:var(--paper)"><h3>The setup</h3><p style="color:#d9d6cf">Claude Pro (or ChatGPT) connected to your GitHub, deployed through Cloudflare.</p></div>
     <div class="card" data-step style="border-color:var(--paper)"><h3>The catch</h3><p style="color:#d9d6cf">You don't build "a cool site." You build a <b style="color:#fff">learning tool</b> that teaches Path 1 concepts.</p></div>
@@ -569,7 +560,7 @@ p { margin: 0; }
   </div>
 </section>
 
-<section class="slide" data-sec="Path 3: build for how you learn">
+<section class="slide" data-sec="Path 2: build for how you learn">
   <h2 class="t">Build it for <span class="lite">how you learn</span></h2>
   <div class="three" style="grid-template-columns:repeat(2,1fr)">
     <div class="card fill" data-step><span class="tag">listen</span><h3>Audio</h3><p>Type in a concept, get a ready-to-use NotebookLM prompt for a podcast-style explainer.</p></div>
@@ -584,11 +575,11 @@ p { margin: 0; }
   <h2 class="t">Everyone writes: <span class="lite">by hand vs by AI</span></h2>
   <div class="setup" style="grid-template-columns: 1.15fr 1fr; gap: 48px">
     <div class="code" style="font-size:24px;line-height:1.7"><span class="k">## My path</span>
-Path 2: Mix
+Path 2: Full build
 
 <span class="k">## By hand vs by AI</span>
 <span class="hl">I made:</span>  menu, 4 pages, styles.css
-<span class="hl">AI made:</span>  photo slider (Copilot)
+<span class="hl">AI made:</span>  concept quiz (Claude Code)
 <span class="hl">I checked it by:</span> reading every
   line, testing on my phone</div>
     <div class="notes">
@@ -621,10 +612,9 @@ Path 2: Mix
 
 <section class="slide b" data-sec="How it's graded">
   <h2 class="t">How it's graded</h2>
-  <div class="three">
+  <div class="three" id="grade2" style="grid-template-columns:1fr 1fr">
     <div class="card fill" data-step><span class="tag">Path 1</span><h3>By hand</h3><p>3 blocks, made yours · 3</p><p>4+ pages, one menu, your stylesheet · 2</p><p>3 new styles, one commit each · 2</p></div>
-    <div class="card fill" data-step><span class="tag">Path 2</span><h3>Mix</h3><p>2+ AI pieces that work and fit · 3</p><p>Own-words comment on each · 2</p><p>4+ pages, one menu, your stylesheet · 2</p></div>
-    <div class="card you" data-step><span class="tag">Path 3</span><h3>Full build</h3><p>Teaches an HTML-1–3 idea, accurately · 3</p><p>Classmate test + one fix · 2</p><p>Built for how you learn · 1 · On Cloudflare · 1</p></div>
+    <div class="card you" data-step><span class="tag">Path 2</span><h3>Full build</h3><p>Teaches an HTML-1–3 idea, accurately · 3</p><p>Classmate test + one fix · 2</p><p>Built for how you learn · 1 · On Cloudflare · 1</p></div>
   </div>
   <div class="tasklist" style="margin-top:22px">
     <div data-step class="big"><span>Everyone: working live link (1) · README with your path and "by hand vs by AI" (2)</span><b>+3</b></div>
@@ -658,7 +648,7 @@ Path 2: Mix
 <section class="slide dark" data-sec="Go">
   <div style="margin:auto 0">
     <h2 class="t" style="max-width:20ch">You know how it works. <span class="lite">Now pick how you build.</span></h2>
-    <p class="lead">By hand, mixed, or full build: same repo, same commits, same live link. The difference is how much you can explain.</p>
+    <p class="lead">By hand or full build: same repo, same commits, same live link. The difference is how much you can explain.</p>
   </div>
 </section>
 
@@ -749,19 +739,17 @@ document.getElementById("d-cfnet").innerHTML = render({
 }, "cfnet");
 document.getElementById("d-pr").innerHTML = render(five([["Claude Code", "writes the change"], ["Branch", "a side copy"], ["Pull request", "you approve"], ["Main", "official copy"], ["Live site", "updates"]], 2, 0), "pr");
 document.getElementById("d-paths").innerHTML = render({
-  w: 1460, h: 520,
+  w: 1460, h: 560,
   nodes: [
-    { x: 10, y: 10, w: 470, h: 130, title: "1 · By hand", sub: "pencil editor + blocks" },
-    { x: 10, y: 195, w: 470, h: 130, title: "2 · Mix", sub: "editor + AI helper" },
-    { x: 10, y: 380, w: 470, h: 130, title: "3 · Full build", sub: "Claude Code", kind: "you" },
-    { x: 600, y: 195, w: 400, h: 130, title: "GitHub repo", sub: "same commits" },
-    { x: 1110, y: 195, w: 340, h: 130, title: "Live site", sub: "Pages or Cloudflare" }
+    { x: 10, y: 20, w: 470, h: 170, title: "1 · By hand", sub: "pencil editor + blocks" },
+    { x: 10, y: 370, w: 470, h: 170, title: "2 · Full build", sub: "Claude Code", kind: "you" },
+    { x: 600, y: 195, w: 400, h: 170, title: "GitHub repo", sub: "same commits" },
+    { x: 1110, y: 195, w: 340, h: 170, title: "Live site", sub: "Pages or Cloudflare" }
   ],
   edges: [
-    { start: [480, 75], via: [[540, 75], [540, 220]], end: [596, 220] },
-    { start: [480, 260], end: [596, 260] },
-    { start: [480, 445], via: [[540, 445], [540, 300]], end: [596, 300] },
-    { start: [1000, 260], end: [1106, 260] }
+    { start: [480, 105], via: [[540, 105], [540, 245]], end: [596, 245] },
+    { start: [480, 455], via: [[540, 455], [540, 315]], end: [596, 315] },
+    { start: [1000, 280], end: [1106, 280] }
   ]
 }, "paths");
 
